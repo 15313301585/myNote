@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            position: absolute;
+            top:0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 100px;
+            height: 100px;
+            background: green;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<!--fastclik解决移动端使用click导致的300ms延迟的问题-->
+<!--<script type="text/javascript" src="fastclick.min.js"></script>-->
+<script>
+   // FastClick.attach(document.body);
+var box=document.getElementById("box");
+//box.click=function () {
+//
+//}
+
+function on(curEle,type,fn) {
+    curEle.addEventListener(type,fn,false);
+}
+//使用touch事件模型实现点击的操作
+on(box,"touchstart",function (ev) {
+       //ev:touchEvent事件对象    //type 事件类型  target cancelBuble returnValue
+      //touches:是手指信息的集合，touches获取到值的必备条件是只要手指还在屏幕上才可以获取到
+     //changedTouches:所以在touched事件中获取离开瞬间鼠标的这个信息只能使用changedTouches获取
+    var point=ev.touches[0];
+   // console.log(point);
+//  clientX:获取x轴方向的距离屏幕左边的距离
+    this["strX"]=point.clientX;
+    this["strY"]=point.clientY;
+});
+
+//touchmove 只有触摸发生移动才会执行
+ on(box,"touchmove",function (ev){
+     var point=ev.touches[0];
+     var newX=point.clientX;
+     var newY=point.clientY;
+     //如果横向或者纵向发生30px的移动背景色变色，不旋转
+     if(Math.abs(newX-this["strX"])>30||Math.abs(newY-this["strY"])>30){
+         this["isMove"]=true;
+     }
+ });
+
+
+ on(box,"touchend",function (ev) {
+   // var point=ev.changedTouches[0];
+    if(this["isMove"]){
+        this.style.background="red";
+    }else {
+        this.style.webkitTransitionDuration="3s";
+        this.style.webkitTransform="rotate(360deg)";
+        var _this=this;
+        var delayTimer=setTimeout(function () {
+            _this.style.webkitTransitionDuration="0s";
+            _this.style.webkitTransform="rotate(0deg)";
+        },3000);
+    }
+ });
+
+
+// box.onTouchStart=function (ev) {
+//     console.log(ev)
+// }
+</script>
+</body>
+</html>

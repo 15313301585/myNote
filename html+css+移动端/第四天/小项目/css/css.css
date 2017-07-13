@@ -1,0 +1,49 @@
+body{
+    font-size:0;
+}
+body,ul,p{
+    margin: 0;
+    padding:0;
+    font-family: "微软雅黑";
+}
+ul{
+    list-style: none;
+    margin-left: -65px;
+}
+li{
+    display: inline-block;
+    margin-left: 65px;
+}
+.box1{
+    margin: 100px auto;
+    width: 1200px;
+    /*background-color: red;*/
+}
+.meta{
+    width: 221px;
+    height: 112px;
+    background-image:url("../images/bg.jpg") ;
+    padding:0 14px 0 16px;
+}
+.meta p{
+    font-size: 14px;
+    line-height: 14px;
+    color:#1e1e1e;
+}
+.meta .p1{
+    padding-top: 18px;
+}
+.meta .p2{
+    padding-bottom:24px;
+}
+.meta .rmb{
+    color:#c71b1b;
+}
+.meta .study{
+    color:#868484;
+    padding-left: 100px;
+}
+span{
+    font-size: 12px;
+}
+

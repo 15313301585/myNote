@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            position: absolute;
+            left:0;
+            top:0;
+            width: 100px;
+            height: 100px;
+            background: red;
+            opacity:0.3;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script type="text/javascript" src="utils.js"></script>
+
+
+<script>
+    //盒子运动昂
+
+    var oBox = document.getElementById("box");
+    var winW = document.documentElement.clientWidth || document.body.clientWidth;
+    var winH = document.documentElement.clientHeight || document.body.clientHeight;
+    var beginL=utils.css(oBox,"left"); //横向的初始值
+    var changeL = winW - oBox.offsetWidth-beginL;
+    var beginT = utils.css(oBox,"top");//纵向的初始值
+    var changeT = winH-oBox.offsetHeight-beginT;
+    var beginO=utils.css(oBox,"opacity");
+    var changeO=1-beginO;
+    function Linear(t, b, c, d) {
+        return t / d * c + b //最新的位置
+    };
+    var duration=2000;
+    var time=null;
+    function move() {
+        clearInterval(oBox.timer);
+        oBox.timer = setInterval(function () {
+            time+=10;
+           var curL= Linear(time,beginL,changeL,duration);
+           var curT= Linear(time,beginT,changeT,duration);
+            var curO=Linear(time,beginO,changeO,duration);
+            if (time >=duration ) {
+                utils.css(oBox, "left", changeL+beginL);
+                utils.css(oBox, "top", changeT+beginT);
+                utils.css(oBox,"opacity",changeO+beginO);
+                clearInterval(oBox.timer);
+
+
+
+
+                return;
+            }
+
+            utils.css(oBox, "left", curL);
+            utils.css(oBox, "top", curT);
+            utils.css(oBox, "opacity", curO);
+
+        },10)
+    }
+
+    oBox.onclick = move;
+
+
+    //t:走过的时间  b：开始的位置  c:总距离 d：总时间
+    //匀速运动公式
+//    function Liear(t, b, c, d) {
+//        return t / d * c + b //最新的位置
+//    }
+
+
+
+</script>
+</body>
+</html>

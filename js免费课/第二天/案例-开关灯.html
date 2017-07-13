@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body style="background-color: white">
+<script type="text/javascript">
+    //1.如果当前背景是白色，那么点击让他的背景变黑色
+    //2.如果当前背景是黑色，那么点击让他的背景变白色
+    //要操作谁，就要先获取谁
+   /*var oBody = document.getElementsByTagName("body") [0];
+    oBody.onclick = function () {
+        var bg=oBody.style.backgroundColor;
+
+       if(bg=="white"){
+           oBody.style.backgroundColor = "black";
+       }else {
+           oBody.style.backgroundColor = "white";
+       }
+    }*/
+
+  /*三元运算符
+    var oBody = document.getElementsByTagName("body") [0];
+     oBody.onclick = function () {
+        var bg = oBody.style.backgroundColor;
+        bg == "white" ? oBody.style.backgroundColor = "black" : oBody.style.backgroundColor = "white";
+
+    }*/
+
+  //思考题：白色-黑-红-黄-绿-白
+      var oBody = document.getElementsByTagName("body")[0];
+      oBody.onclick = function () {
+
+       var bg=oBody.style.backgroundColor;
+//        console.log(bg);
+
+       if(bg=="white"){
+           oBody.style.backgroundColor = "black";
+       }else if(bg=="black"){
+           oBody.style.backgroundColor = "red";
+       }else if(bg=="red"){
+           oBody.style.backgroundColor = "yellow";
+       }else if(bg=="yellow"){
+           oBody.style.backgroundColor = "green";
+       }else {
+           oBody.style.backgroundColor = "white";
+       }
+    }
+
+
+
+
+
+</script>
+</body>
+</html>

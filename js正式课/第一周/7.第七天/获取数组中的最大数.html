@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //获取一个数组中的最大数和最小数
+//    var ary=[1,3,6,88,66,37,29];
+//    //1.通过数组的sort方法排序，然后去数组中的第一项和最后一项；
+//    ary.sort(function (a,b) {
+//        return a-b;
+//    });
+//
+//    var maxNum=ary.pop();
+//    var minNum=ary.shift();
+//    console.log(maxNum,minNum)
+
+
+    //2.假设法
+    //假设数组第一项是最大值,然后通过循环去获取数组中的每一项，让数组中的每一项和max进行比较，如果大于max，那么让当前数组项重新对max进行赋值，
+   /* var ary=[1,3,6,88,66,37,29];
+    var max=ary[0];
+    var min=ary[0];
+    for(var i=0;i<ary.length;i++){
+        var cur=ary[i];
+        if(cur>max){
+            max=cur;
+        }
+    //   cur>max? max=cur:null;  //null / void(0)/不做任何操作，
+
+        if(cur<min){
+            min=cur;
+        }
+    }
+    console.log(max);
+    console.log(min);*/
+
+   //3.apply
+    var ary = [1, 3, 6, 88, 66, 37, 29];
+    console.log(Math.min.apply(null, ary));
+    console.log(Math.max.apply(null, ary));
+
+
+
+</script>
+</body>
+</html>

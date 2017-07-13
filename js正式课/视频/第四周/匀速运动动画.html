@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        #box{
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script type="text/javascript" src="utils1.js"></script>
+<script>
+
+//var oBox=document.getElementById("box");
+//var maxLeft=utils.win("clientWidth")-oBox.offsetWidth;
+//
+//var duration=2000;
+//var step=(maxLeft/duration)*10;
+//var timer=window.setInterval(function () {
+//    var curLeft=utils.getCss(oBox,"left");
+//        if(curLeft>=maxLeft){
+//        window.clearInterval(timer);
+//        return;
+//    }
+//    curLeft+=step;
+//   utils.setCss(oBox,"left",curLeft);
+//
+//},10)
+
+
+function Linear(t, b, c, d) {
+    return t / d * c + b
+}
+
+var oBox=document.getElementById("box");
+var target=utils.win("clientWidth")-oBox.offsetWidth,
+    begin=utils.getCss(oBox,"left"),change=target-begin;
+var duration=2000,time=null;
+var timer=window.setInterval(function () {
+    time+=10;
+    if(time>=duration){
+        utils.setCss(oBox,"left",target);
+        window.clearInterval(timer);
+        return;
+    }
+
+    var curPos=Linear(time,begin,change,duration);
+    utils.setCss(oBox,"left",curPos);
+},10)
+
+
+</script>
+</body>
+</html>

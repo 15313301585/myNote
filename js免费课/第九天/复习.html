@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   /* 1.js的三部分
+     ECMAScript   规范了js的语法，操作语句
+     DOM
+     BOM  js操作浏览器的一些属性方法   window.ope("www.baidu.com");
+
+    var tt=""+val+"";
+
+    var  obj={};
+    var  ary=[];
+    在遇到{}/[]时开辟一个新的空间地址 xxxfff000;
+
+
+    var ary=[1,2,3,4];
+    function fn(ary){
+       ary[0]=0;
+       ary=[0];
+       ary[0]=100;
+       return ary;
+   }
+   fn(ary);
+   console.log(ary);  //[0,2,3,4]  全局变量
+   console.log(fn(ary));  //[100]
+
+   typeof null-->"object"
+   typeof NaN -->"number"
+   typeof []-->"object"
+    */
+/*
+
+   function sum(){
+       var total =null;
+       for(var i=0;i<arguments.length;i++){
+          if(typeof arguments[i]==="number"){
+              if(!isNaN(arguments[i])){
+                  total+=arguments[i];
+              }
+          }
+       }
+      return total;
+   }
+
+  console.log (sum(12,56,88,99,"","16",NaN));
+
+
+
+
+ function sum(){
+ //        var total =null;
+ //        for(var i=0;i<arguments.length;i++){
+ //            var cur = arguments[i];//数字、NaN
+ //            if(!isNaN(cur)){// 判断是不是有效数字的
+ //                total += Number(arguments[i]);
+ //            }
+ //        }
+ //        return total;
+ //    }
+ //    sum(12,56,88,99,"","16px",NaN,[23,88]);
+
+
+ */
+
+
+
+
+/*
+   function sum(num1,num2)  {
+     console.log(num2); //undefined
+   }
+
+     sum(100);*/
+
+
+    //isNaN不具有转化的作用，只是用来判断是不是有效数字，是：flase 否：true    先把里面的数据类型强制转化number类型，然后再判断
+      //parseInt([])-->NaN    parseInt("px12")-->NaN   parseInt("12px")-->12
+     //  parseFloat("18.66px")-->18.66
+     // toFixed 保留小数点几位的方法 ，同时看下一位，进行四舍五入
+
+   // console.log(12+67+typeof null+undefined+NaN+"8899");//79objectundefinedNaN8899
+    //                  "object"
+   //console.log(12+67+undefined+NaN+"8899"); //NaN8899
+
+   //字符串截取 substr(n,m)      substring(n,m)   slice(n，m）
+
+
+   /*console.log(Number("")) //0
+   console.log(Number(null))  //0
+   console.log(Number(undefined))  //NaN*/
+
+
+//0,空字符串，NaN,null,undefined 转化为布尔是false
+/*var tt;
+if(tt){
+    console.log(10);//不会执行里面的代码
+}*/
+
+    //！先把后面的数据类型转化为布尔类型，然后再取反
+    //!取反再取法
+   /* !""==false-->false
+    ![]==false-->true
+    []==false-->true   []先转化成字符串类型再转化为数字类型比较
+
+    */
+
+//console.log(String([]));//""
+
+  /*  function sum() {
+
+    }
+   console.log(typeof sum);//function
+   console.log(sum);//整个函数
+
+   arguments 是函数天生自带的参数集合，属性callee，指向当前的函数
+
+
+   */
+
+ /* function sum() {
+      return function () {
+          console.log(10);
+      }
+  }
+
+  sum()();*/
+
+
+
+    //return 下面的代码不再执行，return后面的就是函数的返回结果
+   // 没有return，函数返回结果是undefined
+  /* function sum() {
+       return function () {
+           console.log(10);
+       };
+       console.log(20);
+   }
+
+   sum();
+
+*/
+   //2、for in 遍历对象属性值
+  /* for(var key in obj){
+       console.log(obj[key])
+   }*/
+   //3、while循环、
+  /* var i=0;
+   while(i < 8){
+       if(true){
+           i++;
+       }
+   };
+
+var obj={name:"zhufeng",age:8,9:"88"};
+
+for(var key in obj){
+  console.log(obj[key]);
+}
+
+
+
+var ary=[34,55,"shu",{name:"zhufeng"}];
+
+ary[3].name-->"zhufeng"
+
+
+
+
+*/
+  //item 数组中的值；index：索引
+/*
+  var ary=[34,55,"shu",{name:"zhufeng"}];
+  ary.forEach(function (item,index) {
+      console.log(item);
+      console.log(index);
+  });
+ary.map(function (item,index) {
+    console.log(item);
+});
+*/
+//获取哥哥元素节点
+/*
+function getBrother(curEle) {
+    var pre = curEle.previousSibling;
+    while (pre){
+        if(pre.nodeType==1){
+            return pre;
+        }
+        pre=pre.previousSibling;
+    }
+}
+
+getBrother(curEle);
+*/
+
+console.log(String([]));
+
+   console.log([].toString());
+</script>
+</body>
+</html>

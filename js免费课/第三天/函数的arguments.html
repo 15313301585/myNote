@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+        /*arguments 是函数天生自带的参数集合,他是一个类数组，同样具有数组的特征；
+         arguments  他有一个属性callee，属性值就是当前函数的本身
+         caller他是函数的属性，谁让他执行他就指向谁
+
+        function sum(num1,num2) {
+            console.log(arguments[0]);
+            console.log(arguments.callee);
+        }
+        sum(100,200)
+
+
+
+        function sum(){
+             var total = 0;
+             for(var i=0;i<arguments.length;i++){
+
+                 if(!isNaN(arguments[i])){
+                 total+=arguments[i];
+                 }
+
+            }
+             console.log(total);
+         }
+
+
+
+         sum(100);
+         sum(200,600);
+         sum(100,7,"aa",8,9);
+
+    */
+
+    function sum(num1,num2) {
+//        console.log(arguments[0]);
+        console.log(arguments.callee)
+    }
+    sum(100,200);
+</script>
+</body>
+</html>

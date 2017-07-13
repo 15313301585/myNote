@@ -1,0 +1,35 @@
+@charset "utf-8";
+*{
+    margin: 0;
+    padding: 0;
+}
+#box{
+    margin: 50px auto;
+    padding: 10px;
+    width: 400px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px #000;
+    background: peachpuff;
+}
+#box thead{
+    background: darkred;
+}
+#box thead tr{
+    height: 35px;
+}
+#box thead tr th{
+    width: 100px;
+}
+#box thead tr th.cursor{
+    cursor: pointer;
+}
+#box tbody tr{
+    height: 30px;
+}
+#box tbody tr.bg{
+    background: palevioletred;
+}
+#box tbody tr td{
+    width: 100px;
+    text-align: center;
+}

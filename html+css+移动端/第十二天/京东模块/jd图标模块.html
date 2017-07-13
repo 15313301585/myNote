@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style type="text/css">
+        nav a{
+            float:left;
+            width: 20%;
+            text-align: center;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #000000;
+            font-size: 12px;
+        }
+        nav img{
+            display: block;
+            height: 34px;
+            width: 34px;
+            margin: 0 auto 6px;
+        }
+        nav span{
+            display: block;
+            width: 100%;
+            white-space: nowrap;/*强制不折行*/
+            overflow: hidden;/*溢出隐藏*/
+            text-overflow: ellipsis;/*文本内容隐藏的方式：以省略号的方式隐藏  ellipsis 省略号 clip 裁剪            */
+        }
+        /*css样式：就近原则 写在下面的代码会把上面的代码覆盖掉*/
+
+        @media screen and (min-width: 375px){
+            nav a{
+                font-size: 16px;
+            }
+            nav img{
+                width: 40px;
+                height: 40px;
+            }
+        }
+        @media screen and (min-width: 414px){
+            nav a{
+                font-size: 20px;
+            }
+            nav img{
+                width: 46px;
+                height: 46px;
+            }
+        }
+        @media screen and (min-width: 640px){
+            nav a{
+                font-size: 24px;
+            }
+            nav img{
+                width: 52px;
+                height: 52px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<nav>
+    <!--手机分辨率取值范围320~640-->
+<!--iphone4/5/5s     iphone6    iphone6 plus  最大手机分辨率-->
+<!--320                375         414           640-->
+
+    <a href="">
+        <img src="pic1.png" alt="">
+        <span>京东超市</span>
+    </a>
+    <a href="">
+        <img src="pic1.png" alt="">
+        <span>京东超市</span>
+    </a>
+    <a href="">
+        <img src="pic1.png" alt="">
+        <span>京东超市</span>
+    </a>
+    <a href="">
+        <img src="pic1.png" alt="">
+        <span>京东超市</span>
+    </a>
+    <a href="">
+        <img src="pic1.png" alt="">
+        <span>京东超市</span>
+    </a>
+    <a href="">
+        <img src="pic1.png" alt="">
+        <span>京东超市</span>
+    </a>
+    <a href="">
+        <img src="pic1.png" alt="">
+        <span>京东超市</span>
+    </a>
+    <a href="">
+        <img src="pic1.png" alt="">
+        <span>京东超市</span>
+    </a>
+    <a href="">
+        <img src="pic1.png" alt="">
+        <span>京东超市</span>
+    </a>
+    <a href="">
+        <img src="pic1.png" alt="">
+        <span>京东超市</span>
+    </a>
+</nav>
+</body>
+</html>

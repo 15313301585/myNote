@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //捕获:exec
+    //捕获的懒惰性：lastIndex：每一次捕获都是从0开始，但是加上修饰符g，lastIndex每次都会更新
+    var reg=/zhufeng(\d+)/g;
+    var str="zhufeng123zhufeng456zhufeng789";
+    console.log(reg.exec(str));
+    console.log(reg.exec(str));
+
+
+    //捕获的贪婪性
+    //?在正则中，？放在量词的后面，取消捕获的贪婪性
+
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin-top: 0;
+            padding: 0;
+        }
+        #outer{
+            margin: 30px;
+            height: 300px;
+            width: 300px;
+            background: #008000;
+        }
+        #inner{
+            margin: auto;
+            width: 200px;
+            height: 200px;
+            background: #185b8f;
+        }
+
+        #center{
+            margin: auto;
+            width: 100px;
+            height: 100px;
+            background: #ff6900;
+        }
+
+    </style>
+</head>
+<body>
+<div id="outer">
+    <div id="inner">
+        <div id="center"></div>
+    </div>
+</div>
+<script type="text/javascript">
+    //事件委托的原理：利用事件冒泡传播的机制，利用最外层的元素的某个行为绑定相应的方法，当他里面元素的行为触发的时候，外层的对应的行为也会跟着触发，只有对当前事件源进行判断，进行不同的处理，实现相应的功能
+
+    var outer=document.getElementById("outer");
+    var inner=document.getElementById("inner");
+    var center=document.getElementById("center");
+    //e.target和通过id获取的元素对象是指向同一个空间地址
+    //给body的click行为绑定一个方法，当body中元素的click的行为触发，那么body的click也会跟着执行，判断当前点击的事件源，输出不同的内容
+    document.body.onclick=function (e) {
+
+        e.target= e.target || e.srcElement;
+//        if(e.target===outer){
+//            console.log("outer");
+//        }else if(e.target===inner){
+//            console.log("inner");
+//        }else if(e.target===center){
+//            console.log("center");
+//        }else {
+//            console.log("body");
+//        }
+
+        if(e.target.id==="outer"){
+            console.log("outer");
+        }else if(e.target.id==="inner"){
+            console.log("inner");
+        }else if(e.target.id==="center"){
+            console.log("center");
+        }else {
+            console.log("body");
+        }
+
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box1{
+            width: 100px;
+            height: 100px;
+            animation:box1Animate 1s steps(3,start) infinite;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            animation:box1Animate 1s steps(3,end) infinite;
+        }
+        @keyframes box1Animate {
+            0%{
+                background: red;
+            }
+           100%{
+                background: blue;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="box1"></div>
+<div class="box2"></div>
+</body>
+</html>

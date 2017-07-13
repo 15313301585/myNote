@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            position: relative;
+            width: 480px;
+            height: 640px;
+            margin: 0 auto;
+            padding: 10px;
+            list-style: none;
+            background: dodgerblue;
+        }
+        li{
+            width: 150px;
+            height: 150px;
+            margin: 5px;
+            float: left;
+            background: #FF9;
+            padding: 0;
+            cursor: move;
+        }
+        img{
+            border: none;
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><img src="img/1.png" alt=""></li>
+    <li><img src="img/2.png" alt=""></li>
+    <li><img src="img/3.png" alt=""></li>
+    <li><img src="img/4.png" alt=""></li>
+    <li><img src="img/5.png" alt=""></li>
+    <li><img src="img/6.png" alt=""></li>
+    <li><img src="img/7.png" alt=""></li>
+    <li><img src="img/8.png" alt=""></li>
+    <li><img src="img/9.png" alt=""></li>
+    <li><img src="img/10.png" alt=""></li>
+    <li><img src="img/11.png" alt=""></li>
+    <li><img src="img/12.png" alt=""></li>
+</ul>
+</body>
+<script src="../event.js"></script>
+<script src="../drag.js"></script>
+<script src="tween.js"></script>
+<script>
+    var olis=document.getElementsByTagName("li");
+  /*  for(var i=0;i<olis.length;i++){
+        var oLi=olis.item(i);
+        oLi.style.top=oLi.offsetTop+"px";
+        oLi.style.left=oLi.offsetLeft+"px";
+
+    }
+    for(var i=0;i<olis.length;i++){
+        var oLi=olis.item(i);
+        oLi.style.position="absolute";
+        oLi.style.margin=0;
+    }*/
+    var zIndex=1;
+    function increaseIndex(){
+        this.ele.style.zIndex=++zIndex;
+    }
+    function goHome() {
+        this.ele.style.left=this.ele.l+"px";
+        this.ele.style.top=this.ele.t+"px";
+    }
+
+    for(var i=olis.length-1;i>=0;i--){
+        var oLi=olis.item(i);
+        oLi.style.top=(oLi.t=oLi.offsetTop)+"px";
+        oLi.style.left=(oLi.l=oLi.offsetLeft)+"px";
+        oLi.style.position="absolute";
+        oLi.style.margin=0;
+        new Drag(oLi).on("abcd1",increaseIndex).on("abcd3",changePosition).on("abcd2",testing);
+    }
+
+    function isHited(b,r) {
+        if(b.offsetLeft+b.offsetWidth<r.offsetLeft||b.offsetTop+b.offsetHeight<r.offsetTop||b.offsetLeft>r.offsetLeft+r.offsetWidth||b.offsetTop>r.offsetTop+r.offsetHeight){
+            return false;
+        }else {
+            return true;
+        }
+    }
+
+    function testing() {
+        this.aHited=[];
+        for(var i=0;i<olis.length;i++){
+            var oLi=olis.item(i);
+            if(this.ele==oLi)continue;
+            if(isHited(this.ele,oLi)){
+                this.aHited.push(oLi);
+                oLi.style.backgroundColor="green";
+            }else {
+                oLi.style.backgroundColor="";
+            }
+        }
+    }
+
+    function changePosition() {
+       var a=this.aHited;
+       if(a&&a.length){
+           for(var i=0;i<a.length;i++){
+               var oLi=a[i];
+               oLi.distance=Math.pow(this.ele.offsetLeft-oLi.offsetLeft,2)+Math.pow(this.ele.offsetTop-oLi.offsetTop,2);
+
+           }
+           a.sort(function (a,b) {
+               return a.distance-b.distance;
+           });
+           var shortestLi=a[0];
+
+           this.ele.style.left=shortestLi.style.left+"px";
+           this.ele.style.top=shortestLi.style.top+"px";
+           shortestLi.style.left=this.ele.offsetLeft+"px";
+           shortestLi.style.top=this.ele.offsetTop+"px";
+       }
+    }
+</script>
+</html>

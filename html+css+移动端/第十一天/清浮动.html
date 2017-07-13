@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+/*
+        面试题 清除浮动的4种方式
+        1.给父元素加高度 height
+        2.给浮动的父元素加overflow：hidden；
+        3.给浮动元素的父元素结束标签之前加一个空的div <div style="clear:both;"></div>
+        4.给浮动元素的父元素加一个class名 clearfix；把清浮动的样式放到reset.css/reset.min.css样式表中 <div class="clearfix"></div>*/
+
+        .clearfix:after{
+            display:block;
+            content:"";
+            clear:both;
+            height:0;
+            font-size:0;
+            visibility:hidden;
+            overflow:hidden;
+        }
+        .clearfix{
+            *zoom:1;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>

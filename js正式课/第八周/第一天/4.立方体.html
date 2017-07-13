@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+      *{
+          margin: 0;
+          padding: 0;
+      }
+       ul{
+           position: relative;
+           list-style: none;
+           width: 202px;
+           margin: 300px auto;
+           /*开启三维立体空间*/
+           transform-style: preserve-3d;
+           transform-origin: left;
+           animation:myRun 2s ease-in-out infinite;
+       }
+        ul li{
+            position: absolute;
+            left: 0;
+            top:0;
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000000;
+            color: #ffffff;
+            font-size: 40px;
+            text-align: center;
+            line-height: 200px;
+            background: rgba(0,0,0,.1);
+        }
+        ul li:nth-child(1){
+            top:-202px;
+            transform-origin: bottom;
+            transform: rotateX(90deg);
+        }
+        ul li:nth-child(2){
+            left: -202px;
+            transform-origin: right;
+            transform: rotateY(-90deg);
+        }
+        ul li:nth-child(3){
+            left: 202px;
+            transform-origin: left;
+            transform: rotateY(90deg);
+        }
+        ul li:nth-child(4){
+            top:202px;
+            transform-origin: top;
+            transform: rotateX(-90deg);
+        }
+        ul li:nth-child(5){
+            transform: translateZ(-202px);
+        }
+
+        @keyframes myRun{
+           0%{
+               transform: rotateX(0) rotateY(0) rotateZ(0);
+           }
+
+            25%{
+                transform: translate(40px) rotateX(90deg) rotateY(90deg);
+            }
+            50%{
+                transform: translate(90px) rotateX(180deg) rotateY(180deg);
+            }
+            75%{
+                transform: translate(40px) rotateX(270deg) rotateY(270deg);
+            }
+            100%{
+                transform: rotateX(360deg) rotateY(360deg) translate(0);
+            }
+        }
+        /*rotateX以x轴旋转，站在x轴的正方向看，顺时针是正值，逆时针是负值*/
+    </style>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+</ul>
+<script>
+
+</script>
+</body>
+</html>

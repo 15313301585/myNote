@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+   /* var a = 12;
+    var obj = {
+        a: "12px",
+        12: "a",
+        b: 12
+    };
+    var newObj = obj;
+    a = obj[12];
+    console.log(a);//"a"
+    console.log(obj[a]);//"12px"-->a="a";obj[a]=obj["a"]="12px"
+    obj['b'] = a;
+    console.log(newObj['b']);//"a"
+    obj['c'] = 13;
+    console.log(newObj);//newObj{12: "a",a: "12px",b: "a",c: 13}*/
+
+
+
+//形参是私有变量，不能被外界访问
+  /*  var ary = [1, 2, 3, 4];
+    function fn(ary) {
+        ary[0] = 0;//改变原来的ary，[0,2,3,4]
+        ary = [0];//重新开辟空间地址，与之前的ary无影响
+        ary[0] = 100;
+        return ary;//[100]
+    }
+    var res = fn(ary);//执行函数
+    console.log(ary);//[0,2,3,4]
+    console.log(res);//[100]
+
+   //上面题目的更好理解的写法
+   var ary1 = [1, 2, 3, 4];
+   function fn(ary) {
+       ary[0] = 0;//改变原来的ary，[0,2,3,4]
+       ary = [0];//重新开辟空间地址，与之前的ary无影响
+       ary[0] = 100;
+       return ary;//[100]
+   }
+   var res = fn(ary1);//执行函数
+   console.log(ary1);//[0,2,3,4]
+   console.log(res);//[100]*/
+
+   var person1 = {
+        name: "富婆",
+        sex: "女",
+        money: null,
+         1: 1,
+        age : 30
+    };
+    delete person1.sex;
+    console.log(person1.sex);//undefined
+    person1.money = null;
+    console.log(person1.money);//null
+    var age = 30;
+    person1.age = age;
+    console.log(person1);//{}
+
+
+
+
+
+
+
+
+// i++ 先在i所在的表达式中使用i的当前值，后让i加1
+// ++i  先加i加1，然后再i所在的表达式中使用i的新值
+
+ /*var b=6;
+  console.log(b++);//6
+  console.log(b);//7
+  console.log(++b);//8
+     */
+
+ //var a=5;
+// console.log(++a + a++ + ++a + --a + a-- + a); //6+6+8+7+7+6=40
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

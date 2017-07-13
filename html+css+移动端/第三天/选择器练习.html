@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<!--
+需求：div，p，h1,h2(每一个元素)用选择器来选择，进行样式的添加(宽度为100px，高度为200px，字体颜色为红色，字体大小为40px)
+-->
+
+<style>
+    div{}/*标签选择器 1*/
+    .div1{}/*类选择器 10*/
+    [title]{}/*属性选择器 10*/
+    [title=zfpx]{}/*属性选择器 10*/
+    div[title]{}/*交集选择器 11*/
+    div[title=zfpx]{}/*交集选择器 11*/
+    div.div1{}/*交集选择器*/
+
+</style>
+<div class="div1" title="zfpx">1111</div>
+
+
+
+
+
+<style>
+    /* p{}
+     .p1{}
+     .p2{}
+     p.p1{}
+     p.p2{}
+     .p1.p2{}*/
+    /*
+    不可以，在属性选择器里面，属性值不能为两个（不能有两个类名）
+    [class=p1]{}
+    [class]
+    */
+    /*[class=p1]{
+        width: 100px;
+        height: 200px;
+        background-color: red;
+        color: red;
+    }*/
+
+</style>
+
+<p class="p1 p2">2222</p>
+
+
+<style>
+    /*h1{}*/
+    h2{}
+    [title]{}
+    [title=zfpx]{}
+    h2[title]{}
+    h2[title=zfpx]{}
+
+
+    p.p1
+
+
+</style>
+
+<h1>3333</h1>
+
+<h2 title="zfpx">4444</h2>
+
+
+<style>
+    p.p1{}
+</style>
+<h1 class="p1"></h1>
+<p class="p1">1111111111111111</p>
+
+
+
+
+
+
+<div class="div1" title="zfpx" id="div2"></div>
+<style>
+    div{}
+    .div1{}
+
+    [title]{}
+    [title=zfpx]{}
+
+    #div2{}
+
+    div[title]{}
+    div[title=zfpx]{}
+
+    div.div1{}/*交集选择器 11*/
+    div[class]{}
+    div[class=div1]{}
+
+    div#div2{}
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+

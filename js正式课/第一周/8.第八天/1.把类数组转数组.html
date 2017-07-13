@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="div1"></div>
+<div class="div1"></div>
+<div class="div1"></div>
+<div class="div1"></div>
+<div class="div1"></div>
+
+<script>
+    //arguments 类数组
+    //documents.getElementsByTagName()  类数组
+   // var oDiv=document.getElementsByClassName("div1"); 不兼容ie6-8
+    var oDiv=document.getElementsByTagName("div");
+    //通过循环吧数组转化为数组
+//    var ary=[];
+//    for(var i=0;i<oDiv.length;i++){
+//        ary[ary.length]=oDiv[i];
+//    };
+
+    //通过调用Array的原型上的slice方法，改变this的指向，把类数组转成数组
+    var ary = Array.prototype.slice.call(oDiv);
+    console.log(ary.sort());
+
+    //兼容所有浏览器的类数组转数组：
+    var utils={
+        listToArray:function (likeAry) {
+            var ary=[];
+            try{
+                ary = Array.prototype.slice.call(likeAry);
+            }catch(e) {
+                for(var i=0;i<likeAry.length;i++){
+                    ary[ary.length]=likeAry[i];
+                }
+            }
+            return ary;
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //元字符的应用
+    //1.有效数字的正则：正数、负数、小数、0
+
+    //如果有小数点，小数点后面一定会有数字  \.
+
+    var reg=/^[+-]?(\d|([1-9]\d+))(\.\d+)?$/;
+    console.log(reg.test("99"));//true
+
+    //2.写一个匹配18到65这个年龄段的正则
+    //()改变优先级的作用
+
+    var reg=/^(1[8-9]|[2-5]\d|6[0-5])$/;
+
+    //3.身份证
+    //13 0425 1990 01 01 181x
+
+
+
+    //4.中国汉字的姓名 2-4个汉字
+
+    var reg=/^[\u4e000-\u9fa5]{2,4}$/;
+
+
+    //5.邮箱的正则：
+    var reg=/^[\w-]+@[0-9a-zA-Z]+(\.[a-zA-z]{2,4}){1,2}$/;
+
+
+
+
+    //[]
+    //1.在中括号中，所有的字符都代表本身意思的字符
+//    var reg=/^[. ]$/;
+//    console.log(reg.test("[1]"));//false
+//    console.log(reg.test("4"));//false
+//    //2.在中括号中不识别两位数
+//    var reg=/^[12]&/; //匹配1或者2中的一个
+//    console.log(reg.test("1"));//true
+//
+//    var reg=/^[12-68]$/;
+//    console.log(reg.test("5"));//true
+
+    //3.
+
+//    var reg=/^[\w-]&/;
+//    console.log(reg.test("-")); //true
+
+
+
+</script>
+</body>
+</html>

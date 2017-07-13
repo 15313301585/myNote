@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*写css的时候第一步初始化默认样式，避免浏览器之间的差异->不仅如此，而且写的默认样式对于JS以后获取到的结果统一也是有帮助的*/
+        *{
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+        }
+        #box{
+            margin: 100px;
+            padding: 30px;
+            width: 200px;
+            height: 200px;
+            border: 10px solid green;
+            line-height: 30px;
+            opacity: 0.3; /*透明度在IE6~8中不兼容*/
+            filter:alpha(opacity=10);/*不兼容的话使用滤镜进行处理*/
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    2013年5月29日，中共中央总书记、国家主席、中央军委主席习近平在北京市少年宫参加“快乐童年放飞希望”主题队日活动。这是习近平在和孩子们谈对环保的认识和理解。 新华社记者李学仁摄
+    “首先我看我以什么名义好，都不合适，就以‘大朋友’的名义吧。”2013年5月29日，在“六一”国际儿童节即将到来之际,习近平来到北京市少年宫，以一个“大朋友”的名义，向全国广大少年儿童祝贺节日。
+    一句“大朋友”，一下子拉近了习近平与孩子们的距离。
+</div>
+<script>
+//    var box=document.getElementById("box");
+//    //第一次升级：把获取到的样式值单位去掉
+//    //->只有符合“数字+单位/数字”才可以使用parseFloat
+//    function getCss(curEle,attr) {
+//        var val = null, reg=null;//这样写都是私有的；var val=reg=null; 这样写val是私有的，reg是全局的
+//
+//        if ("getComputedStyle" in window) {
+//            val = window.getComputedStyle(curEle, null)[attr];
+//        } else {
+//            val = curEle.currentStyle[attr];
+//        }
+//        reg=/^(-?\d+(\.\d+))(px|pt|rem|em)$/i;
+//        return reg.test(val)?parseFloat(val):val;
+//        //return parseFloat(val);//这样写肯定不行，对于某些样式属性值是不能去单位的，例如：float、position、margin、padding、border、background。。。
+//    }
+//  console.log(getCss(box,"height"));
+//  console.log(getCss(box,"float"));
+
+  //第二次升级
+    var box=document.getElementById("box");
+    function getCss(curEle,attr) {
+        var val = null, reg=null;
+        if ("getComputedStyle" in window) {
+            val = window.getComputedStyle(curEle, null)[attr];
+        } else {//IE6~8
+            if(attr==="opacity"){
+                val = curEle.currentStyle["filter"];//->alpha(opacity=10)把获取到的结果进行剖析，获取里面的数字，让数字除以100才和标准浏览器保持了一致
+                reg=/^alpha\(opacity=(\d+(?:\.\d+)?)\)$/i;
+                val=reg.test(val)?reg.exec(val)[1]/100:1;
+            }else {
+                val = curEle.currentStyle[attr];
+            }
+        }
+        reg=/^(-?\d+(\.\d+))(px|pt|rem|em)$/i;
+        return reg.test(val)?parseFloat(val):val;
+    }
+    console.log(getCss(box,"width"));
+
+</script>
+</body>
+</html>

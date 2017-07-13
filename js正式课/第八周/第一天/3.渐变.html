@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: -webkit-linear-gradient(60deg,red 40px,green 40px);/*角度：是由水平线和渐变线产生的角度，逆时针方向*/
+            /*渐变线和颜色的变化方向是平行的*/
+            /*background: -webkit-repeating-linear-gradient(top left,red 20px,green 30px);*/
+            /*background: -ms-linear-gradient(top left,red,green);*/
+            /*background: -o-linear-gradient(top left,red,green);*/
+            /*background: -moz-linear-gradient(top left,red,green);*/
+            /*background: linear-gradient(to top left,red,green);*/
+        }
+
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script type="text/javascript">
+    //浏览器内核：
+    //火狐浏览器：Gecko(Firefox)
+    //谷歌浏览器：Webkit(Safari  Chrome)
+    //欧朋浏览器：Presto
+    //IE浏览器：Trident
+    //-webkit-linear-gradient:第一个参数：线性渐变的方向  top 从上到下 left从左到右 left top从左上角到右下角
+    //第二个参数第三个参数：分别是起点颜色和结束颜色，可以在他们之间加入其它的颜色，表示多种颜色的渐变
+    //-webkit-repeating-linear-gradient:重复渐变;
+    // 如果没有浏览器标志修饰，gradient里面的方位一定要加上to
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            overflow: hidden;
+        }
+        #box{
+            width: 500px;
+            height: 500px;
+            margin: 50px auto;
+        }
+        #box li{
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid #000000;
+            float: left;
+            cursor: pointer;
+        }
+        #box li.select{
+            background: pink;
+        }
+        #box div{
+            display: none;
+            width: 100%;
+            height: 470px;
+            line-height: 470px;
+            text-align: center;
+            border: 1px solid #000000;
+        }
+        #box div.select{
+            display: block;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li class="select">新闻</li>
+        <li>体育</li>
+        <li>娱乐</li>
+    </ul>
+    <div class="select">新闻内容</div>
+    <div>体育内容</div>
+    <div>娱乐内容</div>
+</div>
+<script type="text/javascript">
+    var oBox = document.getElementById("box");
+    var oLis = oBox.getElementsByTagName("li");
+    var oDivs = oBox.getElementsByTagName("div");
+
+    function  change(n) {
+        for(var i=0;i<oLis.length;i++){
+            oLis[i].className = "";
+            oDivs[i].className = "";
+        }
+        oLis[n].className = "select";
+        oDivs[n].className = "select";
+    }
+
+    for(var i=0;i<oLis.length;i++){
+        oLis[i].index = i;
+        oLis[i].onclick =function () {
+            change(this.index);
+        }
+    }
+
+
+
+
+</script>
+</body>
+</html>

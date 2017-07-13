@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+                margin: 0;
+                padding: 0;
+                font-family: 微软雅黑;
+            }
+        #box{
+            width: 500px;
+            height: 400px;
+            margin: 80px auto;
+        }
+        #box ul{
+            list-style: none;
+            overflow: hidden;
+        }
+        #box ul li{
+            height: 30px;
+            line-height: 30px;
+            width: 60px;
+            text-align: center;
+            float: left;
+            border:1px solid #c9c9c9;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        #box ul li.select{
+            background: red;
+        }
+        #box div{
+            display: none;
+            width: 100%;
+            height:370px;
+            border: 1px solid #c9c9c9;
+            line-height: 370px;
+            text-align: center;
+        }
+        #box div.select{
+            display: block;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li class="select">电视剧</li>
+        <li>电影</li>
+        <li>卡通</li>
+    </ul>
+    <div class="select">人民的名义</div>
+    <div>速度激情8</div>
+    <div>熊出没</div>
+</div>
+<script type="text/javascript">
+//1.操作谁，先获取谁 2.点击li，看当前是第几个li，然后就让第几个div增加class="select"，把之前的那个div的class清掉
+    var oBox = document.getElementById("box");
+    var oLis = oBox.getElementsByTagName("li");
+    var oDiv = oBox.getElementsByTagName("div");
+    //把三个li获取到，并且是个类数组
+    function change(n) {
+        for(var i=0;i<oLis.length;i++){
+            oLis[i].className = "";
+            oDiv[i].className = "";
+        }
+        //所有的li没有class
+        oLis[n].className = "select";
+        oDiv[n].className = "select";
+    }
+/*
+      var obj={};
+      obj.name="xiaohe";
+      console.log(ojb.name);*/
+
+    for(var i=0;i<oLis.length;i++){
+        //循环已完成，当前的i=3
+
+        oLis[i].index = i;
+        oLis[i].onclick = function () {
+            change(this.index);
+        }
+    }
+
+
+
+
+</script>
+</body>

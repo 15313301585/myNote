@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: #008000;
+            margin: 30px auto;
+        }
+        #oUl{
+            width: 100px;
+            margin: 50px auto;
+        }
+        #con{
+            position: absolute;
+            left: 300px;
+            top:100px;
+        }
+    </style>
+</head>
+<body>
+<div id="con">
+    <!--<button class="btn">按钮</button>-->
+</div>
+<div id="box"></div>
+<ul id="oUl">
+    <li>第一个</li>
+    <li id="sec">第二个</li>
+    <li>第三个</li>
+</ul>
+<script type="text/javascript" src="jquery-1.11.3%20.js"></script>
+<script type="text/javascript">
+   //jQuery 中绑定事件的方法
+
+
+   //on  bind  delegate
+   //on传二个参数，第一个是事件行为，第二个是方法
+//   $("#box").click(function () {
+//       console.log(1);
+//   });
+//
+//   //on给一个元素的多个事件行为绑定一个方法
+//   $("#box").on("click mouseover", function () {
+//       console.log(1);
+//   });
+
+   //    $("#box").on("mouseover",function () {
+   //        console.log(1);
+   //    })
+
+
+   //on解决了原生中DOM2级事件绑定，以及在IE6-8下DOM2级的不兼容问题
+   //on可以给一个元素的相同的事件行为绑定不同的方法，后者不会覆盖前者
+//   $("#box").on("click", function () {
+//       console.log(1);
+//   });
+//   $("#box").on("click", function () {
+//       console.log(2);
+//   });
+//
+//   $("#sec").click(function () {
+//       console.log(1);
+//   }).mouseover(function () {
+//       console.log("我是第二个li")
+//   });
+
+   //给第一个li绑定方法
+   //on传三个参数，第一个是事件行为，第二个是选择器，第三个是方法
+//   $("#oUl").on("click", "li:eq(0)", function () {
+//       console.log("发钱了");
+//   });
+//
+//   $("#oUl").on("click", "#sec", function () {
+//       console.log("发钱了");
+//   });
+//
+//
+//    $("#oUl").on("click","#sec",{name:"zhufeng"},function (event) {
+//        console.log(this);// <li id="sec">第二个</li>
+//        console.log(event.data);//{name:"zhufeng"}
+//    })
+
+
+   //事件的命名空间
+//    $(".btn").on("click.btn1",function () {
+//        $("#box").slideToggle();  //下拉收起  slidedown  slideup
+//    }).on("click.btn1",function () {//当前.btn这个命名空间下有这个click事件行为的方法
+//        console.log(1);
+//    }).mouseout(function () {
+//        console.log(2);
+//    }).on("mouseover.btn1",function () {
+//        console.log(3);
+//    });
+
+    //off移除指定的事件行为
+//    $(".btn").off("click.btn1");//根据命名空间下的相应的事件行为移除
+//   // $(".btn").off("click");
+//    $(".btn").off(".btn1");  //根据命名空间事件移除事件行为的方法
+//    $(".btn").off(); //移除当前元素下的所有的事件行为
+
+
+//    function fn1() {
+//
+//    }
+//
+//    function fn2() {
+//
+//    }
+//
+//    $(".btn").on("click",fn1).on("click",fn2);
+//    $(".btn").off("click",fn1);//移除当前元素的某一个事件行为的某一个方法
+
+
+
+    //bind 绑定方法
+//
+//    $(".btn").bind("click mouseover",function () {
+//        console.log("bind");
+//    });
+
+//   $(".btn").bind("click.over",{name:"zhufeng"},function (event) {
+//       console.log(event.data);
+//   });
+
+    // $(".btn").off();移除当前元素下的所有的事件行为
+    //$(".btn").unbind();移除当前元素下的所有的事件行为
+//   $(".btn").unbind("click")//移除事件行为下所有的方法
+//   $(".btn").unbind(".over")//移除命名空间下的所有的方法
+
+
+    //delegate  undelegate
+
+   //delegate第一个参数是选择器，第二个是事件行为，第三个是方法
+    //预留事件绑定，给后来新增后代元素的事件绑定方法
+//   $("#con").delegate("button","click",function () {
+//       console.log(this);
+//   });
+//
+//   $("#con").append("<button>btn2</button>");
+//
+//   $("#con").undelegate("button","click");
+//   $("#con").off();
+
+
+
+
+
+</script>
+</body>
+</html>

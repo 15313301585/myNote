@@ -1,0 +1,63 @@
+www.jd.com/cn pc
+ 3g/i/m  移动端H5页面
+
+
+ 产品形态：
+ 1.pc和移动端分离开  不同的域名地址 2套项目 2个团队完成（京东、 网易 、凤凰）
+ 2.pc和移动端公用一套页面结构 相同的域名地址 1套项目 一个人或者一个团队完成  (猎豹、华为）
+
+
+ 设计稿的尺寸：
+ 640*1136的宽度（单屏的页面）   参照iphone5       手机分辨率：375*2
+ 750*1334的宽度（单屏的页面）   参照iphone6       手机分辨率：320*2
+ 1242*2208的宽度               参照iphone6 plus  手机分辨率：414*3
+
+ 单屏页面常用在场景应用的H5页面
+
+ 720 安卓小米
+
+ 手机分辨率：(iphone手机的机型)
+ iphone4 320*480 单屏的页面    dpr2.0
+ iphone5/5s  320*568 单屏的页面  dpr2.0
+ iphone6  375*667 单屏的页面  dpr2.0
+ iphone6 plus 414*736  dpr3.0
+
+ pc和移动端的区别：
+ pc：鼠标移上效果   伪类（动作状态）  伪元素（clearfix:after  添加元素内容）
+ H5:没有鼠标移上效果 滑屏切换的效果
+
+ 编辑器：webstorm
+ 浏览器： pc：火狐 ，谷歌，百度，360，IE（7~11） css hack 浏览器的兼容问题
+         H5：手机的适配  手机机型有很多种 分辨率也有很多种
+            谷歌 -webkit-
+
+ 移动端  响应式开发   H5   微信二次开发    场景应用  —— HTML5+CSS3
+
+ 注意点：
+ 宽度不要写死  流式布局（百分比布局）（图片，背景图片根据需求可以写死）
+ 全屏的图片 100% 根据设备自动去适配
+  【移动布局的方式】
+  1.流式布局（百分比）
+
+
+
+display:inline-block 默认4px的间距  解决办法：font-size:0;
+img的父元素在盒子模型上几像素的间距   解决办法：display:block;
+
+
+
+
+
+ .clearfix:after{
+ display:block;
+ content:"";
+ clear:both;
+ height:0;
+ font-size:0;
+ visibility:hidden;
+ overflow:hidden;
+ }
+
+ .clearfix{
+ *zoom:1;
+ }

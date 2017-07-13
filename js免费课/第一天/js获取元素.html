@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .con {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="box" class="con" style="background: #000000"></div>
+<script type="text/javascript">
+     //要想操作谁，就要先获取谁
+     // document.getElementById("box"); 在当前文本下，通过叫box的id名来获取这个元素
+     //document :当前的文档
+     //get:得到 、获取
+     // element:元素
+     //by: 通过、利用
+     //Id:唯一的，不可重复的，唯一性
+     //console.log(document.getElementsByClassName("con")[0]);
+     //只能获取行内样式
+      //document.getElementById("box").style = "background:red";
+   console.log(document.getElementById("box").style.background);
+</script>
+</body>
+</html>

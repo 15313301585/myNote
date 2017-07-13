@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+     *{
+         margin: 0;
+         padding: 0;
+     }
+        #box{
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script type="text/javascript" src="utils.js"></script>
+<script>
+
+/
+
+
+
+
+    var oBox=document.getElementById("box");
+    var winW=document.documentElement.clientWidth||document.body.clientWidth;
+    var maxLeft = winW - oBox.offsetWidth;
+    var count = 0;
+
+    function move() {
+        clearTimeout(oBox.timer);//避免盒子再次点击，加速
+        count += 2;
+        if (count > maxLeft) {
+            utils.css(oBox, "left", maxLeft);
+            return;
+        }
+        utils.css(oBox, "left", count);
+        oBox.timer = setTimeout(move, 10);
+
+    }
+
+  oBox.onclick = move;
+
+</script>
+</body>
+</html>

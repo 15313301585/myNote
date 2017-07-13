@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            left: 0;
+            top:0;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script type="text/javascript" src="1.js"></script>
+<script>
+
+    var box = document.getElementById("box");
+    function Drag(curEle) {
+        this.ele=curEle;
+        this.DOWN=this.down.bind(this);
+        on(this.ele,"mousedown",this.DOWN);
+    }
+
+    Drag.prototype.down=function (e) {
+
+        this.ele.x=this.ele.offsetLeft;
+        this.ele.y=this.ele.offsetTop;
+        this.ele.mx=e.clientX;
+        this.ele.my=e.clientY;
+        this.MOVE=this.move.bind(this);
+        this.UP=this.up.bind(this);
+        on(document,"mousemove",this.MOVE);
+        on(document,"mouseup",this.UP);
+
+    };
+
+    Drag.prototype.move=function (e) {
+        var changeL=e.clientX-this.ele.mx;
+        var changeT=e.clientY-this.ele.my;
+        this.ele.style.left=this.ele.x+changeL+"px";
+        this.ele.style.top=this.ele.y+changeT+"px";
+    };
+
+    Drag.prototype.up=function () {
+        off(document,"mousemove",this.MOVE);
+        off(document,"mouseup",this.UP);
+    };
+
+    new Drag(box);
+</script>
+</body>
+</html>

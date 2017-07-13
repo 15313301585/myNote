@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="oDiv">
+    <ul  class="oUl">
+        <li></li>
+        <li></li>
+        <li class="last"></li>
+    </ul>
+</div>
+<script type="text/javascript">
+    //动态的操作DOM：实现DOM的增删改
+    //1.document.createElement()创建一个元素
+    //var oUl= document.getElementsByClassName("oUl")[0];
+    //获取元素的时候可以是var oLi =oUl.getElementByTagName("li");但是创建必须是var oLi =document.createElement("li");
+    //var oLi =document.createElement("li");//创建一个完整的div,括号里面是标签名
+    //oLi.className="zhufeng";
+    //2.appendChild 向容器末尾添加一个子节点
+    //容器.appendChild(oDiv);
+    //oUl.appendChild(oLi);
+    //3.insertBefore 向容器的某一个子节点前面新增一个节点
+    //容器.insertBefore(newEle,oldEle)第一个参数：是新增的元素，第二个参数：是容器中想要新增那个位置前面的元素
+    /*var oUl= document.getElementsByClassName("oUl")[0];
+    var lastLi=document.getElementsByClassName("last")[0];
+    var oLi =document.createElement("li");
+    oLi.className="zhufeng";
+
+    oUl.insertBefore(oLi,lastLi);*/
+    //4.removeChild容器中删除一个子节点
+    //容器.removeChild(要删除的元素)
+    /*var oUl= document.getElementsByClassName("oUl")[0];
+     var lastLi=document.getElementsByClassName("last")[0];
+    oUl.removeChild(lastLi);*/
+    //5.replaceChild 替换
+    //容器.replaceChild(newEle,oldEle) 第一个参数：要替换的元素  第二个参数：是要被替换的元素
+     /*var oUl= document.getElementsByClassName("oUl")[0];
+     var lastLi=document.getElementsByClassName("last")[0];
+     var oLi =document.createElement("li");
+     oUl.replaceChild(oLi,lastLi);*/
+    //6.cloneNode复制当前节点  参数： 默认是false，只克隆当前节点 true：会把子节点同时克隆
+      var oUl= document.getElementsByClassName("oUl")[0];
+      console.log(oUl.cloneNode(false));
+</script>
+</body>
+</html>

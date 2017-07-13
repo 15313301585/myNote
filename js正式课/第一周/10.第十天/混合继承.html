@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //混合继承：call继承+原型继承
+    function A() {
+        this.x=100;
+    }
+    A.prototype.getX=function () {
+        console.log(this.x);//100
+    };
+    function B() {
+   //     A.call(this);  //继承A的私有属性
+    }
+    B.prototype=new A;  //原型继承的时候公有私有属性都有
+    var f=new B;
+    console.log(f.x);//100
+    console.log(f.getX());//undefined
+</script>
+
+</body>
+</html>

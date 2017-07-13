@@ -1,0 +1,69 @@
+    (1)基本
+     #id
+     element
+     .class
+     *
+     selector1,selector2,selectorN
+
+     (2)层次选择器：m,
+     ancestor descendant  后代选择器
+     parent > child    在给定的父元素下匹配所有的子元素
+     prev + next      获取同级下的弟弟元素对象， 匹配所有紧接在 prev 元素后的 next 元素
+     prev ~ siblings  匹配 prev 元素之后的所有的同级 siblings 元素
+
+     (3)基本过滤器选择器
+     :first
+     :last
+     :not   除了什么什么
+     :even  索引是偶数的元素对象
+     :odd   索引是奇数的元素对象
+     :eq    $(".first ul li:eq(0)")  匹配元素对象索引是0的元素对象
+     :gt    $(".first ul li:gt(0)")  匹配元素对象索引大于0的元素对象
+     :lt    $(".first ul li:gt(3)") 匹配元素对象索引小于3的元素对象
+     :header    获取标题标签 h1-h6
+     :animated
+
+     (4)内容过滤器选择器
+     :contains    $(".first ul li:contains('珠峰')")  包含什么内容的元素对象
+     :empty
+     :has         $(" li:has(span)")   包含什么标签的元素对象
+     :parent    $(" span:parent") span可以作为父级的所有标签
+
+     (5)可见性过滤器选择器
+     :hidden  $("div,ul:hidden")  获取所有的div，把ul不可见的获取到
+     :visible
+
+     (6)属性过滤器选择器
+     [attribute]    $("div[id]")  有id这个属性的div获取到
+     [attribute=value]   $("div[name='zhufeng']")
+     [attribute!=value]
+     [attribute^=value]  以value]开头
+     [attribute$=value]
+     [attribute*=value]   包含有的value的
+     [attrSel1][attrSel2][attrSelN]   包含同时有[attrSel1][attrSel2][attrSelN]的元素
+
+     (7)子元素过滤器选择器
+     :nth-child  $("ul li:nth-child(1)")  获取ul下的第一个li
+     :first-child
+     :last-child
+     :only-child   $("ul li:only-child")   ul下的唯一的li（ul下只包含一个li）
+
+     (8)表单选择器
+     :input
+     :text
+     :password
+     :radio
+     :checkbox
+     :submit
+     :image
+     :reset
+     :button
+     :file
+     :hidden
+
+     (9)表单过滤器选择器
+     :enabled   可操作的
+     :disabled  不可操作的
+     :checked   选中的
+     :selected  选中的
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 600px;
+            height: 80px;
+            margin: 80px auto;
+            background: pink;
+            line-height: 80px;
+            text-align: center;
+            padding-left: 10px;
+            border-radius: 5px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="box"><span>北京时间：</span><span id="time"></span></div>
+<script>
+    var time=document.getElementById("time");
+    var str="2017-5-11 15:49:8"
+    //2017年05月11日15时49分08秒
+    function addZero(value) {
+        return value<10?"0"+value:value;
+    }
+
+
+
+    var ary=str.split(" ");//["2017-5-11","15:49:20"]
+    var aryBefore=ary[0].split("-");//["2017","5","11"]
+    var aryAfter=ary[1].split(":");//["15","49","8"]
+
+    var content=aryBefore[0]+"年"+addZero(aryBefore[1])+"月"+addZero(aryBefore[2])+"日"+addZero(aryAfter[0])+"时"+addZero(aryAfter[1])+"分"+addZero(aryAfter[2])+"秒";
+    time.innerHTML = content;
+
+</script>
+</body>
+</html>

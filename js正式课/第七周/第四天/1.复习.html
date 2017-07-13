@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //都进行预解释，都进行变量声明
+    //let不进行变量的提升
+    //let在同一作用域中不能进行重复的声明
+    //let定义的变量只在当前的作用域中有效
+//    console.log(str);//undefined
+//    var str="zhufeng";
+//    console.log(num);//num is not defined
+//    let num=1;
+
+    //块级作用域，for循环 if 形成的块级作用域
+    //在ie5中,不管if条件成立不成立，里面的function代码预解释都是声明加定义，
+    //在ie6中,如果浏览器兼容es6，如果在条件语句中，如果条件语句不成立，function只声明，不定义,如果条件成立，申明加定义
+
+    if(true){
+        function sum(){
+          console.log(1)
+        }
+    }
+    sum();
+
+   //for会形成父作用域，每一次循环体形成子作用域
+//    for(let i=0;i<7;i++) {
+//        //块级作用域
+//        //在每个子作用域中，会对i重新声明定义
+//        //let i=1
+//        //let i=2
+//        //在每个子作用域中，会保存一个i值
+//        ary[i] = function () {
+//            console.log(i);
+//        }
+//    }
+//
+//    console.log(i);//报错，在for循环中被let定义的变量，不会泄露成全局变量
+//
+//
+//    //const :定义一个常量，这个值不能被修改，只在定义的块级作用域中有效
+
+
+    //遍历对象
+//    for(var key in obj){
+//        //key 是obj的属性名
+//    }
+//
+//    //遍历数组
+//    for(var i=0;i<ary.length;i++){
+//        var cur=ary[i];
+//    }
+//
+    //for of
+//    var ary=[1,4,7];
+//    for(let key of ary){
+//        console.log(key);//输出数组中的每一项
+//    }
+
+//    var ary=[1,4,7];
+//    for (let key of ary.keys()){
+//        console.log(key);//数组数组中每一项的索引
+//    }
+
+//    var ary=[1,4,7];
+//    for(let key of ary.entries()){ //遍历当前数组的索引和数组的每一项，并以数组的形式返回
+//        console.log(key);//[0,1] [1,4] [2,7]
+//    }
+
+
+//    var str="wo men ";
+//    str=str.replace(/(^ +| +$)/g,"");
+//    console.log(str.length);
+</script>
+</body>
+</html>

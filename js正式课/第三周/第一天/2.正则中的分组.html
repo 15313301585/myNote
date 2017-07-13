@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //1.分组 () 把大正则分成几个小正则
+    //1)()作用：改变优先级
+    //2)分组的引用
+
+//    var reg=/(\w)\1(\w)\2/;
+//    // \1：代表和第一个分组出现的内容一摸一样
+//    // \2: 和第二个分组出现一模一样的内容
+//    console.log(reg.test("rrtt")); // true
+//    console.log(reg.test("rrty")); // false
+
+    //3）分组的捕获
+//    var reg=/^(\d{2})(\d{4})(\d{4})(\d{2})(\d{2})(\d{3})(\d|X)$/;
+//    var str="13042519910101181X";
+//    console.log(reg.exec(str));//["13042519910101181X", "13", "0425", "1991", "01", "01", "181", "X", index: 0, input: "13042519910101181X"]
+    //捕获的时候，不仅可以把大正则的内容捕获到，还可以把小正则的内容铺货到
+
+
+    //?:在小括号中，只匹配不捕获
+//    var reg=/^(\d{2})(?:\d{4})(\d{4})(\d{2})(\d{2})(\d{3})(\d|X)$/;
+//    var str="13042519910101181X";
+//    console.log(reg.exec(str));// ["13042519910101181X", "13", "1991", "01", "01", "181", "X", index: 0, input: "13042519910101181X"]
+
+
+
+    //match:只捕获大正则，小正则内容不捕获
+//    var reg=/zhufeng(\d+)/g;
+//    var str="zhufeng123zhufeng234zhufeng345";
+//    var ary=str.match(reg);
+//    console.log(ary);//["zhufeng123", "zhufeng234", "zhufeng345"]
+</script>
+</body>
+</html>

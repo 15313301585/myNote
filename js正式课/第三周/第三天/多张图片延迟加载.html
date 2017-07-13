@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 微软雅黑;
+            font-size: 14px;
+        }
+        #oUl{
+            list-style: none;
+            padding: 10px;
+        }
+        #oUl li{
+            position: relative;
+            height: 60px;
+            padding: 10px 0;
+            border-bottom: 1px dashed #cccccc;
+        }
+        #oUl li img{
+            position: absolute;
+            top:10px;
+            left: 0;
+            border: none;
+            width: 75px;
+            height: 60px;
+
+        }
+        #oUl li div{
+            margin-left: 80px;
+        }
+        #oUl li div h2{
+            height: 20px;
+            line-height: 20px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        #oUl li div p{
+            height: 40px;
+            line-height: 20px;
+        }
+    </style>
+</head>
+<body>
+<ul id="oUl">
+    <li>
+        <!--<img src="pic/img/default.jpg" alt="">-->
+        <!--<div>-->
+            <!--<h2>网络强国战略习近平与“十三五”十四大战略</h2>-->
+            <!--<p>互联网是二十世纪人类最大的发明互联网是二十世纪</p>-->
+        <!--</div>-->
+    </li>
+</ul>
+<script type="text/javascript" src="utils.js"></script>
+<script type="text/javascript">
+  //获取后台的数据
+  var oUl=document.getElementById("oUl");
+  var data=null;
+  var imgList=document.getElementsByTagName("img");
+  ~function () {
+      //创建一个ajax的对象
+     var xhr=new XMLHttpRequest();
+     //打开相应路径下的文件
+     xhr.open("get","data.txt",false); //false 同步
+     xhr.onreadystatechange = function () {
+         if(xhr.readyState===4 && xhr.status===200){
+             data=utils.toJSON(xhr.responseText);
+         }
+     };
+      xhr.send();
+  }();
+  console.log(data);
+
+  //通过字符串拼接，添加到页面
+  function bindData() {
+      var str="";
+      for(var i=0;i<data.length;i++){
+          var cur=data[i];
+          str+="<li>";
+          str+="<img src='pic/img/default.jpg'  trueImg="+cur.logo+">";
+          str+="<div>";
+          str+="<h2>"+cur.title+"</h2>";
+          str+="<p>"+cur.desc+"</p>";
+          str+="</div>";
+          str+="</li>";
+      }
+      oUl.innerHTML=str;
+  }
+  bindData();
+
+  var winH=document.documentElement.clientHeight||document.body.clientHeight;
+  function delayImg() {
+      for(var i=0;i<imgList.length;i++){
+          delayImgCode(i)//实参
+      }
+  }
+   function delayImgCode(i) {//形参
+       if(curImg.Load){
+           return;
+       }
+       var curImg=imgList[i];
+       var curT=utils.offset(curImg).top;//上偏移
+       var curH=curImg.offsetHeight;
+       var scrTop=utils.win("scrollTop");
+       var trueAddress=curImg.getAttribute("trueImg");
+        if(winH+scrTop>=curT+curH){
+           var oImg=document.createElement("img");
+           oImg.src=trueAddress;
+           oImg.onload=function () {
+               curImg.src=trueAddress;
+               curImg.Load=true;
+           };
+           oImg=null;
+        }
+   }
+   //当滚动条滚动时，执行delayImg方法
+   window.onscroll=delayImg;
+   delayImg();
+
+</script>
+</body>
+</html>

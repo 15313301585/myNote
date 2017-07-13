@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            margin: 50px;
+        }
+        ul li{
+            width: 150px;
+            height: 190px;
+            float: left;
+            border: 1px solid #cccccc;
+            margin-left: 50px;
+            border-radius: 5px;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            -ms-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+        ul li img{
+            -webkit-transform: translate(10px,30px);
+            -moz-transform: translate(10px,30px);
+            -ms-transform: translate(10px,30px);
+            -o-transform: translate(10px,30px);
+            transform: translate(10px,30px);
+
+        }
+        ul li:hover{
+            /*以x轴旋转改变基准轴top/bottom/center*/
+            /*以y轴旋转改变基准轴left/right/center*/
+            -webkit-transform-origin: center;
+            -moz-transform-origin: center;
+            -ms-transform-origin: center;
+            -o-transform-origin: center;
+            transform-origin: center;
+            /*rotate3d(x,y,z,angel)  xyz都是小于1的数，angel是个角度
+            rotateX（30deg）;rotateY（30deg）;rotateZ（30deg）;
+            translateX();translateY();translateZ();
+            */
+            -webkit-transform: translate3d(0,-3px,5px) rotate3d(0,1,0,180deg);
+            -moz-transform: translate(0,-3px) rotate3d(0,1,0,180deg);
+            -ms-transform: translate(0,-3px) rotate3d(0,1,0,180deg);
+            -o-transform: translate(0,-3px) rotate3d(0,1,0,180deg);
+            transform: translate3d(0,-3px,5px) rotate3d(0,1,0,180deg);
+            box-shadow: 0 15px 30px rgba(0,0,0,.1);
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><img src="qq.jpg" alt=""></li>
+    <li><img src="qq.jpg" alt=""></li>
+    <li><img src="qq.jpg" alt=""></li>
+    <li><img src="qq.jpg" alt=""></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            margin: 50px auto;
+            width: 100px;
+            height: 100px;
+            background: #c71b1b;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    var oBox=document.getElementById("box");
+    function fn1() {
+
+        console.log(1);
+    }
+    function fn2() {
+
+        console.log(2);
+    }
+
+    function on(curELe,eventType,evenFn) {
+        if(curELe.addEventListener){
+            curELe.addEventListener(eventType,evenFn,false);
+            return;
+        }
+        //curELe["myEvent"+eventType]新增属性
+        if(!curELe["myEvent"+eventType]){
+            curELe["myEvent"+eventType]=[];
+            //这个地方的代码执行一次，针对于一个事件行为（click,mouseover....）
+            curELe.attachEvent("on"+eventType,function () {
+                run.call(curELe); //bind 在IE6-8下不兼容
+            });
+        }
+        var ary=curELe["myEvent"+eventType];
+        for(var i=0;i<ary.length;i++){
+            var cur=ary[i];
+            if(cur===evenFn){
+                return;
+            }
+        }
+        ary.push(evenFn);//[fn1,fn2]
+    }
+
+    on(oBox,"click",fn1); //自己创建的事件池
+    on(oBox,"click",fn2);
+
+    //run方法解决自定义事件池方法挨个执行
+    function run(e) {
+            e = window.event;
+            e.target=e.srcElement;
+            e.pageX=e.clientX+(document.documentElement.scrollLeft||document.body.scrollLeft);
+            e.pageY=e.clientY+(document.documentElement.scrollTop||document.body.scrollTop);
+
+            e.preventDefault=function () {
+                e.returnValue=false;
+            };
+            e.stopPropagation=function () {
+                e.cancelBubble=true;
+            };
+
+        //this->oBox
+        var ary=this["myEvent"+e.type];
+        for(var i=0;i<ary.length;i++){
+            if(typeof ary[i]==="function"){
+                ary[i].call(this,e);
+            }else{
+                ary.splice(i,1);
+                i--;
+            }
+        }
+    }
+
+    //off在自己的事件池中把需要移除的方法移除掉
+    function off(curELe,eventType,evenFn) {
+        if(curELe.removeEventListener){
+            curELe.removeEventListener(eventType,evenFn,false);
+            return;
+        }
+        var  ary=curELe["myEvent"+eventType];
+        for(var i=0;i<ary.length;i++){
+            if(ary[i]===evenFn){
+                //ary.slice(i,1); 会导致数组塌陷问题
+                ary[i]=null;
+                break;
+            }
+        }
+    }
+
+    off(oBox,"click",fn1);
+    //break 结束整个循环
+    //return 结束整个函数
+</script>
+</body>
+</html>

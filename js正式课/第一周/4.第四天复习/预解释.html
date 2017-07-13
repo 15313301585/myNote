@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+
+    //a=1;相当于给window增加一个属性；全局下的变量 var a=1,也是相当于给window增加一个属性
+
+    if(!("a" in window)){  // 没有双引号 a in window ,a是个变量，就相当于判断 undefined  in window
+        var a=1;
+    }
+    alert(a);
+
+    //判断某个属性是否属于某个对象，用in
+      var obj={name:“zhufeng”}
+      console.log("name" in obj); //true
+      console.log("age" in obj);  //false
+      console.log(obj.age);   //undefined
+    */
+
+    //var obj={name："zhufeng"};
+    //var obj={ary:[]};
+    //var obj={aa:{}};
+    //var obj={name:"zhufeng",age:8}
+
+    //对象里面的属性名是字符串
+
+/*
+    var foo = 'hello';
+    (function (foo) {
+        console.log(foo);  //'hello'
+        var foo = foo || 'world';   //'hello'转化成布尔是true
+        console.log(foo);  //'hello'
+    })(foo); //实参'hello'
+    console.log(foo);  //'hello'*/
+// || 赋值：左边是真，取左边的值，左边是false，那么去右边
+
+
+
+    //函数分两部分：定义、执行
+    //自执行函数：定义加执行一块完成
+    //普通函数 function sum() {}  进行预解释， sum=xxxfff111
+
+    /*function sum() {
+
+    }
+
+
+    (function (形参) {
+
+    })(实参);*/
+
+    /*var yy="st";
+    if(yy){  //把yy转化为布尔类型
+
+    }*/
+
+    /*
+    var yy=2;
+    if(yy=1){ //把yy转化成布尔类型，为1
+        console.log(1); //1
+    }
+    */
+
+
+   //预解释的特殊情况：
+    // 1.不管条件成立于否，都要进行预解释；在老版本浏览器中function 预解释是声明加定义；在新版本浏览器，function 预解释只声明不定义。
+    //2.等号左边预解释，右边不进行预解释
+   /* var fn = function () {
+
+    }; //赋值的时候时候，首先开辟一个堆内存，然后把函数中的代码当做字符串存进去，把当前内存的空间地址给fn。
+
+    // 3.return 后面的代码不进行预解释，但return下面的代码不进行预解释
+
+    /*function bar() {
+       return function () {
+           var tt=16;
+       }
+       console.log(tt);
+       tt=12;
+    }
+    var f=bar();
+    console.log(tt);//报错*/
+
+   //4.匿名函数不进行预解释
+
+//    var  fn=function () {
+//
+//        };
+
+      //自执行函数不进行预解释
+//        (function () {
+//
+//        })() ;
+//
+/*
+   var odj={
+       name:"zhufeng",
+       num:1,
+       fn:(function (num) {
+           num1=num;
+           return function () {
+            console.log(num1);
+           }
+       })(obj.num) //报错
+   };
+   //在对象里面获取对象自己的属性值，报错
+   obj.fn();*/
+
+
+</script>
+</body>
+</html>

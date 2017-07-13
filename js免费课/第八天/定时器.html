@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+   /* 定时器：首先约定一个时间，到了这个时间去执行相应的代码
+    /
+     1.setTimeout到了相应的设置时间，执行一次，结束
+    setTimeout(function () {
+    },1000) */
+   /*window.setTimeout(function () {
+        console.log(100);
+    },1000)//1000 是毫秒   1秒=1000毫秒
+   console.log(50);*/
+
+    //2.setInterval  每隔一段时间执行当前的函数一次
+    window.setInterval(function () {
+        console.log(100);
+  },2000);//每隔2秒执行当前的函数一次
+   //console.log(50);
+
+   var timer= window.setTimeout(function () {
+       console.log(100);
+       },3000);
+  var  timery=window.setInterval(function () {
+      console.log(100);
+  },2000);//
+   //各个浏览器之间最小的时间区分不同，谷歌5-6毫秒
+   //定时器的返回值是指在当前页面是第几个定时器
+   console.log(timer);//1
+   console.log(timery);//2
+   window.clearInterval(timery);//清除定时器
+   window.clearTimeout(timer);//清除定时器
+
+
+
+
+
+
+   //定时器：首先约定一个时间，到了这个时间去执行相应的代码
+
+   //1.setTimeout  到了相应的设置时间，执行一次，结束
+   /* console.log(50);
+    window.setTimeout(function(){ //等1000毫秒执行这段代码
+    console.log(100);
+    },1000);//1000 是毫秒 1秒=1000毫秒*/
+
+   //2.setInterval  每隔一段时间执行当前的函数一次
+   /* window.setInterval(function(){ //等1000毫秒执行这段代码
+    console.log(100);
+    },1000);//每隔2000毫秒输出100一次*/
+
+   var timer=window.setTimeout(function(){
+       console.log(100);
+   },3000);
+
+   var timery=window.setInterval(function(){
+       console.log(100);
+   },3000);
+   //定时器的返回值是指在当前页面是第几个定时器
+   console.log(timer);//1
+   console.log(timery);//2
+   window.clearInterval(timery);//清除定时器
+   window.clearTimeout(timer);//清除定时器
+
+
+</script>
+</body>
+</html>

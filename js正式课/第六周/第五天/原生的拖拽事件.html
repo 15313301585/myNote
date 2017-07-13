@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            position: absolute;
+            left: 0;
+            right:0;
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="div1" draggable="true"></div>
+<script>
+    var ele=document.getElementById("div1");
+    ele.ondragstart=function (e) {
+
+        this.mx=e.pageX;
+        this.my=e.pageY;
+        this.x=this.offsetLeft;
+        this.y=this.offsetTop;
+
+    };
+    ele.ondragon=function (e) {
+
+        var l=e.pageX-this.mx+this.x;
+        var t=e.pageY-this.my+this.y;
+        this.style.left=l+"px";
+        this.style.top=t+"px";
+    };
+    ele.ondragend=function () {
+        var l=e.pageX-this.mx+this.x;
+        var t=e.pageY-this.my+this.y;
+        this.style.left=l+"px";
+        this.style.top=t+"px";
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>猎豹头部</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style type="text/css">
+      *{
+          margin: 0;
+          padding: 0;
+      }
+        .wrap{
+            width: 100%;
+            height: 89px;
+            background:rgba(0,0,0,.2);
+        }
+        .header{
+            width: 960px;
+            margin: 0 auto;
+        }
+        .header .logo{
+            float: left;
+            width: 270px;
+            height: 51px;
+            margin-top: 19px;
+        }
+      .header .logo img{
+          width: 100%;
+          height: 100%;
+          display: block;
+      }
+        .header .nav{
+            float: right;
+            line-height: 89px;
+        }
+        .header .nav a{
+            text-decoration: none;
+            font-size: 18px;
+            color: #ffffff;
+            padding:0 30px;
+        }
+         /*作用：在特定的手机设备 单独加样式 为了覆盖上面默认的样式*/
+        @media screen and (max-width: 760px){
+            .header .nav{
+                display: none;
+            }
+            .wrap{
+                height: 46px;
+            }
+            .header .logo{
+                width: 148px;
+                height: 28px;
+                margin: 9px 0 0 10px;
+            }
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+<!--header begin-->
+    <div class="header">
+        <h1 class="logo">
+            <a href="">
+                <img src="logo.png" alt="">
+            </a>
+        </h1>
+        <div class="nav">
+            <a href="#">首页</a>
+            <a href="#">下载</a>
+            <a href="#">论坛</a>
+            <a href="#">International</a>
+        </div>
+    </div>
+<!--header end-->
+</div>
+</body>
+</html>

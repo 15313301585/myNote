@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<ul id="ul1">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<script type="text/javascript">
+var oUl=document.getElementById("ul1");
+var oLis=oUl.getElementsByTagName("li");
+for(var i=0;i<oLis.length;i++) {
+    if (i % 2 == 0) {
+        oLis[i].style.background = "red";
+    }
+    if (i % 2 == 1) {
+        oLis[i].style.background = "green";
+    }
+
+    oLis[i].index=i;
+    oLis[i].onmouseover = function () {
+
+        this.style.background = "pink";
+    };
+   /* oLis[i].onmouseout = function () {
+        if (this.index% 2 == 0) {
+            this.style.background = "red";
+        }
+        if ( this.index% 2 == 1) {
+            this.style.background = "green";
+        }
+    };*/
+
+
+
+    oLis[i].onclick = function () {
+        alert("我是第"+(this.index+1)+"个li");
+    }
+
+}
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+              margin: 0;
+              padding: 0;
+          }
+
+        #outer {
+            width: 220px;
+            padding: 20px;
+            margin: 50px auto;
+            border: 10px solid #2b7dd1;
+            position: relative;
+        }
+
+        #inner {
+            width: 150px;
+            height: 150px;
+            padding: 20px;
+            border: 10px solid #ff6900;
+        }
+
+        #center {
+            width: 100px;
+            height: 100px;
+            border: 10px solid #c71b1b;
+        }
+    </style>
+</head>
+<body>
+<div id="outer">
+    <div id="inner">
+        <div id="center">
+
+        </div>
+    </div>
+</div>
+<script>
+    var outer=document.getElementById("outer");
+    var inner=document.getElementById("inner");
+    var center=document.getElementById("center");
+    //偏移量：当前元素（外边框）距离父级参照物的距离
+    //参照物：offsetParent（父级参照物）
+    //如果不做任何处理的情况下，元素对象对应的父级参照物默认都是body
+//    console.log(outer.offsetParent);//body
+//    console.log(inner.offsetParent);//body
+//    console.log(center.offsetParent);//body
+
+    //offsetTop：当前元素上边框距离父级参照物的距离  上偏移
+    //offsetLeft:当前元素的左边框距离父级参照物的距离  左偏移
+//    console.log(outer.offsetTop);//50
+//    console.log(inner.offsetTop); //80
+
+    //如何修改父级参照物，想让谁成为其他元素的父级参照物，就在她的属性上加上position:absolute/relative/fixed
+//       console.log(outer.offsetParent);//body
+//       console.log(inner.offsetParent);//<div id="outer"></div>
+//       console.log(center.offsetParent);//<div id="outer"></div>
+//       console.log(center.offsetLeft);
+
+    //获取当前元素距离body的左偏移
+    function offset(curEle) {
+        var l=curEle.offsetLeft;//获取当前元素左偏移
+        var t=curEle.offsetTop;//获取当前元素上偏移
+        var p=curEle.offsetParent;//获取当前元素的父级参照物
+        while (p){//当取到body的offsetParent为null，当前的循环结束
+            //body的offsetLeft/offsetTop为0；
+           //在标准的ie8浏览器中，offsetLeft会把自身的边框宽地算进去
+            if(navigator.userAgent.indexOf("MSIE8.0")==-1){
+                //不是ie8，需要加上边框的宽度或者高度
+                l+=p.clientLeft;//左边框宽度
+                t+=p.clientTop;//上边框高度
+            }
+            l+=p.offsetLeft;
+            t+=p.offsetTop;
+            p=p.offsetParent;
+        }
+
+        return{left:l,top:t};//把取到的左偏移和上偏移放进对象中返回
+    }
+ console.log(offset(center).left);
+    //
+</script>
+</body>
+</html>

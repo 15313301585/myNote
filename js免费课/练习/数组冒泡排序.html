@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+   function bubbleSort(ary){
+       var flag = false;
+       for(var i=0;i<ary.length-1;i++){
+           for(var j=0;j<ary.length-1-i;j++){
+                if(ary[j]>ary[j+1]){
+                    ary[j]=ary[j]+ary[j+1];
+                    ary[j+1]=ary[j]-ary[j+1];
+                    ary[j]=ary[j]-ary[j+1];
+                    flag=true;
+                }
+           }
+            if(flag==true){
+               flag=false;
+            }else{
+                break;
+            }
+       }
+      //return ary;
+   }
+
+
+   var ary = [3,4,2,1,5];
+   bubbleSort(ary);
+   console.log(ary);
+  //console.log(bubbleSort([3,4,2,1,5]));
+
+
+</script>
+</body>
+</html>

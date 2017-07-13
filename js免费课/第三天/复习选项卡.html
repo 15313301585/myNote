@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #tab{
+            height: 534px;
+            width: 502px;
+            margin: 50px auto;
+        }
+        ul{
+            list-style: none;
+            overflow: hidden;
+        }
+        li{
+            height: 30px;
+            width: 50px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid #ff6900;
+            float: left;
+            cursor: pointer;
+        }
+
+        #tab ul li.select{
+            background: pink;
+        }
+
+        #tab div{
+            display: none;
+            width: 500px;
+            height: 500px;
+            text-align: center;
+            line-height: 500px;
+            border: 1px solid #000000;
+        }
+        #tab div.select{
+            display: block;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+<div id="tab">
+    <ul>
+        <li class="select">新闻</li>
+        <li>娱乐</li>
+        <li>体育</li>
+    </ul>
+    <div class="select">新闻内容</div>
+    <div>娱乐内容</div>
+    <div>体育内容</div>
+</div>
+<script type="text/javascript">
+ var oTab=document.getElementById("tab");
+ var oLis=oTab.getElementsByTagName("li");
+ var oDiv=oTab.getElementsByTagName("div");
+function change(n) {
+    for(var i=0;i<oLis.length;i++){
+        oLis[i].className = "";
+        oDiv[i].className = "";
+    }
+    oLis[n].className = "select";
+    oDiv[n].className = "select";
+}
+
+   for(var i=0;i<oLis.length;i++){
+       oLis[i].index = i;
+       oLis[i].onclick = function () {
+           change(this.index);
+       }
+   }
+
+
+</script>
+</body>
+</html>

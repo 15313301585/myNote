@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //在IE7下，如果给body的子元素，加上定位，那么当前元素的父级参照物就是HTML，如果不加定位，那么还是Body
+
+    //body的offsetParent是null
+    function offset(curEle) {
+        var t=curEle.offsetTop;
+        var l=curEle.offsetLeft;
+        var p=curEle.offsetParent;
+        while (p){
+            l+=p.clientLeft+p.offsetLeft;
+            t+=p.clientTop+p.offsetTop;
+            p=p.offsetParent;
+        }
+        return {left:l,top:t}
+    }
+
+  //一个参数是获取，两个参数是设置
+    function win(attr,value) {
+        if(typeof value === "undefined"){
+         return  document.documentElement[attr]||document.body[attr];  //return 后面的代码不再执行
+        }
+        document.documentElement[attr]=value;
+        document.body[attr]=value;
+    }
+
+
+</script>
+</body>
+</html>

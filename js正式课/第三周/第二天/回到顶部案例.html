@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #goBack{
+            display: none;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            border: 1px solid red;
+            background: red;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div><img src="1.png" alt=""></div>
+<div><img src="1.png" alt=""></div>
+<div><img src="1.png" alt=""></div>
+<div><img src="1.png" alt=""></div>
+<div><img src="1.png" alt=""></div>
+<div id="goBack">回到顶部</div>
+<script>
+  var oDiv = document.getElementById("goBack");
+  //->回到顶部：
+  //总时间（duration）：1000ms
+  //频率（interval）：多长时间走一步 10ms
+  //总距离（target）：当前的位置（当前的scrollTop值）- 目标的位置（0）
+  //步长（step）：每一次走的距离target/duration*interval
+
+    oDiv.onclick = function () {
+
+        var target = win("scrollTop");
+        var duration = 1000;
+        var interval = 10;
+        var step = target / duration * interval;
+        var timer = setInterval(function () {
+            var curT = win("scrollTop");
+            if (curT == 0) {
+                clearInterval(timer);
+                return;
+            }
+            win("scrollTop", curT - step);
+
+        }, interval)
+    };
+    window.onscroll = function () {//window.onscroll不管怎么操作，只要滚动条动了就会触发这个行为
+        var winH = document.documentElement.clientHeight || document.body.clientHeight;
+        var curT = win("scrollTop");
+//        if(curT > winH){
+//            oDiv.style.display = "block";
+//        }else{
+//            oDiv.style.display = "none";
+//        }
+        oDiv.style.display = curT > winH ? "block" : "none";
+    };
+
+
+    //传一个参数是获取，传两个参数是设置
+    function win(attr, value) {
+        if (value) {
+            document.documentElement[attr] = value;
+            document.body[attr] = value;
+        } else {
+            return document.documentElement[attr] || document.body[attr];
+        }
+    }
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

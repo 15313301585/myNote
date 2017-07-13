@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #box{
+            width: 650px;
+            margin: 50px auto;
+        }
+        #box ul{
+            margin-left: 10px;
+        }
+        #box li{
+            margin-left: 10px;
+            position: relative;
+        }
+        #box em{
+            position: absolute;
+            top:3px;
+            width: 16px;
+            height: 16px;
+            background: url("icon.png") no-repeat -60px -28px;
+            cursor: pointer;
+        }
+        #box span{
+            -webkit-user-select: none;
+            padding-left: 20px;
+        }
+        #box em.open{
+            background-position: -43px -28px;
+        }
+        #box ul{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<ul id="box">
+    <li>
+        <em></em><span>第一级第一个</span>
+        <ul>
+            <li>
+                <em></em><span>第二级第一个</span>
+                <ul>
+                    <li><span>第三级第一个</span></li>
+                    <li><span>第三级第二个</span></li>
+                    <li><span>第三级第三个</span></li>
+                </ul>
+            </li>
+            <li>
+                <em></em><span>第二级第二个</span>
+                <ul>
+                    <li>
+                        <em></em><span>第三级第一个</span>
+                        <ul>
+                            <li><span>第四级第一个</span></li>
+                            <li><span>第四级第二个</span></li>
+                            <li><span>第四级第三个</span></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <em></em><span>第三级第二个</span>
+                        <ul>
+                            <li><span>第四级第一个</span></li>
+                            <li><span>第四级第二个</span></li>
+                            <li><span>第四级第三个</span></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <em></em><span>第三级第三个</span>
+                        <ul>
+                            <li><span>第四级第一个</span></li>
+                            <li><span>第四级第二个</span></li>
+                            <li><span>第四级第三个</span></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <em></em><span>第二级第三个</span>
+                <ul>
+                    <li><span>第三级第一个</span></li>
+                    <li><span>第三级第二个</span></li>
+                    <li><span>第三级第三个</span></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <em></em><span>第一级第二个</span>
+        <ul>
+            <li>
+                <em></em><span>第二级第一个</span>
+                <ul>
+                    <li><span>第三级第一个</span></li>
+                    <li><span>第三级第二个</span></li>
+                    <li><span>第三级第三个</span></li>
+                </ul>
+            </li>
+            <li>
+                <em></em><span>第二级第二个</span>
+                <ul>
+                    <li><span>第三级第一个</span></li>
+                    <li><span>第三级第二个</span></li>
+                    <li><span>第三级第三个</span></li>
+                </ul>
+            </li>
+            <li>
+                <em></em><span>第二级第三个</span>
+                <ul>
+                    <li><span>第三级第一个</span></li>
+                    <li><span>第三级第二个</span></li>
+                    <li><span>第三级第三个</span></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <em></em><span>第一级第三个</span>
+        <ul>
+            <li>
+                <em></em><span>第二级第一个</span>
+                <ul>
+                    <li><span>第三级第一个</span></li>
+                    <li><span>第三级第二个</span></li>
+                    <li><span>第三级第三个</span></li>
+                </ul>
+            </li>
+            <li>
+                <em></em><span>第二级第二个</span>
+                <ul>
+                    <li><span>第三级第一个</span></li>
+                    <li><span>第三级第二个</span></li>
+                    <li><span>第三级第三个</span></li>
+                </ul>
+            </li>
+            <li>
+                <em></em><span>第二级第三个</span>
+                <ul>
+                    <li><span>第三级第一个</span></li>
+                    <li><span>第三级第二个</span></li>
+                    <li><span>第三级第三个</span></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+<script type="text/javascript" src="jquery-1.11.3%20.js"></script>
+<script type="text/javascript">
+//       $("#box em").next("span").css("cursor","pointer");
+//
+//       $("#box").click(function (e) {
+//        e=e||window.event;
+//        e.target=e.target||e.srcElement;
+//
+//        if(e.target.tagName.toLowerCase()==="em"||e.target.tagName.toLowerCase()==="span"){
+//            if(!$(e.target).nextAll("ul").length){
+//                return;
+//            }else{
+//                if($(e.target).nextAll("ul").is(":hidden")){
+//                    $(e.target).nextAll("ul").show().prevAll("em").addClass("open");
+//                }else {
+//                    $(e.target).nextAll("ul").parent().find("ul").hide();
+//                    $(e.target).nextAll("ul").prevAll("em").removeClass("open");
+//                }
+//            }
+//        }
+//    });
+
+
+
+//第二种思路：
+
+//function fn() {
+//    var $par = $(this).parent();
+//    var $ul = $par.children("ul");
+//    var $em = $par.children("em");
+//
+//    if ($ul.length > 0) {
+//        var isBlock = $ul.css("display") === "block" ? true : false;
+//        $ul.toggle();
+//        $em.toggleClass("open");
+//        //当前的如果是收缩的话，我们需要把子子孙孙中所有的ul/em都隐藏和移出open样式
+//        if (isBlock) {
+//            $par.find("ul").css("display", "none");
+//            $par.find("em").removeClass("open");
+//        }
+//    }
+//}
+//
+//$("#box").delegate("em", "click", fn);//给box绑定点击事件，如果点击的事件源是em的话，我们执行fn
+//$("#box").delegate("span", "click", fn);
+
+
+</script>
+</body>
+</html>
+
+

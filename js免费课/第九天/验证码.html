@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1"></div>
+<script type="text/javascript">
+      var oDiv= document.getElementById("div1");
+      var strRan="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+      function getCode() {
+           var newstrRan="";
+           var i=0;
+           while (i<4){
+              var index=Math.round(Math.random()*(61-0)+0);
+              if(newstrRan.indexOf(strRan[index])===-1){
+                  newstrRan+=strRan[index];
+                  i++;
+              }
+          }
+       return  newstrRan;
+
+      }
+
+      oDiv.innerHTML=getCode();
+      oDiv.onclick=function () {
+          this.innerHTML=getCode();
+      }
+
+</script>
+</body>
+</html>

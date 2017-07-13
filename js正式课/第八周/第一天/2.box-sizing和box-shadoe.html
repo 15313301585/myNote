@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            /*内容的宽度*/
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            background: red;
+            border: 10px solid #ff6900;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    //background渲染的时候，也会把padding和border进行渲染
+    //box-sizing: border-box;为元素指定的任何padding和边框都在已经设定的宽度或者高度里面进行渲染；只针对于border里面的内容起作用
+    //box-sizing: content-box;默认值  宽度和高度都是应用在元素的内容块，在宽度和高度之外绘制元素的内边距和边框
+    //box-sizing: inherit;从父级元素继承box-sizing属性的值
+
+
+    //box-shadow:向边框添加一个或者多个阴影；
+    
+
+</script>
+</body>
+</html>

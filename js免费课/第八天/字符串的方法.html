@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    //字符串：用单引号或者双引号包起来的是字符串
+    //字符串的加法是字符串的拼接
+    //console.log.dir()输出详细信息
+    //1.toUpperCase 把所有的字母转化为大写
+    //string.toUpperCase()  返回值就是大写
+    //console.log("abnM".toUpperCase());
+    //2.toLowerCase 把字符串中所有的字母转化为小写
+     // console.log("ADFM".toLowerCase());
+    //3.charAt 通过索引获取对应的字符
+    //字符串也有length属性的，他的长度就是双引号或单引号包起来的有效字符
+     //var str="adfggik";
+    //console.log(str.charAt(2)); //f
+    //console.log(str[2]);//f
+    //4.charCodeAt  通过索引得出对应字符的Unicode编码值
+    //var str="adfggik";
+    //console.log(str.charCodeAt(2));
+    //5.indexOf 返回字符在字符串中第一次出现位置的索引,如果不存在该字符，那么返回-1
+   // var str="adsead";
+  // console.log(str.indexOf("a"));
+
+    //6.lastIndexOf 返回字符在字符串中最后一次出现位置的索引,如果不存在该字符，那么返回-1
+    // var str="adsead";
+    // console.log(str.lastIndexOf("a"));
+    //7.replace 替换 第一个参数是原有字符，第二个是新字符
+    //var str="adsead";
+    //console.log(str.replace("d","haha"));
+    //console.log(str.replace("a","haha").replace("a","haha"));
+    //8.split  把字符串中的每一项通过特定字符分隔成数组中的每一项
+   /* var str ="yud";
+    console.log(str.split(""));//["y","u","d"]
+    var str ="yud";
+    console.log(str.split("+"));//["yud"]
+    var str ="yu+dd+ad";
+    console.log(str.split("+"));//["yu","dd","ad"]*/
+    //    var str = "yu+au+uu";
+    //    console.log(str.split(""))//["y", "u", "+", "a", "u", "+", "u", "u"]
+    //    var str = "yu+au+uu";
+    //    console.log(str.split("="))//["yu+au+uu"]
+
+    //join:把数组中的每一项用符号分割成字符串
+    //eval 把字符串转化成真正的表达式
+     /*var ary=[12,55,77];
+     var str=ary.join("+")
+      str="12+55+77";
+     console.log(eval(str));*/
+
+     //9.substr(n,m)截取字符串 从字符串索引n开始，截取m个字符，如果只写一个参数substr(n)，那么它会从n截取到末尾；如果没有参数，它会从0截取到末尾
+
+   /* var str="awejfkl";
+    console.log(str.substr(2,3));*/
+
+    //10.substring(n,m)截取字符串，从字符串的索引n开始，包含n，截取到索引m，不包含m
+    //var str="awejfkl";
+   // console.log(str.substring(2,3));
+   // console.log(str.substring(-1,3));//awe
+   // console.log(str.substring(1,-3));// a
+
+
+   /* var ary=[12,66,88,99,55,77]
+    slice(n,m)
+    console.log(ary.slice(1,-1));//[66,88,99,55]
+    console.log(ary.slice(-3,-1));//[99,55]*/
+    //如果参数是负数 ary.length+(负数)
+
+    var str="awejfkl";
+    console.log(str.substring(2,3));
+    console.log(str.substring(-1,3));//awe
+    console.log(str.substring(1,-3));// a
+</script>
+</body>
+</html>

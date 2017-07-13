@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .code{
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border: 1px solid #c9c9c9;
+            border-radius: 5px;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+<div class="code"></div>
+<script>
+//产生一个四位的随机字母或者数字
+    var code=document.getElementsByClassName("code")[0];
+
+    function getCode() {
+        var str="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        var newStr="";
+        /*for(var i=0;i<4;i++){
+            var index=Math.round(Math.random()*(61-0)+0); //索引0-61
+            newStr+=str[index]+" ";
+        }*/
+        var i=0;
+        while (i<4){
+            var index=Math.round(Math.random()*(61-0)+0);
+            if(newStr.toLowerCase().indexOf(str[index].toLowerCase())===-1&&newStr.indexOf(str[index])===-1){
+                newStr+=str[index]+" ";
+                i++;
+            }
+        }
+        return  newStr;
+    }
+    code.innerHTML=getCode();
+    code.onclick = function () {
+        this.innerHTML =getCode();
+    }
+</script>
+</body>
+</html>

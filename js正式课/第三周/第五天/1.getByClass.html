@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box">
+    <div class="first"></div>
+    <div class="first second"></div>
+    <div class="first second"></div>
+    <div class="first third"></div>
+    <div class="first third"></div>
+</div>
+<script>
+    //document.getElementsByClassName()//在IE6-8是不兼容的
+    var box=document.getElementById("box");
+  // var oDivs=document.getElementsByClassName("first")[1];
+
+
+    //1.参数cName：类名   context：上下文，指的查找的范围
+    function getByClass(cName,context) {
+        //在context这个上下文环境中获取class是cName的元素
+        //如果这个context不传，默认获取document下的元素
+//       if(context==undefined){
+//           context=document;
+//       }
+        context=context||document;
+       //在标准浏览器下
+        if(context.getElementsByClassName){//在IE6~8下不存在getElementsByClassName
+            return context.getElementsByClassName(cName);
+        }
+       //在IE6-8浏览器中，不兼容的情况下
+        var ary=[];
+        var nodes=context.getElementsByTagName("*");//把当前范围内的所有的元素对象获取到
+        for(var i=0;i<nodes.length;i++){
+            //获取当前循环的元素对象
+            var curNode=nodes[i];
+            var curClass=curNode.className;
+            var reg=new RegExp("(^|\\s+)"+cName+"(\\s+|$)");
+            if(reg.test(curClass)){
+                ary.push(curNode);
+            }
+        }
+        return ary;
+    }
+
+    console.log(getByClass("second",box));
+
+
+
+
+    //hasClass:是否有某个类名，有返回true，没有返回false
+
+    var oDiv=document.getElementsByClassName("first")[1];
+
+    function hasClass(curEle,cName) {
+        var curEleClass=curEle.className;
+        var reg=new RegExp("(^|\\s+)"+cName+"(\\s+|$)");
+        return reg.test(curEleClass);
+    }
+    console.log(hasClass(oDiv,"second"));  // true
+
+
+    //addClass:新增类名
+
+    var div1=document.getElementsByClassName("first")[0];
+    function addClass(curEle,cName) {
+       var reg=new RegExp("^ +| +$","g");//去掉首尾空格的正则
+       cName=cName.replace(reg,"");//用空去替换首尾空格
+       var ary=cName.split(/ +/g);
+       for(var i=0;i<ary.length;i++){
+           if(!hasClass(curEle,ary[i])){
+               curEle.className+=" "+ary[i];
+           }
+       }
+    }
+
+    addClass(div1," five six ");
+
+
+
+    //删除类名
+
+    function removeClass(curEle,cName) {
+        var reg=new RegExp("^ +| +$","g");//捕获首尾空格的正则
+        cName=cName.replace(reg,""); //去掉首尾空格
+        var ary=cName.split(/ +/g);//把传进来的参数，用空格分割成数组的每一项
+        for(var i=0;i<ary.length;i++){ //循环传经来的每一个类名
+            var curName=ary[i];//获取每一个类名
+            if(hasClass(curEle,curName)){//判断当前元素是否含有某个类名
+                var reg1=new RegExp("(^|\\s+)"+curName+"(\\s+|$)");
+                curEle.className=curEle.className.replace(reg1," ");
+            }
+        }
+    }
+
+    removeClass(div1,"five");
+</script>
+</body>
+</html>

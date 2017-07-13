@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var xhr=new XMLHttpRequest();
+    xhr.open("get","./data.txt",true,[username],[password]); //true异步
+
+    xhr.onreadystatechange=function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            data = xhr.responseText;
+        }
+
+    };
+    xhr.send();//发送请求
+
+</script>
+</body>
+</html>

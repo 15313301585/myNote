@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box" name="tab">
+    <div class="tab" name="tab"></div>
+</div>
+<script>
+    var oDiv=document.getElementById("box");
+    var oDiv1=document.getElementsByName("tab")[0];
+//getElementById / getElementByName 在document的原型链上，所以上下文必须是document，而在div原型链上面没有这个方法，所以报错
+console.log(oDiv1);
+</script>
+</body>
+</html>

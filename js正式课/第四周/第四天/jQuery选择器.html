@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div class="first"></div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<script type="text/javascript" src="jquery-1.11.3.js"></script>
+<script type="text/javascript">
+    //DOM是由元素节点组成的
+    //原生js中获取元素对象的方式
+    //document.getElementsByClassName()  //在ie6-8不兼容
+
+ //通过标签名获取
+ //$("div")
+
+
+
+//层级选择器
+    //$("#first + ") //获取同级下的弟弟元素对象
+    //$(".first ~") //获取同级所有的兄弟元素对象
+
+//基本过滤器选择器
+    //$(".first:first") //获取类名叫first的第一个元素对象
+    //$(".first:last") //获取类名叫first的最后一个元素对象
+   console.log($("div,ul:hidden")) ;
+
+</script>
+</body>
+</html>

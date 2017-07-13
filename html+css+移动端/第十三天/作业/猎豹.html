@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .main{
+            width: 960px;
+            margin: 0 auto;
+        }
+        .title{
+            font-weight: normal;
+            font-size: 20px;
+            color: #ff6900;
+        }
+
+        .list{
+            width: 960px;
+            overflow: hidden;
+            padding-top: 15px;
+        }
+
+        .list li{
+            float:left;
+            width: 33.33%;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .list li a{
+            font-size: 12px;
+            color: #666;
+            padding: 0 10px 0 24px;
+            background: url("back.png") no-repeat  0  -225px;
+        }
+        .list li a:hover{
+            color: #ff6900;
+        }
+
+
+        @media screen and (max-width: 760px){
+            .list{
+                width: 100%;
+                height: 154px;
+                padding: 10px;
+                -webkit-box-sizing:border-box;
+                box-sizing: border-box;
+            }
+            .list li{
+                width: 100%;
+            }
+            .title{
+                font-size: 16px;
+                padding-left: 10px;
+                font-weight: bold;
+            }
+            .list li:nth-child(6),.list li:nth-child(7),.list li:nth-child(8),.list li:nth-child(9){
+                display: none;
+            }
+
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="main">
+    <h2 class="title">论坛精华</h2>
+    <ul class="list">
+        <li><a href="##">最新爆款游戏 flappy2048 猎豹版抢先发布！</a></li>
+        <li><a href="##">新毒霸“抢票模式”发布！让抢票更成功</a></li>
+        <li><a href="##">八大妙招学购票，12306新版购票指南提前泄出</a></li>
+        <li><a href="##">猎豹全平台力挺你回家！抢票成功率提高25倍</a></li>
+        <li><a href="##">猎豹微信全面升级，春运抢票更给力
+        </a></li>
+        <li><a href="##">你抢到火车票的时间是？
+        </a></li>
+        <li><a href="##">猎豹浏览器联合小米免费橙色大巴送你回家
+        </a></li>
+        <li><a href="##">猎豹浏览器手机版首创抢火车票功能
+        </a></li>
+        <li><a href="##">纪念2013年旅行中的点点点滴，帅哥美女齐爆照</a></li>
+    </ul>
+</div>
+</body>
+</html>
+
+
+
+

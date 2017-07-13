@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{
+            display: block;
+        }
+
+        #range{
+            width: 180px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+<!--input 表单-->
+<input type="text">
+<input type="button" value="点击">
+<input type="submit">
+<input type="radio">
+<input type="checkbox">
+<input type="file"><!-- 打开本地文件-->
+
+<!--html5 新增的type属性-->
+<input type="email">  <!-- 符合邮箱规则的不报错-->
+<input type="url">  <!-- 链接-->
+<input type="search">  <!-- 搜索框-->
+<input type="date">  <!-- 时间-->
+<input type="number">  <!-- 数字-->
+<input type="tel">  <!-- 电话-->
+<input type="range" max="100" min="10" value="30">  <!-- 范围-->
+<input type="color">  <!-- 颜色-->
+<input type="hidden">  <!-- 隐藏域-->
+
+<form action="">
+    <input type="hidden" name="username">
+    <input type="password" name="password">
+    <input type="submit">
+</form>
+
+
+
+
+
+
+<!--<input type="radio" name="sex" id="boy"><label for="boy">男</label>-->
+<!--<input type="radio" name="sex" id="girl"><label for="girl">女</label>-->
+<!--<input type="range" max="100" min="20"  id="range">-->
+<!--<input type="text" id="num">-->
+<script>
+//    html5 新增标签
+//
+//    header：头部区域
+//    section:划分区域
+//    footer:底部区域
+//    main:表示文档中，唯一的主体部分
+//    nav:导航链接部分
+//    figure:图片 内容标签
+//    figcaption:图片的描述
+//    article:包含文章，博客，文档标签
+//    aside:侧边栏、或者广告
+//    hgroup:包含一组标题标签
+//    audio:音频
+//    video:视频
+//    API:本地存储
+//    canvas:动画
+
+
+
+var range=document.getElementById("range");
+var num=document.getElementById("num");
+
+    num.value=range.value;
+////    range.onmousemove=function () {
+////        num.value=range.value;
+////    }
+//
+    range.oninput=function () {
+        num.value=range.value;
+    }
+
+    //onchange:当文本框中的内容发生改变(鼠标焦点失去时)触发的事件
+    //onfocus:文本框获取鼠标焦点执行的该方法
+    //onblur:文本框失去鼠标焦点执行的该方法
+    //oninput:文本框中的内容发生改变
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //数组去重：去掉数组中相同项
+    //var ary=[12,66,12,8,66,8,99];
+    //ary1=[12,66,8,99];
+    //ary.indexOf(12)
+   /* var newary=[];
+    for(var i=0;i<ary.length;i++){
+        if(newary.indexOf(ary[i])===-1){
+            newary.push(ary[i]);
+        }
+    }
+    console.log(newary);*/
+
+
+   //第二种方法：
+
+   /*对象的属性名
+    var obj={13:"12",13:13};
+   console.log(obj[13]);//如果属性名相同，那么只能获取到后面的哪一个*/
+   //利用对象的键值对的方法：
+    //1.我们把数组中的每一项的值当做对象的属性名和属性值存起来
+    //2.在每一次存储之前我们首先要判断当前这一项（N）在对象中是否已经存在了,obj[N]的值如果是 N 说明对象中已经存在了，也说明了数组中在N之前已经出现过了一次N；如果值是undefined说明对象中还没有这一项
+
+    var ary=[12,66,12,8,66,8,99];
+    var obj={};
+    for(var i=0;i<ary.length;i++){
+        var cur = ary[i];
+        if(obj[cur] == cur){
+            ary[i]=ary[ary.length-1];
+            ary.length--;
+            //ary.splice(i,1);
+            i--;
+            continue;
+        }
+
+        obj[cur]= cur;
+    }
+
+    obj=null;
+
+    ary.sort(function (a,b) {
+       return b-a;
+   });
+
+   console.log(ary);
+
+
+
+</script>
+</body>
+</html>

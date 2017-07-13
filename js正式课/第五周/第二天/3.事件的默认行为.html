@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="http://www.baidu.com" id="tab" target="_blank">百度</a>
+<script>
+    //a标签点击，实现连接自动跳转，这是a的默认的事件行为
+    //阻止事件的默认行为
+    var aa=document.getElementById("tab");
+    aa.onclick=function (e) {
+        console.log(1);
+
+        e=e||window.event;
+        console.log(e.preventDefault);//
+        console.log(e.returnValue);//在IE6-8下不存在preventDefault这个方法，但是存在returnValue这个属性
+
+        //console.log(e);//MouseEvent事件对象
+        //阻止事件的默认行为
+        e.preventDefault?e.preventDefault():e.returnValue=false;
+       // return false;  第二种阻止事件的默认行为
+    }
+
+
+</script>
+</body>
+</html>

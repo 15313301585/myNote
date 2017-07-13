@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    /*//for循环
+    for(var i=0;i<18;i++){
+        console.log(i);
+    }*/
+    //for四部曲
+    //1.定义i的初始值（在第一次循环才有）
+    //2.判断条件是否成立
+    //3.执行循环体内的代码
+    //4.执行i++
+
+   //break 结束整个循环，i++也不在执行；
+  // continue 结束本轮循环,continue下面的代码不在执行， i++继续执行
+    /*for(var i=0;i<18;i++){
+        console.log(i);
+        if( i == 11 ){
+            console.log(i);
+            continue;
+        }
+    }*/
+/*
+    for(var num=0;num<10;num++){
+        if(num>5){
+            num+=2;
+            continue;
+        }
+    }
+    console.log(num);//12*/
+
+
+for(var i=0;i<5;i++) {
+    if (i <= 2) {
+        continue;
+        i++;
+    } else {
+        i += 2;
+    }
+
+}
+    console.log(i); //6
+
+
+
+
+
+    //2.for in 循环：遍历对象，如果属性名是数字的话，会先输出
+   /*var obj = {name:"小明",age:18,sex:"男",5:"你好"};
+     for(var key in obj){
+     console.log(obj[key]);
+     }*/
+
+
+
+</script>
+</body>
+</html>

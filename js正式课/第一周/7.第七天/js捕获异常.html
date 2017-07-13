@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //捕获异常：当js代码报错的时候，捕捉到，并且能把异常信息抓取到
+    // try  catch finally（不常用）
+    //e.message可以看到具体的错误信息
+    //try 代码报错，才会走catch里面的代码，不报错，catch中的代码不执行
+    //如果catch里面也有错误，需要看try中的代码，try有错误，那么catch中也报错，try没有错，则代码正常
+//
+//    try{
+//        console.log(num);
+//    }catch (aa){
+//        console.log(aa.message);
+//    }finally {
+//        console.log(1);
+//    }
+//
+
+    //我们29行代码报错，如果用try、catch捕获了异常信息，不影响下面的代码，继续执行；如果try中的代码执行出错了，会默认的去执行catch中的代码
+//    console.log(num);//在js中本行报错，下面的代码都不在执行了
+//    console.log("ok")
+
+    try{
+        console.log(num);
+    }catch (e){  //形参必须要写我们一般写e
+      //  console.log(1);
+        console.log(e.message);//num is not defined可以收集当前代码报错的原因
+    }
+    console.log("ok");
+
+
+    try{
+        //js代码
+    }catch(e){
+        //如果代码报错执行catch中的代码
+    }finally {
+        //一般不用，不管try中的代码是否报错，都执行finally中的代码
+    }
+
+
+    //有时候即想捕获到错误信息，又想不让下面的代码继续执行
+
+    try{
+        console.log(num);
+    }catch (e){
+
+        //console.log(e.message);——>可以得到错误信息，把其进行统计
+        //——>手动抛出一条错误信息，终止代码执行
+        throw new Error("当前网络繁忙，请稍后再试~~");
+//        new ReferenceError->引用错误
+//        new TypeError->类型错误
+//        new RangeError->范围错误
+    }
+    console.log("ok");
+
+</script>
+</body>
+</html>

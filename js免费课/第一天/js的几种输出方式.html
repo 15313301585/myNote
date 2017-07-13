@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js的几种输出方式</title>
+
+    <style>
+        .con1{
+            width: 100px;
+            height: 50px;
+            border: 1px solid #000000;
+        }
+    </style>
+</head>
+<body>
+<input type="text" class="con">
+<div class="con1"></div>
+<script type="text/javascript">
+//    1.alert()
+//      alert括号里面的内容，就是浏览器弹出框内的文本
+//        alert("珠峰培训");
+//
+//    2.console.log
+//    console.log在浏览器控制台输出我们的内容，输出的内容就是括号包起来的内容
+//    console.log("珠峰培训");
+//
+//    3.document.write()
+//      document.write("珠峰培训");
+//      document.write("珠峰培训");
+//
+//     4.value 只针对input标签赋值，对div不起作用
+//     document .getElementsByClassName("con")[0].value="百度一下";
+//
+//     5.innerHTML和innerText 他们是input标签以外的标签赋值
+//       innerHTML 它可以识别标签
+//       innerText  不能识别标签,在低版本火狐浏览器下是不兼容的
+
+//      document .getElementsByClassName("con1")[0].innerHTML="百度两下";
+//      document .getElementsByClassName("con1")[0].innerText="百度两下";
+//      document .getElementsByClassName("con1")[0].innerHTML="<a href='http://www.baidu.com'>百度两下</a>";
+//      document.getElementsByClassName("con1")[0].innerText="<a href='http://www.baidu.com'>百度两下</a>";
+</script>
+</body>
+</html>

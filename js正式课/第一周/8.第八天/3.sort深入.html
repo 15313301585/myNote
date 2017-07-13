@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //sort  Array是一个内置的类，sort在Array的原型上，所以凡是数组都可以调用
+    //sort 只处理10以内的数字
+    //回调函数：把一个方法B当做方法A的参数，传给方法A，在函数A中，可以任意位置调用方法B，让方法B执行
+
+//    function A(B) {
+//      console.log(1) ;
+//      B();
+//    }
+//
+//    function B() {
+//      console.log(2)
+//    }
+//
+//    A(B);
+
+   var ary=[1,5,6,48,8,19,88] ;
+   ary.sort(function (a,b) {
+       return a-b;
+   })
+
+    //sort排序：是对数组中的每一项排序
+    //升序   return a-b 如果大于0，那么我让a，b交换位置，如果小于0，则不换位置
+    //降序   return b-a 如果大于0，那么我让a，b交换位置，如果小于0，则不换位置
+
+
+    //localCompare 先把汉字转成拼音（谷歌浏览器最新版本的存在问题）
+</script>
+</body>
+</html>

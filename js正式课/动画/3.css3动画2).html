@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <style>
+        body{
+            background:yellow;
+        }
+        div{
+            opacity:0;
+            position: absolute;
+            width:99px;
+            height:99px;
+            background:rgba(125,125,125,1);
+            -webkit-border-radius:50%;
+            border-radius:50%;
+            -webkit-animation:bounceInDown 10s ease both;
+            animation:bounceInDown 10s ease both;
+        }
+        .box1{
+            bottom:0;
+            left:0;
+            -webkit-animation-delay:0s;
+        }
+        .box2{
+            bottom:10px;
+            left:90px;
+            -webkit-animation-delay:.3s;
+        }
+        .box3{
+            bottom:0;
+            left:180px;
+            -webkit-animation-delay:.6s;
+        }
+        .box4{
+            bottom:90px;
+            left:90px;
+            -webkit-animation-delay:.9s;
+        }
+        .box5{
+            bottom:0;
+            right:0;
+            -webkit-animation-delay:1.2s;
+        }
+        @keyframes bounceInDown{
+            0%{
+                opacity:0;
+               -webkit-transform:translateY(-1000px);
+                transform:translateY(-1000px);
+            }
+            50%{
+                -webkit-transform:translateY(50px);
+                transform:translateY(50px);
+            }
+            70%{
+                -webkit-transform:translateY(-50px);
+                transform:translateY(-50px);
+            }
+            100%{
+                opacity: 1;
+                -webkit-transform:translateY(50px);
+                transform:translateY(50px);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="box1"></div>
+<div class="box2"></div>
+<div class="box3"></div>
+<div class="box4"></div>
+<div class="box5"></div>
+</body>
+</html>

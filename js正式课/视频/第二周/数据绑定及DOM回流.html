@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<ul id="ul1">
+    <li><span class="bg">01</span>娱乐</li>
+    <li><span class="bg">02</span>体育</li>
+    <li><span class="bg">03</span>新闻</li>
+</ul>
+<body>
+<script>
+    var ary=[{"title":"游戏"},{"title":"热点"},{"title":"电影"}];
+
+
+    var oUl=document.getElementById("ul1");
+    var oLis=oUl.getElementsByTagName("li");
+    for (var i=0;i<oLis.length;i++){
+        oLis[i].onmouseover=function () {
+            this.style.backgroundColor="pink";
+        };
+        oLis[i].onmouseout=function () {
+            this.style.backgroundColor="";
+        }
+    }
+
+    //1.利用动态创建元素节点和把它追加到页面中的方式实现数据绑定
+    //优势：把需要绑定的内容一个个的追加到页面中，对原来的元素没有任何影响
+    //弊端：每当创建一个元素，我们就添加到页面中，引发一次DOM的回流，最后引发回流的次数过多，影响我们的性能
+//    for(var i=0;i<ary.length;i++){
+//        var cur=ary[i];
+//        var oLi=document.createElement("li");
+//        oLi.innerHTML="<span>"+(i+4)+"</span>"+cur.title;
+//        oUl.appendChild(oLi);
+//    }
+
+    //2.字符串拼接的方式：首先循环需要绑定的数据，然后把需要动态绑定的标签以字符串的方式拼接到一起，最后统一的添加到页面中——>字符串拼接绑定数据是我们以后工作中最常用的一种绑定数据的方式
+    //弊端：我们把新拼接的字符串添加到页面中时，原来标签绑定的事件都消失了
+    //优势：事先把内容拼接好了，最后添加到页面中，只引发一次回流
+   var str="";
+    for(var i=0;i<ary.length;i++){
+        var cur=ary[i];
+        str+="<li>";
+        str+="<span>"+(i+4)+"</span>";
+        str+=cur.title;
+        str+="</li>";
+    }
+    oUl.innerHTML+=str;
+
+    //js中DOM深入知识：
+    //->回流（重排 reflow）:当页面中的HTML结构发生改变（增加、删除元素、位置发生改变。。。），浏览器都需要重新的计算一遍最新的DOM结构，从新的对当前的页面进行渲染
+    //->重绘：某一个元素的部分样式发生改变了（比如背景颜色改变），浏览器只需要重新的渲染当前的元素即可
+
+
+
+    //js优化：
+    //1.注意内容的手动释放
+    //2.尽量减少DOM的回流机制
+
+
+    //3.文档碎片
+//    var frg = document.createDocumentFragment();//创建一个文档碎片，相当于临时创建了一个容器
+//    for (var i = 0; i < ary.length; i++) {
+//        var cur = ary[i];
+//        var oLi = document.createElement("li");
+//        oLi.innerHTML = "<span>" + (i + 4) + "</span>" + cur.title;   //绑定数据
+//        frg.appendChild(oLi);
+//
+//    }
+//    oUl.appendChild(frg);
+//    frg=null;
+    //优点：引发一次回流
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //查找上级作用域：首先看是不是私有变量（形参、有没有被var过），如果不是，就向上一级查找，如果上一级没有，继续向上查找，直到找到window为止，如果window也没有，相当于给window增加一个属性
+    //如果当前变量在函数中被var过，或者是形参，是一个私有变量
+//    var num=2;
+//    var obj={
+//        num:1,
+//        fn:function () {
+//            (function (num) {
+//                this.num++; // window
+//                console.log(num);
+//
+//            })(this.num)//obj
+//        }
+//    };
+//      obj.fn();
+</script>
+</body>
+</html>

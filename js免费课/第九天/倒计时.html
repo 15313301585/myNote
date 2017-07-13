@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 50px;
+            margin: 80px auto;
+            text-align: center;
+            line-height: 50px;
+            border: 1px solid #ff6900;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">00：00：00</div>
+<script type="text/javascript">
+    var oBox=document.getElementById("box");
+    function forMate(value) {
+      return   value<10?"0"+value:value;//return的是计算结果
+    }
+    function getTime() {
+        var curTime=new Date();
+        var targetTime=new Date("2017-5-14  11:40:00");
+        var timeDif=targetTime-curTime;//毫秒差
+        if(timeDif<0){
+         window.clearInterval(timer);
+         return;//下面的代码不再执行
+        }
+        var hours=Math.floor(timeDif/(1000*60*60));
+        var minutes=Math.floor((timeDif-hours*1000*60*60)/(60*1000));
+        var seconds=Math.floor((timeDif-hours*1000*60*60-minutes*60*1000)/1000);
+
+        var str=forMate(hours)+":"+forMate(minutes)+":"+forMate(seconds);
+
+        oBox.innerHTML=str;
+
+    }
+
+    getTime();
+    var timer=window.setInterval(function () {
+        getTime();
+    },1000);
+
+
+
+
+
+</script>
+</body>
+</html>

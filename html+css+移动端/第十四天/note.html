@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>rem</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <style type="text/css">
+/*        rem  root element 根元素
+          rem(font size of root element) 根元素(html)的字体大小
+          1rem=16px 谷歌html默认的字体大小是16px
+          样式属性分2种：
+          1.浏览器默认自带的样式  我们修改不了
+          2.我们自定义的样式  我们可以修改
+*/
+        *{
+            margin:0;padding:0;
+        }
+/*        html{
+            font-size:100px;
+            /!*设置100px 原因:1.减少和设计稿的偏差 2.方便计算*!/
+            /!*1rem:100px;*!/
+
+        }*/
+        .box{
+            position:absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+            margin:auto;
+            width:1rem;
+            height:1rem;
+            background:red;
+
+            /*1rem=16px;  logo  135px*135px  8.4375rem*8.4375rem
+            */
+        }
+        .box1{
+            width:1rem;
+            height:1rem;
+            background: darkgoldenrod;
+        }
+/*      375  100px
+        414   ?
+        640   ??
+        ?= (414*100)/375
+        ??= (640*100)/375
+
+        设计稿的尺寸  分辨率  1rem(html font size) 1rem=100px
+        750          375    100px
+                     414    ？
+                     320    ？
+                     640    ？
+        */
+
+
+        @media screen and (min-width: 375px){
+            /*375分辨率 以iphone6参考 做的设计稿*/
+            html{
+                font-size:100px;
+            }
+        }
+        @media screen and (min-width: 414px){
+            html{
+                font-size:110.4px;
+            }
+
+        }
+        @media screen and (min-width: 640px){
+            html{
+                font-size:170.66px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!--移动端：
+meta:vp  tab
+
+【产品形态】
+1.PC和移动端公用一套页面结构
+媒体查询+px
+
+2.PC和移动端分离开 H5
+rem 单位
+
+【页面布局方式】
+1.固定布局:宽高写死  float+position        最常用在PC上
+2.流式布局(百分比布局)+媒体查询+px单位      最常用在PC端和移动端公用一套页面结构
+3.流式布局(百分比布局)+ 媒体查询 + rem单位  最常用移动端上 h5页面上
+4.flexbox 弹性盒模型
+-->
+<div class="box"></div>
+<div class="box1"></div>
+
+1.640的设计稿   320 分辨率 参照的是iphone5  DPR 2.0
+320  375  414
+50px  ?    ?
+@media screen and (min-width:320px){
+    html{
+        font-size:50px;
+    }
+}
+@media screen and (min-width:375px){
+    html{
+        font-size:58.59375px;
+    }
+}
+@media screen and (min-width:414px){
+    html{
+        font-size:64.6875px;
+    }
+}
+
+
+2.750的设计稿  375的分辨率 参考的是iphone6   DPR 2.0
+375  320  414
+50   ?     ?
+@media screen and (min-width:320px){
+    html{
+        font-size:42.666px
+    }
+}
+@media screen and (min-width:375px){
+    html{
+        font-size:50px;
+    }
+}
+@media screen and (min-width:414px){
+    html{
+        font-size:55.2px;
+    }
+}
+
+
+3.1242的设计稿  分辨率414  参照的是iphone6 plus  DPR 3.0
+414        320     375
+33.33px    ?        ?
+@media screen and (min-width:320px){
+    html{
+        font-size:25.76px;
+    }
+}
+@media screen and (min-width:375px){
+    html{
+        font-size:30.19px;
+    }
+}
+@media screen and (min-width:414px){
+    html{
+        font-size:33.33px;
+    }
+}
+
+
+
+</body>
+</html>

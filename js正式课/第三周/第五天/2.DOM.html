@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div id="first"></div>
+    <div id="second"></div>
+    <div id="third"></div>
+    <div id="forth"></div>
+    <div id="fifth"></div>
+</div>
+<script type="text/javascript">
+//获取当前元素所在兄弟节点中的索引
+
+    var oDiv=document.getElementById("forth");
+    function getIndex(curEle) {
+        var index=0;
+        var p=curEle.previousSibling;
+        while (p){
+            if(p.nodeType==1){
+                index++;
+            }
+
+            p=p.previousSibling;
+        }
+        return index;
+    }
+    getIndex(oDiv);
+
+
+    //获取所有的兄弟元素节点
+        function siblings(curEle) {
+            var nodes = curEle.parentNode.childNodes;
+            var ary = [];
+            for (var i = 0; i < nodes.length; i++) {
+                var curNode = nodes[i];
+                if (curNode !== curEle && curNode.nodeType === 1) {
+                    ary.push(curNode);
+                }
+            }
+            return ary;
+        }
+//
+//    获取当前元素所有的哥哥元素节点
+//    function prevSilings(curEle) {
+//        var p=curEle.previousSibling;
+//        var ary=[];
+//        while (p){
+//            if(p.nodeType===1){
+//                ary.unshift(p);
+//            }
+//            p=p.previousSibling;
+//        }
+//        return ary;
+//    }
+
+    //第二种
+
+    function prevSilings(curEle) {
+        var nodes = curEle.parentNode.childNodes;
+        var ary = [];
+        for (var i = 0; i < nodes.length; i++) {
+            var curNode=nodes[i];
+            if(curNode==curEle){
+                break;
+            }
+            if(curNode.nodeType===1){
+                ary.push(curNode);
+            }
+        }
+        return ary;
+    }
+
+
+
+    //获取所有的弟弟元素
+//        function  nextSiblings(curEle) {
+//           var n=curEle.nextElementSibling;
+//           var ary=[];
+//           while (n){
+//               if(n.nodeType===1){
+//                   ary.unshift(n);
+//               }
+//               n=n.nextSibling;
+//           }
+//           return ary;
+//        }
+        //第二种
+
+        function nextSiblings(curEle) {
+            var nodes = curEle.parentNode.childNodes;
+            var ary = [];
+            for (var i = nodes.length - 1; 0 <= i; i--) {
+                var curNode = nodes[i];
+                if (curNode == curEle) {
+                    return ary;
+                }
+                ary.unshift(curNode);
+            }
+
+        }
+
+
+
+
+
+
+
+
+    //获取当前元素的上一个哥哥节点
+    function prev(curEle) {
+        var p=curEle.previousSibling;
+        while (p){
+            if(p.nodeType===1){
+                return p;
+            }
+            p=p.previousSibling;
+        }
+    }
+
+
+    //获取当前元素的弟弟元素节点
+    function next(curEle) {
+        var n = curEle.nextSibling;
+        while (n){
+            if(n.nodeType==1){
+                return n
+            }
+            n = n.nextSibling;
+        }
+    }
+
+
+    //获取当期元素的元素子节点
+    //children 在IE6-8下不兼容
+    //children在非标准浏览器下包括文本节点
+
+    function children(curEle) {
+        var chileren=curEle.children;
+        if(typeof curEle.nextElementSibling!=="object"){//判断非标准浏览器
+            var ary=[];
+            for(var i=0;i<children.length;i++){
+                var curChild=children[i];
+                if(curChild.nodeType===1){
+                    ary.push(curChild);
+                }
+            }
+            return ary;
+        }
+        return children;
+    }
+
+</script>
+</body>
+</html>

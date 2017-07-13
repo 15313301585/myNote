@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            font-size: 100px;
+        }
+        .box{
+            width: 2rem;
+            height: 3.12rem;
+            margin: 0 auto;
+            background: url("walkingdead.png") no-repeat;
+            -webkit-background-size: 20rem 3.12rem;
+            background-size: 20rem 3.12rem;
+            -webkit-animation:boxAnimate 1s steps(10) infinite;
+            animation:boxAnimate 1s steps(10) infinite;
+        }
+
+        @-webkit-keyframes boxAnimate {
+            0%{
+                background-position: 0 0;
+            }
+            100%{
+                background-position: -20rem 0;
+            }
+        }
+
+        @keyframes boxAnimate {
+            0%{
+                background-position: 0 0;
+            }
+            100%{
+                background-position: -20rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+</body>
+</html>

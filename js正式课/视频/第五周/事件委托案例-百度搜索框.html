@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        input{
+            display: block;
+            outline: none;
+        }
+        a{
+            display: block;
+            text-decoration: none;
+            color: #000000;
+        }
+        a:hover,a:active,a:target{
+            text-decoration: none;
+            color: #000000;
+        }
+        ul {
+            list-style: none;
+        }
+        .box{
+            position: absolute;
+            top:20px;
+            left:50%;
+            margin-left: -250px;
+            width: 500px;
+
+        }
+        .box input{
+            width: 300px;
+            height: 35px;
+            padding: 0 10px;
+            border: 1px solid #000000;
+        }
+
+        .box ul{
+            display: none;
+            position: relative;
+            top:-1px;
+            border: 1px solid #000000;
+        }
+        .box  a{
+            padding: 0 10px;
+            height: 35px;
+            line-height: 35px;
+        }
+        .box  a:hover{
+            background:#185b8f ;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <input type="text" id="search">
+    <ul id="searchList">
+        <li><a href="javascript:;">111</a></li>
+        <li><a href="javascript:;">222</a></li>
+        <li><a href="javascript:;">333</a></li>
+        <li><a href="javascript:;">444</a></li>
+        <li><a href="javascript:;">555</a></li>
+    </ul>
+</div>
+<script>
+    var search=document.getElementById("search");
+    var searchList=document.getElementById("searchList");
+    search.onfocus=search.onkeyup=function () {
+        var val=this.value.replace(/(^ +| +$)/g,"");
+        searchList.style.display=val.length>0?"block":"none";
+    };
+
+    document.body.onclick=function (e) {
+        e=e||window.event;
+        e.target=e.target||e.srcElement;
+        if(e.target.tagName.toLowerCase()==="a" && e.target.parentNode.parentNode.id==="searchList"){
+            search.value=e.target.innerHTML;
+            searchList.style.display="none";
+            return;
+        }
+        //我们可以阻止一个容器中某些特殊的元素，让其不在委托的范围内：我们只要把这些不需要委托的阻止冒泡传播即可
+//        if(e.target.id==="search"){
+//            return;
+//        }
+        searchList.style.display="none";
+    };
+
+    search.onclick=function () {
+        e=e||window.event;
+        e.stopPropagation?e.stopPropagation():e.cancelBubble=true;
+    }
+
+
+
+
+</script>
+</body>
+</html>

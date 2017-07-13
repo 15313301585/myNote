@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   /*数组的方法：
+    1.方法的作用 2.传什么参数 3.返回值 4.原数组是否改变*/
+
+   // 1.push  向数组末尾添加一项
+   /* var ary = [12,56,88,99];
+    console.log(ary.push(100));//返回值
+    console.log(ary); //数组*/
+
+   // 2.pop
+   /* var ary = [12,45,56,99];
+    console.log(ary.pop()); //99
+    console.log(ary);//[12,45,56]*/
+
+   // 3.unshift
+    /* var ary = [12,45,56,99];
+   console.log(ary.unshift(33)); //5
+   console.log(ary); //*/
+
+    //4.shift
+   /*var ary = [12,45,56,99];
+   console.log(ary.shift()); //12
+   console.log(ary); // [45,56,99]*/
+
+   //5.splice(n,m)数组中，从索引n开始（包括n），删除m项
+ /* var ary = [12,45,56,99];
+    console.log(ary.splice(1,2));
+    console.log(ary);
+// 6.slice (n,m)
+   var ary = [12,45,56,99];
+   console.log(ary.slice(0,3));
+   console.log(ary);
+
+//7.concat
+   var ary = [12,45,56,99];
+    var ary1=[1,2,3]
+    console.log(ary.concat(ary1,0,5))
+*/
+// 8.join
+  /* var ary = [12,45,56,99];
+   console.log(ary.join("+"));
+   console.log(ary);*/
+/*
+9.reverse
+
+   var ary = [12,45,56,99];
+   console.log(ary.reverse());
+   console.log(ary);
+*/
+
+//  10.sort
+  /* var ary = [1,22,7,5];
+  console.log(ary.sort());*/
+
+
+
+   //var ary =[12,56,88,99,66,100,33];
+
+  /* console.log  (ary.sort(function (a,b) {
+       return a-b
+   }));
+*/
+   /*console.log( ary.sort(function (a,b) {
+       return b-a
+   }));//从大到小*/
+
+
+
+//11.indexOf
+   /*var ary=[12,56,88,99,100,33]
+
+   console.log(ary.indexOf(99));
+   console.log(ary);*/
+
+ //12.lastIndexOf
+   /*var ary=[12,56,88,99,56,100,33]
+
+    console.log(ary.lastIndexOf(56));
+    console.log(ary);*/
+//13.forEach /map
+   /* var ary=[12,56,88,99,56,100,33];
+    var total=0;
+    ary.forEach(function(item,index){
+        total+=ary[index];
+        console.log(total);
+    })*/
+
+
+   //var ary=[12,56,88,99,56,100,33]
+   //删除数组中的最后一项
+
+   //ary.pop()
+   //ary.splice(ary.length-1,1)
+   //ary.length--;
+
+
+   //复制
+    //slice（0）/ slice（ ） / ary.concat()
+    var ary = [12,45,56,99];
+    console.log(ary.join("+"));
+    console.log(ary);
+
+</script>
+</body>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="ul1">
+    <li>98</li>
+    <li>99</li>
+    <li>96</li>
+    <li>95</li>
+    <li>90</li>
+</ul>
+<script charset="utf-8" type="text/javascript" src="../utils.js"></script>
+<script>
+    //DOM映射机制：页面中的标签和JS中获取到的对象（元素集合）是紧紧的绑定在一起的，页面中HTML结构变了，JS中不需要重新获取，集合里面的内容也会跟着自动改变
+
+    var oUl=document.getElementById("ul1");
+    var oLis=oUl.getElementsByTagName("li");
+    //1.先把元素集合类数组转换为数组
+
+    var ary=utils.listToArray(oLis);
+    console.log(ary);
+    //2.给数组进行排序
+    ary.sort(function (a,b) {
+        return a.innerHTML-b.innerHTML;
+    });
+    //3.按照ary中存储的最新顺序依次的把对应的li添加到页面中
+    var frg=document.createDocumentFragment();
+    for(var i=0;i<ary.length;i++){
+        frg.appendChild(ary[i]);
+    }
+    oUl.appendChild(frg);
+    frg=null;
+
+
+
+</script>
+</body>
+</html>

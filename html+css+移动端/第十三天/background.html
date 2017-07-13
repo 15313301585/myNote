@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>background 背景的复合属性</title>
+    <style type="text/css">
+        .box{
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            background-color: red;
+            background-image:url(pic1.png);
+            background-repeat: no-repeat;
+            /*background-attachment: fixed;*/
+            background-origin:border-box;
+            background-clip: border-box;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+
+<!--****面试题（百度/腾讯）background
+1.background-color  背景颜色
+2. background-image  背景图片
+3. background-repeat 背景平铺
+    默认repeat平铺   no-repeat不平铺  repeat-x（x轴平铺） repeat-y（y轴平铺）
+4. background-attachment背景连接方式
+  fixed 不随着滚动条的滚动而滚动
+  scroll随着滚动条的滚动而滚动
+
+5.background-position 背景位置
+  单位：长度、百分比、方位（top/bottom/left/right)
+
+6. background-origin 背景显示的起点位置
+   border-box 从边框border开始显示（包含border）
+   padding-box 从内边距开始显示图片（包含padding值）
+  content-box   从内容content开始显示图片
+
+ 7.background-clip 背景被裁剪的位置
+   border-box  从边框border开始裁剪（不包含border）
+   padding-box 从内边距开始裁剪图片（不包含padding值）
+   content-box   从内容content开始裁剪图片
+
+ 8.background-size 背景尺寸大小
+   项目中的应运：移动端背景图片/场景应运全屏的背景图片
+   单位： 长度px
+         百分比%
+         cover 覆盖 让背景图片等比缩放 完全覆盖div元素 会出现背景图片显示不完整 被拉伸 图片变虚的现象
+         contain  让背景图片等比缩放 到其中一个边接触到div元素的边缘会出现留白的情况
+ -->
+<div class="box"></div>

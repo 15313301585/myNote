@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //arguments 类数组，不能调用数组的方法
+    //中间类继承，通过__proto__这个属性改变当前对象的指向方向,__proto__在IE下不兼容
+
+    function fn() {
+       // console.log(arguments);
+        arguments.__proto__=Array.prototype;
+
+        arguments.sort(function (a,b) {
+            return a-b;
+        });
+
+        arguments.pop();
+        arguments.shift();
+        console.log(eval(arguments.join("+"))/arguments.length);
+
+    }
+
+    fn(23,14,34,56,76,88)
+</script>
+</body>
+</html>

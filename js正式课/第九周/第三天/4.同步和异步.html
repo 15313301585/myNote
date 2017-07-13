@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   //async：异步  sync:同步
+
+   //js是单线程的；不能同时执行两个任务的
+   //定时器是异步编程
+   //事件的绑定都是异步编程的
+   //回调函数也可以认为是异步编程
+
+
+   //如果有多个定时器，如果执行下面的代码定时器已经到达时间，先执行时间短的那个定时器
+
+
+   //先执行上面的定时器，再执行下面的定时器
+//
+//   window.setTimeout(function () {
+//       console.log(2);
+//   },5);
+//
+//   for(var i=0;i<1345378511;i++){
+//
+//   }
+//
+//   window.setTimeout(function () {
+//       console.log(1);
+//   },0);
+
+
+
+
+//   button.onclick=function () {
+//       console.log(1);
+//   };
+//
+//
+//   var count=0;
+//
+//   window.setTimeout(function () {
+//      count++;
+//      console.log(count); //1
+//   },0); //谷歌浏览器下识别定时器最小的时间单位5~6ms；定时器设置成0，定时器不会马上执行
+//
+//   console.log(count); //0
+//
+
+
+
+    //Ajax中的同步：当ajax这个任务开始的时候，(xhr.send()),一直需要到readyState===4的时候这个任务才算结束；此时才可以处理其他的事情
+   //Ajax中的异步：当ajax这个任务开始的时候，(xhr.send()),不需要到readyState===4；我们依然可以执行其他的任务，并且只有当其他的任务完成后，我们来看当前的readyState是否等于4
+//    var xhr=new XMLHttpRequest();
+//    xhr.open("get","data.txt",false);
+//
+//    xhr.onreadystatechange=function () {
+//        if(xhr.readyState===4&&/^2\d{2}/.test(xhr.status)){
+//            console.log(3);
+//        }
+//    };
+//   xhr.send();
+//   console.log(1);
+
+
+//   var xhr=new XMLHttpRequest();
+//   xhr.open("get","data.txt",true);
+//   xhr.onreadystatechange=function () {
+//  //     console.log(xhr.readyState);//2 3 4
+////       if(xhr.readyState===4&&/^2\d{2}/.test(xhr.status)){
+////
+////       }
+//
+//   };
+//   xhr.send();
+
+
+
+   var xhr=new XMLHttpRequest();
+   xhr.open("get","data.txt",true);
+//   xhr.onreadystatechange=function () {
+//          console.log(xhr.readyState);//4
+//       if(xhr.readyState===4&&/^2\d{2}/.test(xhr.status)){
+//
+//       }
+//
+//   };
+   xhr.send();
+   xhr.onreadystatechange=function () {
+       console.log(xhr.readyState); //false没有任何输出  true：2 3 4
+   };
+
+
+
+   //jquery的ajax
+
+//    $.ajax({
+//        url:"data.txt",
+//        type:"get",
+//        async:false,
+//        dataType:"json",
+//        data:{
+//
+//        },
+//        success:function (data) {
+//
+//        }
+//    })
+
+</script>
+</body>
+</html>

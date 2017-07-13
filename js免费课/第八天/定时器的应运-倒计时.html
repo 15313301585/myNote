@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 50px;
+            margin: 80px auto;
+            text-align: center;
+            line-height: 50px;
+            border: 1px solid #ff6900;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <span id="time">00:18:00</span>
+</div>
+<script>
+    //倒计时
+
+   //两个时间的毫秒差，毫秒差有几个小时，多少分钟，多少秒
+    function addZero(value) {
+        return value<10?"0"+value:value;
+    }
+
+    var spanTime=document.getElementById("time");
+
+    function timer() {
+        var curTime=new Date();
+        var targetTime=new Date("2017/5/11  18:12:00");
+        var timeDif=targetTime-curTime;
+        if (timeDif<=0){
+            window.clearInterval(timeBox);
+            return; //后面的代码不在执行
+        }
+        var hour=Math.floor( timeDif/(1000*60*60));
+        var minute =Math.floor((timeDif-hour*1000*60*60)/(1000*60));
+        var second =Math.floor((timeDif-hour*1000*60*60-minute*1000*60)/1000);
+        var str=addZero(hour)+":"+addZero(minute)+":"+addZero(second);
+        spanTime.innerHTML=str;
+    }
+      timer();
+var timeBox=window.setInterval(function () {
+      timer();
+  },1000);
+</script>
+</body>
+</html>

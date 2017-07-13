@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<div id="box" style="left: 0;top:50px;background:red"></div>
+<div id="box1" style="left: 0;top:200px;background: greenyellow"></div>
+<div id="box2" style="left:200px ;top:200px;background: blueviolet"></div>
+</body>
+<script type="text/javascript" src="event.js"></script>
+<script type="text/javascript">
+    var oBox=document.getElementById("box");
+   function down(e) {
+       e = e ||window.event;
+       this.x=oBox.offsetLeft;
+       this.y=oBox.offsetTop;
+       this.mx=e.pageX;
+       this.my=e.pageY;
+       //setCapture在IE下和火狐下存在
+       if(this.setCapture){
+           this.setCapture();
+           oBox.onmousemove=move;
+           oBox.onmouseup=up;
+       }else{
+           //利用事件委托原理
+           var _this=this;
+           document.onmousemove=function (e) {
+               move.call(_this,e);
+           };
+           document.onmouseup=function (e) {
+               up.call(_this,e)
+           }
+       }
+   }
+    function move(e) {
+       e=e||window.event;
+       var changeX=e.pageX-this.mx;
+       var changeY=e.pageY-this.my;
+       oBox.style.left=this.x+changeX+"px";
+       oBox.style.top=this.y+changeY+"px";
+    }
+
+    function up() {
+       if(this.releaseCapture){
+           this.releaseCapture();
+           oBox.onmousemove=null;
+           oBox.onmouseup=null;
+       }else{
+           document.onmousemove=null;
+           document.onmouseup=null;
+       }
+    }
+    oBox.onmousedown=down;
+</script>
+</html>

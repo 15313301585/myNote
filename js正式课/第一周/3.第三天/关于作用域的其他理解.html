@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   /* var name="珠峰";
+    var age=1000;
+    (function (name,age) {
+        console.log(name);//"珠峰"
+        console.log(age);//undefined
+        name="中国";
+        age=5000;
+        return function () {
+           console.log(name);
+           console.log(age);
+        }
+    })(name);
+    //形参是私有变量
+    //私有变量：先看是不是形参，再看有没有被var过，如果是其一，就是私有变量
+    console.log(name,age);
+*/
+
+
+    /*var name="珠峰";
+    var age=8;
+    (function (name,age) {
+        name="中国";
+        age=5000;
+        console.log(name);//"中国"
+        console.log(window.name);//"珠峰"
+        //window.name = name;
+        return function () {
+            console.log(name);
+            console.log(age);
+        }
+    })(name,age);
+    console.log(name,age);//"珠峰",8*/
+
+
+    /*
+    function foo() {
+        var num=0;
+        function f() {
+          console.log(num+=5);
+        }
+        return f;
+    }
+    var fo1=foo();
+    fo1();
+    fo1();
+    var fo2=foo();
+    fo2();
+    fo1=fo2;
+    fo1();
+
+    */
+
+
+    /*
+   var obj = {
+       num: 3,
+       bar: (function () {
+           var n = 5;
+           return function () {
+               console.log(n += 2);
+           }
+       })()
+
+   };
+   obj.bar();//7
+   obj.bar();//9
+   var fn3 = obj.bar;
+   fn3();//11
+   fn3();//13
+*/
+
+</script>
+
+</body>
+</html>

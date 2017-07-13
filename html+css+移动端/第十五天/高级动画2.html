@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            font-size: 100px;
+        }
+        .box{
+            position: relative;
+            height: 2.5rem;
+        }
+        .mother{
+            width: 2.2rem;
+            height: 2.5rem;
+            background: url("action3.png") no-repeat;
+            -webkit-background-size: 2.2rem 5rem;
+            background-size: 2.2rem 5rem;
+            position: absolute;
+            top:0;
+            left: 0;
+            -webkit-animation:motherAnimate .2s steps(2) infinite;
+            animation:motherAnimate .2s steps(2) infinite;
+        }
+        .son{
+            position: absolute;
+            bottom: 0;
+            left: 2.2rem;
+            width:1.28rem;
+            height: 1.72rem;
+            background: url("child.png") no-repeat;
+            -webkit-background-size:1.28rem 3.44rem;
+            background-size:1.28rem 3.44rem;
+            -webkit-animation:sonAnimate .2s steps(2) infinite;
+            animation:sonAnimate .2s steps(2) infinite;
+        }
+        @-webkit-keyframes motherAnimate {
+            0%{
+                background-position: 0 0;
+            }
+            100%{
+                background-position: 0 -5rem;
+            }
+        }
+        @keyframes motherAnimate {
+            0%{
+                background-position: 0 0;
+            }
+            100%{
+                background-position: 0 -5rem;
+            }
+        }
+        @-webkit-keyframes sonAnimate {
+            0%{
+                background-position: 0 0;
+            }
+            100%{
+                background-position: 0 -3.44rem;
+            }
+        }
+        @keyframes sonAnimate {
+            0%{
+                background-position: 0 0;
+            }
+            100%{
+                background-position: 0 -3.44rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<audio src="music.wav" autoplay loop></audio>
+<div class="box">
+    <div class="mother"></div>
+    <div class="son"></div>
+</div>
+</body>
+</html>

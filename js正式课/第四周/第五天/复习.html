@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul li{
+            position: absolute;
+            left: 0;
+            list-style: none;
+            padding: 10px;
+            height: 30px;
+            width: 150px;
+            border-bottom: 1px dashed red;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li class="myli"></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<div class=""></div>
+<script type="text/javascript" src="jquery-1.11.3.js"></script>
+<script>
+
+//    $("ul li"); //获取ul下的所有的后代li元素
+//    $("ul> li");//获取ul下的子级的li
+//    $("ul,li"); //获取ul和li
+//
+//    var ul1=document.getElementsByTagName("ul")[0];
+//    //原生js对象转化为jQuery;
+//    $(ul1).addClass("oUl");
+
+      //index 返回当前元素对象的索引
+//    console.log($(".myli").index());
+
+    //each 遍历获取到的每一个jQuery元素对象
+
+//    $("ul li").each(function (index,item) {
+//        $(this);//每一次循环的时候，当前循环的这个对象
+//        console.log(index);//当前元素对象的索引
+//        console.log(item);//指的当前项
+//    })
+
+
+
+    //筛选的方法
+    //find  在所有的后代中查找筛选
+    //filter  筛选出元素集合，去元素集合匹配相应的元素对象
+    //children  在下一级查找
+
+
+    //css
+
+//    $("li").css("background","pink")
+//    console.log($("li.myli").css("width"));
+//    $("li.myli").css("width","300px");
+//      console.log($("li.myli").width());
+//
+    //innerHeight/innerWidth和原生js中的clientHeight和clientWidth
+//   //获取内容加填充的宽度和高度
+//   console.log($("li.myli").innerWidth());
+
+    //scrollTop()滚动条卷去的高度
+
+
+
+    //事件
+
+//    $(".myli").click(function () {
+//        console.log(1);
+//    });
+
+//    $(".myli").on("click",function () {
+//        console.log(1);
+//    });
+
+
+//    //delegate
+//    $("body").delegate(".myli","click",function () {
+//        console.log(1);
+//    })
+
+
+
+    //动画
+    //show 显示  hide隐藏
+
+    //fadeIn  fadeOut 淡入淡出
+//    $(".myli").css("background","pink")
+//    $(".myli").fadeOut(2000);
+//    $(".myli").fadeIn(2000);
+
+
+    //slideUp  收起    slideDown  下拉
+//
+//    $("li").slideUp(2000);
+//    $("li").slideDown(2000);
+
+
+    //stop 停止动画
+
+    //animate
+//    $(".myli").css("background","pink")
+//    $(".myli").animate({left:1000},3000)
+
+
+
+
+    //ajax
+    var jsonData=null;
+    $.ajax({
+        type:"post",//"get"请求类型
+        url:"data.txt",//请求地址
+        dataType:"json",//返回的数据类型
+        cache:false,// true/false
+        async:true,//false:同步 true ：异步
+        success:function (data) {//请求成功才会执行这个方法
+            console.log(data);//响应回来的内容
+            jsonData=data;
+        },
+
+        error:function () {//请求失败
+        }
+
+    })
+</script>
+</body>
+</html>

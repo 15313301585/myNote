@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var ary=[6,3,7,18,2,11];
+    //循环第一遍：无论当前的最大值在什么位置，都能把最大数放在数组的最后面
+    //循环第二遍：把数组中的第二大数放在数组的倒数第二位
+
+    function bubbleSort(ary){
+
+        for(var i=0;i<ary.length-1;i++) {
+            var flag = true;
+            for(var j=0;j<ary.length-1-i;j++) {
+               if (ary[j] > ary[j + 1]) {
+                    ary[j] = ary[j] + ary[j + 1];
+                    ary[j + 1] = ary[j] - ary[j + 1];
+                    ary[j] = ary[j] - ary[j + 1];
+                    flag = false;
+                }
+            }
+            if (flag) {
+                break;
+            }
+        }
+        return ary;
+    }
+
+    var ary=[3,1,5,8,6];
+    console.log(bubbleSort(ary));
+</script>
+</body>
+</html>

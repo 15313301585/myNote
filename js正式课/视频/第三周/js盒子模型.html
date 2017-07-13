@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    //1.js盒子模型指的是通过js中提供的一系列的属性和方法，获取页面中元素的样式信息值
+    var oDiv=document.getElementById("box");
+    console.dir(oDiv);
+   //内容的宽度和高度：我们设置的width/height这两个样式就是内容的宽和高；如果没有设置height值，容器的高度会根据里面内容自己进行适应，这样获取的值就是真实内容的高；如果设置固定的高度了，不管内容是多了还是少了，其实我们内容的高度指的都是设定的那个值；
+
+    //真实内容的宽度和高度：这个代指的实际内容的宽高（和我们设置的height没有必然的联系），例如：我们设置的高度为200px，如果内容有溢出，那么真实内容的高度是要把溢出的内容也要加进来的
+
+
+    //1.client系列
+    //clientWidth/clientHeight:内容的宽度/高度 + 左右/上下的填充(和内容溢出没有关系)
+
+    //clientLeft:左边框的宽度  clientTop：上边框的高度
+
+    //2.offset系列
+    //offsetWidth / offsetHeight : clientWidth/clientHeight + 左右/上下边框（和内容是否溢出没有关系）
+    //offsetParent:当前元素的父级参照物
+    //offsetLeft/offsetTop ：当前元素的外边框距离父级参照物的内边框的偏移量
+
+    //3.scroll系列
+    //scrollWith/scrollHeight:和我们的clientWidth和clientHeight一摸一（没有溢出的情况下）
+
+    //内容溢出的情况：
+    //  scrollWith：真实内容的宽度（包含溢出）+左填充
+    //  scrollHeight：真实内容的高度（包含溢出）+上填充
+    // ->获取的结果是约等于的值，因为：同一个浏览器，我们是否设置overflow=hidden对于最终的结果是有影响的；在不同的浏览器中我们获取到的结果也是不同的；
+    //scrollLeft/scrollTop:滚动条卷去的宽度或者高度
+
+    //2.关于js盒子模型属性取值的问题
+    //我们通过这13个属性值获取的结果永远不可能出现小数，都是整数；浏览器获取结果的时候，在原来真实结果的基础上进行四舍五入；
+
+    //3.关于浏览器本身的盒子模型信息
+    //clientWidth/clientHeight是当前浏览器可视窗口（一屏幕的宽度和高度）的宽度和高度
+   //scrollWith/scrollHeight是当前页面的真实宽度和高度（所有屏加起来的宽度和高度~但是是一个约等于的值）
+   //我们不管哪些属性，也不管是什么浏览器，也不管是获取还是设置，想要都兼容的话，需要写两套
+    //document.documentElement[attr]||document.body[attr];->必须document.documentElement在前
+    //例如：
+    //获取写两套
+    // document.documentElement.clientWidth||document.body.clientWidth
+    //设置也需要写两套
+    //document.documentElement.scrollTop=0;
+    //dpcument.body.scrollTop=0;
+
+
+    //win:编写一个关于操作浏览器盒子模型的方法
+    //如果只传递了attr没有传递value，默认的是获取样式值
+    //如果传两个参数，意思是“设置”
+    //->不严谨的来说这就是关于“类的重载”：同一个方法，通过传递参数的不同实现不同的功能
+    function win(attr,value) {
+        if(typeof value === "undefined"){
+            return document.documentElement[attr]||document.body[attr];
+        }
+        document.documentElement[attr]=value;
+        document.body[attr]=value;
+    }
+
+</script>
+</body>
+</html>

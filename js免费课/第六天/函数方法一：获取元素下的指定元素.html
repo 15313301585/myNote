@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="tab">
+    <!--珠峰的课程-->
+    <h1>珠峰课程</h1>
+
+    <div>A模块html+css</div>
+    <div id="div1">B 原生js</div>
+    <div>C node.js </div>
+</div>
+<script>
+    /* getMyChildren  获取元素下的元素节点（标签)
+     @parameter
+     ele形参 想获取谁下面的元素节点就传谁
+     tagName 想获取指定的标签元素
+     @return
+     */
+    function getMyChildren (ele,tagName) {
+        // 1)定义2个变量   noeds获取ele下面所有的子节点  ary 空盒子
+        var nodes=ele.childNodes,ary=[];//获取ele下面所有的子节点,包括注释，文本，空格。。。
+        //2)循环遍历nodes 数组的每一项
+        for(var i=0;i<nodes.length;i++){
+            //3)通过nodeType筛选出 元素节点
+            if(nodes[i].nodeType==1){
+                //tagName可能是大写的标签名 也可能是小写的标签名
+                //nodeName 大写的标签名 toLowerCase()转化成统一的小写
+                //判断tagName存在不存在
+                if(tagName){
+                    if(nodes[i].nodeName.toLowerCase()==tagName.toLowerCase()){
+                        ary.push(nodes[i]);
+                    }
+                }else{
+                    ary.push(nodes[i]);
+                }
+                //4)通过数组的push方法，把筛选出元素节点 放到空盒子中
+            }
+        }
+        //5)把最后的结果通过return返回
+        return ary;
+    }
+    console.log(getMyChildren(oTab,"h1"));
+</script>
+</body>
+</html>

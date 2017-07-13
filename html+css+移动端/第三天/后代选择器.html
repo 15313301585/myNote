@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    /*最好不要用，因为消耗性能*/
+    .div1>ul>li>p{}
+    .div1 ul p{
+        color:red;
+    }
+</style>
+<div class="div1">
+    <ul>
+        <li>
+            <p>1</p>
+        </li>
+        <li>
+            <p>2</p>
+        </li>
+    </ul>
+    <ol>
+        <li>
+            <p>3</p>
+        </li>
+    </ol>
+</div>
+
+</body>
+</html>

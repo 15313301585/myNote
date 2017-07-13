@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .code{
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border: 1px solid #c9c9c9;
+            border-radius: 5px;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+<div class="code"></div>
+<script type="text/javascript">
+//四个数【0-9】
+
+  var code=document.getElementsByClassName("code")[0];
+  function getCode() {
+      var str="";
+      var i=0;
+      //while循环  没有初始值，不知道循环多少次
+      //for in 遍历对象  for 有初始值，有结束值
+      while(i<4){
+          str += Math.round(Math.random()*(9-0)+0)+" ";
+          i++;
+      }
+      return str;
+  }
+
+     code.innerHTML=getCode();
+     code.onclick = function () {
+     code.innerHTML = getCode();
+}
+
+
+</script>
+</body>
+</html>

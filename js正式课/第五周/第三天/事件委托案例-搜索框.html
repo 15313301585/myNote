@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    html,body{
+            width: 100%;
+            height: 100%;
+            border: 1px solid #ffffff;
+        }
+        a{
+            text-decoration: none;
+            color: #000000;
+        }
+        ul{
+            list-style: none;
+        }
+        #box{
+
+            line-height: 35px;
+            width: 350px;
+            margin: 30px auto;
+            overflow: hidden;
+        }
+        input{
+            height: 35px;
+            display: block;
+            width: 300px;
+            padding: 0 10px;
+            outline: none;
+            border: 1px solid #000000;
+        }
+        #oUl{
+            width: 320px;
+            border: 1px solid #000000;
+            border-top:none;
+            display: none;
+        }
+        #oUl li{
+            height: 30px;
+            line-height: 30px;
+            padding: 0 10px;
+        }
+        #oUl li:hover{
+            background: #185b8f;
+        }
+    </style>
+
+</head>
+<body>
+<div id="box">
+    <input type="text" id="search">
+    <ul id="oUl">
+        <li><a href="javascript:;">房天下</a></li>
+        <li><a href="javascript:;">第五期</a></li>
+        <li><a href="javascript:;">珠峰培训</a></li>
+        <li><a href="javascript:;">极品女士</a></li>
+        <li><a href="javascript:;">58同城</a></li>
+    </ul>
+</div>
+<script type="text/javascript">
+    //onfocus : 获取鼠标焦点事件
+    //onblur:失去鼠标焦点
+    // onkeyup： 键盘抬起的事件
+    //onkeydown:键盘按下
+
+    var search=document.getElementById("search");
+    var oUl=document.getElementById("oUl");
+
+    //获取鼠标焦点执行对应的方法
+    search.onfocus=function () {
+        oUl.style.display="block";
+    };
+    search.onkeyup=function () {
+        var val=this.value.replace(/(^ +| +$)/g,"");
+        oUl.style.display=val.length>0?"block":"none";
+    };
+    document.body.onclick=function (e) {
+        e = e || window.event;
+        //通过事件委托的原理，判断当前点击的事件源
+       //当点击input框，直接让body的onclick代码直接停止
+        if(e.target===search){
+            return;
+        }
+        if(e.target.tagName.toLowerCase()==="a") {
+            search.value = e.target.innerHTML;
+            oUl.style.display = "none";
+            return;
+        }
+        oUl.style.display="none";
+    }
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

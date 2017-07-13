@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>京东首页模块+媒体查询+rem</title>
+    <style type="text/css">
+        *{margin: 0;
+            padding: 0;}
+        html{font-size:100px;}
+        nav a{
+            float: left;
+            width: 20%;
+            margin-bottom: .2rem;
+            text-align: center;
+            text-decoration: none;
+            color: #0000;
+
+        }
+        /*清楚浮动第四种方法*/
+        .clearfix:after{
+           display: block;
+           content:"";
+            clear: both;
+            height: 0;
+            font-size: 0;
+            visibility: hidden;
+            overflow: hidden;
+        }
+        .clearfix{
+            *zoom:1
+        }
+        nav a img {
+            display: block;
+            width:.4rem;
+            height: .4rem;
+            margin: 0 auto .06rem;
+        }
+        nav span{
+            display: block;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: .13rem;
+        }
+        @media screen and (min-device-width: 320px ) {
+            html {
+                font-size: 85.33px
+            }
+        }
+
+        @media screen and (min-device-width: 375px ) {
+            html {
+                font-size: 100px
+            }
+        }
+
+        @media screen and (min-device-width: 414px ) {
+            html {
+                font-size: 110.4px
+            }
+        }
+
+        @media screen and (min-device-width: 640px ) {
+            html {
+                font-size: 170.6px
+            }
+        }
+
+    </style>
+</head>
+<body>
+<nav class="clearfix">
+    <a href="">
+        <img src="pic1.png" alt="">
+        <span>京东首页</span>
+    </a>
+    <a href="">
+        <img src="pic1.png" alt="">
+        <span>京东首页</span>
+    </a>
+    <a href="">
+        <img src="pic1.png" alt="">
+        <span>京东首页</span>
+    </a>
+    <a href="">
+        <img src="pic1.png" alt="">
+        <span>京东首页</span>
+    </a>
+    <a href="">
+        <img src="pic1.png" alt="">
+        <span>京东首页</span>
+    </a>
+</nav>
+</body>
+</html>

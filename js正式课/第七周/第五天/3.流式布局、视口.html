@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!--浏览器会判断当前是移动端还是pc端，进行不同的处理，如果有meta标签就是移动端，没有就是pc端-->
+    <!--不加meta标签，980是浏览器默认移动端的可视窗口宽度-->
+    <title>Title</title>
+
+    <!--viewport:视口-->
+    <!--width：可视宽度-->
+    <!--device-width：设备的物理宽度-->
+    <!--user-scalable：是否允许用户进行缩放，默认no-->
+    <!--initial-scale：初始的缩放值-->
+    <!--maximum-scale：最大缩放的比例-->
+    <!--minimum-scale：最小缩放的比例-->
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            background: pink;
+            overflow: hidden;
+        }
+        ul li{
+            float: left;
+            width: 25%;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>娱乐</li>
+    <li>新闻</li>
+    <li>体育</li>
+    <li>电视</li>
+</ul>
+<script>
+    //流式布局：百分比布局
+    //宽度设置成百分比的形式
+console.log(document.documentElement.clientWidth);
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //JSON 不是一种数据类型，只是一种数据格式
+    //给对象的属性名加上双引号，就变成了JSON格式的对象
+ //  var obj={"name":"zhufeng","age":8};
+//    console.log(obj["name"]); //zhufeng
+
+    var strObj='{"name":"zhufeng","age":8}';
+//    console.log(strObj["name"]); //undefined
+
+//
+//    JSON.parse(); //把JSON格式的字符串转换成JSON的对象
+   console.log(JSON.parse(strObj));
+
+    // JSON.stringify(); //把对象转化成JSON格式的字符串
+    //console.log(JSON.stringify(obj));
+
+    //JSON  兼容问题   JSON在ie6、7不兼容，ie6、7下window没有JSON属性
+
+    //eval 字符串转化成正真的表达式执行
+
+   // console.log(eval("("+strObj+")"));  //ie6、7下的写法
+
+
+
+
+
+</script>
+</body>
+</html>

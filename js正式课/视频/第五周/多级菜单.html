@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
+            font-size: 14px;
+        }
+
+        ul{
+            list-style: none;
+        }
+
+        .box{
+            margin: 10px;
+            padding: 10px;
+            width: 300px;
+            border: 1px dashed #008000;
+            /*渐进增强：首先设置一个纯色的背景，对于不兼容css3的浏览器来说会使用纯色；对于兼容的浏览器来说，我们下面在额外的增加一些变色，这样的话会把纯色覆盖掉*/
+            background: #ffe470;
+            background: -webkit-linear-gradient(top left,#ff6900,#185b8f,#c71b1b,#37ff1f);
+            background: -moz-linear-gradient(top left,#ff6900,#185b8f,#c71b1b,#37ff1f);
+            background: -o-linear-gradient(top left,#ff6900,#185b8f,#c71b1b,#37ff1f);
+            background: linear-gradient(top left,#ff6900,#185b8f,#c71b1b,#37ff1f);
+        }
+        .box li{
+            position: relative;
+            line-height: 30px;
+        }
+        .box em{
+            position: absolute;
+            left:0;
+            top:7px;
+            width: 16px;
+            height: 16px;
+            background: olive;
+            cursor: pointer;
+        }
+        .box span{
+            display: block;
+            padding-left: 20px;
+        }
+        .box .two{
+            margin-left: 20px;
+        }
+        .box .three{
+            margin-left: 40px;
+        }
+        .box .four{
+            margin-left: 60px;
+        }
+        .box .two,.box .three,.box .four{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <ul>
+        <li>
+            <em></em><span>第一级第一个</span>
+            <ul class="two">
+                <li>
+                    <span>第二级第一个</span>
+                </li>
+                <li>
+                    <em></em><span>第二级第二个</span>
+                    <ul class="three">
+                        <li><span>第三级第一个</span></li>
+                        <li><span>第三级第二个</span></li>
+                        <li>
+                         <em></em><span>第三级第三个</span>
+                        <ul class="four">
+                            <li><span>第四级第一个</span></li>
+                            <li><span>第四级第二个</span></li>
+                            <li><span>第四级第三个</span></li>
+                        </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <em></em><span>第二级第三个</span>
+                    <ul class="three">
+                       <li><span>第三级第一个</span></li>
+                       <li><span>第三级第二个</span></li>
+                       <li><span>第三级第三个</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <em></em><span>第一级第二个</span>
+            <ul class="two">
+                <li>
+                    <span>第二级第一个</span>
+                </li>
+                <li>
+                    <em></em><span>第二级第二个</span>
+                    <ul class="three">
+                        <li><span>第三级第一个</span></li>
+                        <li><span>第三级第二个</span></li>
+                        <li>
+                            <em></em><span>第三级第三个</span>
+                            <ul class="four">
+                                <li><span>第四级第一个</span></li>
+                                <li><span>第四级第二个</span></li>
+                                <li><span>第四级第三个</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <em></em><span>第二级第三个</span>
+                    <ul class="three">
+                        <li><span>第三级第一个</span></li>
+                        <li><span>第三级第二个</span></li>
+                        <li><span>第三级第三个</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+</div>
+<script type="text/javascript" src="../myUtils.js"></script>
+<script type="text/javascript">
+    var box=document.getElementById("box");
+    var spanList=box.getElementsByTagName("span");
+    for(var i=0;i<spanList.length;i++){
+        var curSpan=spanList[i];
+        var curPre=utils.prev(curSpan);//获取当前span的上一个哥哥节点
+        if(curPre && curPre.tagName.toLowerCase()==="em"){
+            curSpan.style.cursor="pointer";
+        }
+    }
+
+    //使用事件委托实现我们的操作
+    box.onclick = function (e) {
+        e = e ||window.event;
+        var tar=e.target||e.srcElement;
+        if(/^(em|span)$/i.test(tar.tagName)){
+            var parent=tar.parentNode; //获取父亲节点
+            var firstUl=utils.children(parent);//获取父亲子集中的第一个ul标签
+            if(firstUl){
+                var isBlock=utils.getCss(firstUl,"display")==="block"?true:false;
+                if(isBlock){
+//                    firstUl.style.display="none";
+                }else {
+                    firstUl.style.display="block";
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

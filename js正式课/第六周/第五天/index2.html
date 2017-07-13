@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#box{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100px;
+	height:100px;
+	background:red;
+}
+</style>
+</head>
+
+<body>
+<div id="box"></div>
+<script src="event.js">
+
+</script>
+<script>
+var oBox=document.getElementById("box");
+function Drag(curEle){
+	this.ele=curEle;
+	this.DOWN=this.down.bind(this);
+	on(this.ele,"mousedown",this.DOWN);
+
+}
+Drag.prototype.down=function(e){
+	this.ele.x=this.ele.offsetLeft;
+	this.ele.y=this.ele.offsetTop;
+	this.ele.mx=e.clientX;
+	this.ele.my=e.clientY;
+	this.ele.MOVE=this.move.bind(this);
+	this.ele.UP=this.up.bind(this);
+	on(document,"mousemove",this.ele.MOVE);
+    on(document,"mouseup",this.ele.UP);
+	e.preventDefault();
+	}
+Drag.prototype.move=function(e){
+	
+	this.ele.style.left=e.pageX-this.ele.mx+this.ele.x+"px";
+	this.ele.style.top=e.pageY-this.ele.my+this.ele.y+"px";
+	
+	
+	
+}
+Drag.prototype.up=function(){
+	off(document,"mousemove",this.ele.MOVE);
+	off(document,"mouseup",this.ele.UP)
+}
+
+
+new Drag(oBox);
+
+
+</script>
+</body>
+
+</html>

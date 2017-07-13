@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+DOM 文档对象模型
+描述html文档结构的关系图谱
+css选择器：#box{}
+js：
+-->
+<!--<input type="text" name="box"/>-->
+<div id="box">
+    <ul>
+        <li class="select">娱乐</li>
+        <li name="video">体育</li>
+        <li>新闻</li>
+    </ul>
+    <div class="select">娱乐内容</div>
+    <div>体育内容</div>
+    <div>新闻内容</div>
+</div>
+<script>
+    //1.获取dom元素的方法
+   // 上下文：元素活动的范围 ：id的上下文只能是document
+
+    //1)通过id获取元素document.getElementById
+    //document  上下文context（获取元素的范围） id 唯一
+    //id 的上下文只能是document  id重复  默认获取第一个id
+    //ie6,7下把input表单元素的name值当成id值输出
+    //实战：表单元素的name值跟元素的id 命名不要相同
+    //2) 通过class获取元素返回的是一个类数组集合 通过索引值获取第几个元素 document.getElementsByClassName（）[索引值];
+    //3)通过元素的标签名获取  返回的是一个类数组集合document.getElementsByTagName( )[索引值];
+  /*
+     4）通过元素的属性名获取 常用在表单元素document.getElementsByName( );
+     5）document.documentElement获取的是html元素
+     6) document.body获取的是body元素
+
+        //获取的是窗口的尺寸（宽度，高度）
+      var width=document.documentElement.clientWidth/document.body.clientWidth
+      var width=document.documentElement.clientHeight/document.body.clientHeight
+
+         7)常用在移动端  规律：css选择器的规则
+          querySelector（css选择器）querySelectorAll(css选择器)
+           document.querySelector("#box ul");       //#box ul 一个
+           document.querySelectorAll("#box li");     //#box li 多个
+
+    var oBox=document.getElementById("box"); //#box  id选择器
+    console.log(oBox.tagName); //DIV i67 INPUT
+    var oSelect=document.getElementsByClassName("select")[0]; //.select class选择器
+    console.log(oSelect);//类数组  有索引值 而且索引从0开始 依次递增  length长度属性
+
+    var oUl=document.getElementsByTagName("ul")[0]; //ul{}  标签选择器
+    console.log(oUl);*/
+/*
+    var oName=document.getElementsByName("name");//[name="video"]属性选择器
+    console.log(oName);*/
+   // document.documentElement  //html{}
+   // document.body //body{}
+
+
+    //document.querySelector("#box ul");       //#box ul
+    //document.querySelectorAll("#box li");     //#box li
+
+
+
+</script>
+</body>
+</html>

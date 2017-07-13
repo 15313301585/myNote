@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //获取元素的偏移量
+    function offset(curEle) {
+       var l=curEle.offsetLeft;
+       var t=curEle.offsetTop;
+       var p=curEle.offsetParent;
+       while (p.tagName.toLowerCase()!=="body"){
+           if(navigator.userAgent.indexOf("MSIE 8.0")===-1){
+               l+=p.clientLeft;
+               t+=p.clientTop
+           }
+           l+=p.offsetLeft;
+           t+=p.offsetTop;
+           p=p.offsetParent;
+       }
+       return{left:1,top:1};
+    }
+
+    offset(oDiv);
+</script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h3{
+            position: absolute;
+            left: 100px;
+            cursor: pointer;
+        }
+        ul{
+            display: none;
+            position: absolute;
+            width: 650px;
+            border: 1px solid #000000;
+            top:50px;
+            left:300px;
+            list-style: none;
+            padding: 10px;
+            overflow: hidden;
+        }
+        ul li{
+
+            width: 20%;
+            height: 30px;
+            float: left;
+            cursor: pointer;
+            text-align: center;
+            -webkit-user-select: none;
+        }
+        ul li.select{
+            background: #c71b1b;
+        }
+
+
+    </style>
+</head>
+<body>
+<h3 id="selectCity">切换城市</h3>
+<ul id="oUl" style="display: none">
+</ul>
+<script type="text/javascript">
+    var oUl = document.getElementById("oUl");
+    var city = document.getElementById("selectCity");
+    var oLis = document.getElementsByTagName("li");
+    var cities = ['北京', '上海', '承德', '石家庄', '天津', '雄县', '赵县', '沧州', '保定', '邯郸', '磁县', '北京', '上海', '承德', '石家庄', '天津', '雄县', '赵县', '沧州', '保定', '邯郸', '磁县'];
+    var str = "";
+    for (var i = 0; i < cities.length; i++) {
+        str += "<li>" + cities[i] + "</li>";
+    }
+    oUl.innerHTML = str;
+    //由于DOM映射机制，元素集合可以及时更新
+    //console.log(oLis);
+    //    city.flag=1;
+    //    city.onclick=function () {
+    //        if(city.flag){
+    //            oUl.style.display="block";
+    //            city.flag=0;
+    //        }else {
+    //            oUl.style.display="none";
+    //            city.flag=1;
+    //        }
+    //
+    //    };
+
+    city.onclick = function () {
+        this.flag = oUl.style.display;
+        oUl.style.display = this.flag === "none" ? "block" : "none";
+    };
+
+    for(var i=0;i<oLis.length;i++){
+
+        oLis[i].onclick=function () {
+            city.innerHTML=this.innerHTML;
+            for(var j=0;j<oLis.length;j++){
+                oLis[j].className="";
+            }
+            this.className="select";
+            oUl.style.display="none";
+        }
+    }
+
+
+    //利用事件委托的原理实现点击空白处，ul消失
+    document.onclick=function (e) {
+        e=e||window.event;
+        e.target=e.target||e.srcElement;
+        if(e.target.id!=="selectCity"&& e.target.id!=="oUl" ) {
+            oUl.style.display = "none";
+        }
+    };
+
+    //先捕获  目标阶段  冒泡阶段
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script type="text/javascript" src="utils.js"></script>
+<script>
+
+//    var oBox=document.getElementById("box");
+//    var winW=document.documentElement.clientWidth||document.body.clientWidth;
+//    var maxLeft = winW - oBox.offsetWidth;
+//    var duration=3000;
+//    var interval=10;
+//    var step=(maxLeft/duration)*interval;
+//    var count=0;
+//
+//    function move() {
+//     oBox.timer=setInterval(function () {
+//         count+=step;
+//         if(count>maxLeft){
+//             utils.css(oBox,"left",maxLeft);
+//             clearInterval(oBox.timer);
+//             return;
+//         }
+//        utils.css(oBox,"left",count);
+//     },interval)
+//    }
+//    oBox.onclick = move;
+
+    //第二种方式
+    //指定时间内时间实现动画
+    //总时间
+    //总距离
+
+
+    var oBox = document.getElementById("box");
+    var winW = document.documentElement.clientWidth || document.body.clientWidth;
+    var maxLeft = winW - oBox.offsetWidth;
+    var duration = 3000;
+    var interval = 10;
+    var step = (maxLeft / duration) * interval;
+    var time = null;
+
+    function move() {
+        oBox.timer = setInterval(function () {
+            time += 10;
+            if (time > duration) {
+                utils.css(oBox, "left", maxLeft);
+                clearInterval(oBox.timer);
+                return;
+            }
+            var cur = utils.css(oBox, "left");
+            utils.css(oBox, "left", cur + step)
+
+        }, interval)
+    }
+
+    oBox.onclick = move;
+
+
+    //t:走过的时间  b：开始的位置  c:总距离  d：总时间
+    //匀速运动公式
+    function Linear(t, b, c, d) {
+        return t / d * c + b //最新的位置
+    }
+
+</script>
+</body>
+</html>

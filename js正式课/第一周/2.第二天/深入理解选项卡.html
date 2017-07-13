@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            overflow: hidden;
+        }
+        #box{
+            width: 500px;
+            height: 500px;
+            margin: 50px auto;
+        }
+        #box li{
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid #000000;
+            float: left;
+            cursor: pointer;
+        }
+        #box li.select{
+            background: pink;
+        }
+        #box div{
+            display: none;
+            width: 100%;
+            height: 470px;
+            line-height: 470px;
+            text-align: center;
+            border: 1px solid #000000;
+        }
+        #box div.select{
+            display: block;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li class="select">新闻</li>
+        <li>体育</li>
+        <li>娱乐</li>
+    </ul>
+    <div class="select">新闻内容</div>
+    <div>体育内容</div>
+    <div>娱乐内容</div>
+</div>
+<script>
+var oLis=document.getElementsByTagName("li");
+var oDiv=document.getElementById("box");
+var oDivs=oDiv.getElementsByTagName("div");
+function change(n) {
+    for(var i=0;i<oDivs.length;i++){
+        oDivs[i].className = "";
+        oLis[i].className = "";
+    };
+    oLis[n].className = "select";
+    oDivs[n].className = "select";
+}
+//利用作用域里面的变量,提前把索引保存了下来，创建了三个私有作用域，并且不销毁，当点击的时候，获取变量j,不是私有变量，那么往上一级进行查找
+for(var i =0;i<oLis.length;i++){
+        oLis[i].onclick = (function(num){
+            // 当前的作用域不销毁，存储变量j;
+            return function () {
+                change(num);
+            }
+    })(i);
+}
+ //通过外面嵌套作用域的方式来保存值
+
+/*for(var j =0;j<oLis.length;j++){
+    oLis[j].onclick = function(j){
+        // 当前的作用域不销毁，存储变量j;
+        return function () {
+            change(j);
+        };
+    }(j);
+}*/
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+body,ul,p,a,img,h1,h2,h3,h4,h5,h6{
+    padding: 0;
+    margin: 0;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.header{
+    width: 1204px;
+    background-color: pink;
+    margin: 0 auto;
+}
+.header h1{
+    display: inline-block;
+    margin: 16px 85px 16px 0;
+}
+.header .nav{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.header .nav ul{
+    margin-left: -60px;
+}
+
+.header .nav li{
+    display: inline-block;
+    height: 84px;
+    line-height: 84px;
+    margin-left: 60px;
+    font-size: 14px;
+}
+.header .nav a{
+    color:#2a2a2a;
+}
+.header .nav a:hover{
+    color:#2b7dd1;
+}
+.header .right{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 60px;
+}
+.car-box{
+    display: none;
+}
+.right .car{
+    display: inline-block;
+    height: 84px;
+    line-height: 84px;
+    font-size: 14px;
+    color: #666767;
+    padding-right: 35px;
+}
+.right .car i{
+    display: inline-block;
+    height: 22px;
+    width: 24px;
+    background-image: url("../img/icon.png");
+    vertical-align: middle;
+    padding-right: 7px;
+}
+.right .link1{
+    height: 84px;
+    line-height: 84px;
+    font-size: 14px;
+    color: #666767;
+    padding-right: 35px;
+
+}

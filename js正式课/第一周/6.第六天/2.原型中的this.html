@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //构造函数中的this，指向当前new的这个实例
+    //this看方法执行前面有没有“.”,有的话 前面是谁，就是谁
+
+    function Fn() {
+        this.x=100;
+        this.y=200;
+        this.getX=function () {
+           console.log(this.x) ;
+        }
+    }
+
+    Fn.prototype={
+        y:300,
+        getX:function () {
+           console.log(this.x);
+        },
+
+        getY:function () {
+            console.log(this.y);
+        }
+    };
+
+    var f=new Fn;
+    f.getX();//100
+    f.getY();//200
+    f.__proto__.getY();//300
+    console.log(f.__proto__===Fn.prototype);//true
+    f.__proto__.getX(); //undefined  如果获取一个对象属性名对应的属性值的时候，属性名不存在，返回值是undefined
+
+</script>
+</body>
+</html>

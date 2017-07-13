@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+
+
+    //window 是个对象
+    // 1.在全局作用域下定义的变量，相当于给window增加了一个属性（包括属性名和属性值）
+    /*  var str="12";
+     console.log(str);  //"12"
+     console.log(window.str);//"12"*/
+
+    //2.在私有作用域下定义的变量，跟全局没有任何关系
+
+      /*function sum() {
+          var str="saj"
+      }
+       console.log(str);
+       console.log(window.str);
+
+      */
+    //3.没有被var的变量也是给window增加了一个属性名
+
+  /*str = "sg";
+   console.log(str);  //"sg"
+   console.log(window.str);//"sg"*/
+
+/*
+    console.log(total); //undefined
+    var total = 100;
+    function sum() {
+        console.log(total);//undefined
+        total += 200;
+        console.log(total);//NaN
+        total = 100;  //给total赋值
+    var total = 50; //给total重新赋值
+        console.log(total);//50
+        return total;
+    }
+    sum();
+    console.log(total);//100*/
+
+
+    //在私有作用域中，如果变量不是私有的，那么它的值往上一级作用域查找；如果上一级也没有，那么继续向上查找，直到找到Window为止;如果Window下面也没有，那么就会报错
+
+   function sum() {
+        return function () {
+            total=20;
+            console.log(total);//20 相当于给window增加一个属性名是total，属性值是20的一个值
+        }
+    }
+    var f=sum();
+      f();
+    console.log(total);//20
+
+    //怎么判断是不是私有变量？
+    //1.首先看是不是形参 2.再看有没有被var过
+
+   /* console.log(total); // undefined
+    var total = 100;
+    function sum() {
+        console.log(total);//100
+        total += 200;
+        console.log(total);//300
+        total = 100;
+        total = 50;
+        console.log(total);//50
+        return total;
+    }
+    sum();
+    console.log(total);//50
+*/
+
+
+
+
+       /*  function sum() {
+            total=20;
+            console.log(total);//20 相当于给window增加一个属性名是total，属性值是20的一个值
+        }
+
+
+        sum();
+*/
+
+
+
+</script>
+</body>
+</html>

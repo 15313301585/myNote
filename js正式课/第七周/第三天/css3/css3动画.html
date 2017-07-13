@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: #4e91d7;
+
+            -webkit-transition: all 1s linear;
+            -moz-transition: all 1s linear;
+            -ms-transition: all 1s linear;
+            -o-transition: all 1s linear;
+            transition: all 1s linear;
+            /*ie9及以下不兼容*/
+            /*transition-property: 执行动画属性名称;*/
+            /*transition-duration: 过渡时间;*/
+            /*transition-timing-function: linear  ease-in ease-out ease-in-out;*/
+            /*transition-delay: 延迟时间;*/
+        }
+
+        #box.animated{
+            width: 300px;
+            height: 300px;
+            background: blue;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+   // transition
+    var box=document.getElementById("box");
+
+    box.onclick=function () {
+//        var timer = setInterval(function () {
+//            var  a= box.offsetWidth;
+//            var  b=box.offsetHeight;
+//             a+=20;
+//             b+=20;
+//            if(a>=300&&b>=300){
+//                clearInterval(timer);
+//                return;
+//            }
+//            box.style.width=a+"px";
+//            box.style.height=b+"px";
+//        },100)
+
+        this.className="animated";
+    }
+</script>
+</body>
+</html>

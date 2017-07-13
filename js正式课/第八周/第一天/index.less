@@ -1,0 +1,138 @@
+//@定义变量
+// 方法： .public{} 转义之后，这个方法存在
+//       .public(){} 转义之后，这个方法不存在
+//
+//
+//
+//
+//
+//
+// @width:100px;
+//@selector:box;
+//传参的话需要转义，
+//在文件存储的空白地方按住shift键，右击，点击在此处打开命令窗口，输入下面转义命令，进行转义
+//转义命令：lessc index.less index1.css
+//方法不加括号那么转义之后的css，还是会存在这个样式的，加了之后，这个样式
+//.public(@val:100px){
+//  width:@val;
+//  height: 100px;
+//}
+//
+//.@{selector}box{
+//  .public;
+//  background: red;
+//  &:hover{
+//    background: blue;
+//  }
+//}
+
+
+//public就是命名空间，它里面的方法gray都是这个空间下的样式，调取里面的方法，.public>.gray
+//
+//.public{
+//  width: 100px;
+//  height: 100px;
+//  .gray{
+//    background: green;
+//  }
+//}
+//
+//
+//#div{
+//  width: 200px;
+//  height: 200px;
+//  .public>.gray;
+//}
+
+
+
+//extend可以写到括号中，或者括号外面；引用另一个类型的样式
+//.nav:extend(.public){
+//
+//}
+//或者下面的方式
+//.nav{
+//  &:extend(.public);//.nav的样式和.public的样式一样
+//}
+
+
+//在less中定义了一个命名空间，就创建一个作用域，在这个私有作用域中使用的变量，首先看一下自己的作用域有没有，没有的话，向上一级查找（类似于js作用域）
+//@color:#eee;
+//.box{
+//  @color:#000;
+//  .gray{
+//    background: @color;
+//  }
+//}
+
+//!important:在方法的后面加!important，可以让所有的属性都继承！important
+
+//.box{
+//  width: 100px;
+//  height: 100px;
+//  .gray{
+//    background: #2b7dd1;
+//  }
+//}
+//.public{
+//  .box!important;
+//}
+
+//在less函数中，可以调用@arguments
+//.transition(@property:all,@duration:1s,@time-function:linear,@delay:0s){
+//  -webkit-transition: @arguments;
+//  -moz-transition: @arguments;
+//  -ms-transition: @arguments;
+//  -o-transition: @arguments;
+//  transition: @arguments;
+//}
+
+
+//首先这个方法不仅有参数，而且还有返回值，像js中的函数一样
+//.average(@a,@b){
+//  @result:(@a+@b)/2;
+//}
+//
+//.box{
+//  .average(16px,20px);
+//  padding: @result;
+//}
+
+
+//在less中，常用的条件运算符 > < >= <= = ;在条件还可以使用一下函数：iscolor,isnumber,isstring,iskeyword,isurl,ispixel,ispercentage...
+//
+//.min(@a,@b:1) when(isnumber(@b)){
+//  background: #2b7dd1;
+//}
+//
+//#box{
+//  width: 100px;
+//  height: 100px;
+//  .min(@a:1,@b:5);
+//}
+
+//.animation{
+//  transform+_: scale(1.5);
+//}
+//.box{
+//  .animation;
+//  width: 100px;
+//  height: 100px;
+//  background: red;
+//  transform+_:rotate(360deg);
+//}
+
+//& :该运算符是让当前的选择器和父级选择器按照特定的规则进行拼接；
+
+//.box{
+//  &:hover{
+//
+//  }
+//  &-top{
+//    height: 300px;
+//  }
+//  & + &-top{ //box的下一个弟弟
+//    width: 100px;
+//  }
+//}
+

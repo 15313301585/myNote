@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Array.prototype.slice=function(){}
+    //var ary=[12,34,23];
+    //ary.slice->ary这个实例通过原型链的查找机制找到Array.prototype上的slice方法
+    //ary.slice()->让找到的slice方法执行，在执行slice方法的过程中，才把ary数组进行了截取
+
+
+    //  Function.prototype.call=function () {
+
+    //}
+
+    var obj={name:"珠峰培训"};
+    function fn() {
+        console.log(this);
+    }
+    fn();
+    fn.call(obj);
+    //call方法的作用：
+    //->首先我们让原型上的call方法执行，在执行call方法的时候，我们让fn方法中的this变为第一个参数值obj；然后再把fn这个函数执行
+
+
+    //自己模拟内置的call方法，写一个myCall方法，深入探讨call方法的执行原来
+   // Function.prototype.mycall=function (context) {
+       //->myCall方法中的this就是当前我要操作和改变其this关键字的那个函数名
+
+    //->1.让fn中的this关键字变为context的值->object
+    //->让this这个函数中的this关键字变为context
+    //eval(this.toString().replace("this","obj"));
+    //->2.让fn方法执行
+    //this();
+    //
+    //    };
+
+
+// fn.mycall(obj);//->myCall方法中的this是fn
+
+
+    function fn1() {
+        console.log(1);
+    }
+    function fn2() {
+        console.log(1);
+    }
+    fn1.call(fn2);//首先fn1通过原型链机制找到Function.prototype上的call方法,并且让call方法执行->此时call这个方法中的this就是我要操作的fn1->在call方法代码执行的过程中首先让fn1中的this关键字变为fn2，然后再让fn1这个方法执行->1
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            position: absolute;
+            left:0;
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+
+</div>
+<script type="text/javascript" src="utils1.js"></script>
+<script type="text/javascript">
+
+    //动画：页面中元素对象的位置，或者样式不断进行改变
+
+
+    //单方向的运动动画
+    //点击盒子，然后让盒子运动到页面的最右边
+    //思路：通过定时器，改变当前盒子的left的值
+    var oDiv = document.getElementsByClassName("box")[0];
+    var maxLeft = utils.win("clientWidth") - oDiv.offsetWidth;
+    var count = 0;
+    oDiv.onclick = function () {
+        var timer = setInterval(function () {
+            if (count+8 >= maxLeft) {
+                oDiv.style.left = maxLeft + "px";
+                clearInterval(timer);
+                return;
+            }
+            oDiv.style.left = (count += 8) + "px";
+        },10)
+    };
+
+
+//回调函数：把一个方法B，当做参数传给方法A，在A执行的时候，可以在A方法中任意位置，任意时间调用方法B，让B执行
+
+    function move() {
+        console.log(2);
+    }
+
+    setInterval(move,10);
+
+
+</script>
+</body>
+</html>

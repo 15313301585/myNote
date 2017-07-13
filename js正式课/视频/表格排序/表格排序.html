@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link  type="text/css"  rel="stylesheet" href="tab.css">
+</head>
+<body>
+<div class="box">
+    <table id="tab" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <th class="cursor">姓名</th>
+                <th class="cursor">年龄</th>
+                <th class="cursor">武力</th>
+                <th>性别</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--<tr>-->
+                <!--<td>令狐冲</td>-->
+                <!--<td>25</td>-->
+                <!--<td>99</td>-->
+                <!--<td>男</td>-->
+            <!--</tr>-->
+            <!--<tr class="bg">-->
+                <!--<td>令狐冲</td>-->
+                <!--<td>25</td>-->
+                <!--<td>99</td>-->
+                <!--<td>男</td>-->
+            <!--</tr>-->
+        </tbody>
+    </table>
+</div>
+<!--引入js是有顺序限制的：根据js之间的依赖关系，我们按照顺序依次引入，顺序一旦出现问题，就会发生错误-->
+<script type="text/javascript" charset="utf-8" src="../utils.js"></script>
+<script type="text/javascript" charset="utf-8" src="tab1.js"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //函数
+
+//    function fn(x,y) {
+
+//    }
+//    fn(1,2);
+
+    //es6之前的赋值：1.实参赋值 2.函数体内部赋值
+    //es6直接可以在形参里面赋值
+//    function sum(sum1=9,sum2) {
+//        console.log(sum1);
+//    }
+//
+//    sum();
+//    function fn({x,y=2}) {
+//        if(typeof x==="undefined"){
+//            x=12;
+//        }
+//        console.log(x,y);//12,2
+//
+//       }
+
+  //  fn({});
+//        //如果实参传入undefined，函数的参数等于默认值
+//        //fn(undefined,2);// 1,2
+//        fn(null,2); //null 2
+
+//
+//   function fn({x,y=5}) {
+//       console.log(x,y); //undefined  5
+//   }
+
+//  fn({});
+
+    //参数默认值可以与解构赋值联起来用
+//    function fn({x,y=5}) {
+//        console.log(x,y); //1 19
+//    }
+//
+//    fn({x:1,y:19});
+
+
+    //...变量名，把传进来的参数放进一个数组中，用变量来接收
+//    function add(...value) {
+//        console.log(value)
+//    }
+//    add(2,5,3)
+
+
+    //箭头函数：
+    //箭头函数中不可以使用arguments这个对象
+    //不可以当做构造函数，不可以new 命令
+    //可以当回调函数执行
+    //函数体内的this对象，指向在定义所在对象，不是函数执行所在的对象
+
+    //    var sum=function (value,value1) {
+    //       // return value;
+    //        console.log(value);
+    //    };
+    //如果参数只有一个的话，可以直接省略圆括号，如果=>后面是多行，必须加大括号
+    //    var sum=value=>console.log(1);
+    //    //=>就是在定义一个函数
+    //    var sum = (value,value1) =>{
+    //        console.log(value);
+    //    };
+    //    sum(1,2);
+    //    //如果不传参
+    //    var sum=()=>console.log(1);
+
+    //如果不传参，或者多个参数，就使用一个圆括号包起来
+    //自执行函数
+//    (() => {
+//        console.log(1);
+//    })();
+
+//
+//    var obj={
+//        name:"123",
+//        fn:function () {
+//
+//        }
+
+    //   fn:()=>a  给对象赋值可以这样写，全局下不能这样写()=>a
+//    };
+
+//    var obj={
+//       name:"123",
+//        fn(){
+//           console.log(this);//obj   {name: "123", fn: function}
+//        }
+
+//    };
+//
+//    obj.fn();
+
+
+
+//    var obj = {};
+//    obj.fn = function () {
+//        (() => {
+//            console.log(this); //obj   自执行函数在哪定义的，this就指向谁
+//        })()
+//    };
+//
+//    obj.fn();
+
+
+
+
+   // let sum=()=>1;   //如果函数体中只有一条return语句，省略return，把返回值放在箭头后面
+//    let sum=()=>{
+//        console.log(10);
+//        return 10;
+//    };
+//
+//    sum();
+
+
+
+//function sum(value) {
+//    return value;
+//}
+//
+//let sum=value=>value; //与上面的函数一样
+
+
+
+    var obj={
+        name:"zhufeng",
+        fn(){
+            (()=>{
+                console.log(arguments);
+                console.log(this);
+            })()
+        }
+    };
+
+    var str=obj.fn;
+    str();
+
+
+</script>
+</body>
+</html>

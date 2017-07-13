@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    Object.prototype.aaa = function () {
+
+    };
+    var obj = {
+        name: "珠峰",
+        age: 7
+    };
+
+
+//    obj.aaa();
+//    obj.__proto__.aaa();
+
+
+    for (var key in obj) {
+        console.log(obj[key]);
+    }
+</script>
+</body>
+</html>

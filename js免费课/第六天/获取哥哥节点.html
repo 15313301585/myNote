@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="tab">
+    <ul>
+        <li>标题一</li>
+        <li>标题二</li>
+        <li>标题三</li>
+    </ul>
+    <div>内容一</div>
+    <div>内容二</div>
+    <!--这是注释-->
+    <div id="div1">内容三</div>
+</div>
+<script type="text/javascript">
+
+   // console.log(oDiv1.previousSibling.previousSibling.previousSibling.previousSibling);
+    //var pre=oDiv1.previousSibling;
+    //while 一步一步往上查找 直到找到元素节点  则停止查找
+    //如果没有找到元素节点 再往上查找
+
+   /* while (pre.nodeType!==1){
+        pre=pre.previousSibling;
+    }
+
+    console.log(pre);*/
+
+
+   /* for (var i = 0; i < 3; i++) {
+        console.log(i);//0,1,2
+    }*/
+
+    /*while(判断条件){
+        条件成立执行的js代码
+     }
+
+     while循环
+     var i=0;
+     while(i<3){
+      console.log(i);//0,1,2
+      i++;
+      }
+
+    */
+   //获取一个哥哥节点：
+   /* prev  获取指定元素的哥哥节点
+    @paramter：参数
+        ele：我们想要操作的元素*/
+
+
+
+   /* var oDiv1=document.getElementById("div1");
+    function prev(ele) {
+        var pre=ele.previousSibling;//包括元素（标签），注释，文本
+        while (pre.nodeType!==1){
+            pre=pre.previousSibling;
+        }
+        return pre;
+    }
+   console.log(prev(oDiv1));
+*/
+
+
+    //获取所有的哥哥节点:
+   // prevAll  获取元素下所有的哥哥元素节点
+   var oDiv1=document.getElementById("div1");
+
+   function prevAll(ele) {
+       var pre = ele.previousSibling, ary = [];
+       while (pre) {
+           if (pre.nodeType === 1) {//找到符合条件的哥哥节点
+               ary.unshift(pre);
+       }
+           pre = pre.previousSibling;
+       }
+       return ary;
+   }
+   console.log(prevAll(oDiv1));
+
+
+
+
+
+
+</script>
+</body>
+</html>

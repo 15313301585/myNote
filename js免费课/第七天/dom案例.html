@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .login{
+            width: 80px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            margin: 80px auto;
+            display: block;
+        }
+        .tabl{
+            width: 500px;
+            height: 300px;
+            border: 1px solid #c9c9c9;
+            border-radius: 5px;
+            margin: 120px auto;
+        }
+        .cancle{
+            width: 60px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background: blue;
+            display: block;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<button class="login">登录</button>
+<script type="text/javascript">
+ //先创建弹出框
+ //点击登录，给body添加弹出框
+    var login = document.getElementsByClassName("login")[0];
+    var oDiv = document.createElement("div");
+    oDiv.className = "tabl";
+    var btn = document.createElement("button");
+    btn.innerHTML = "取消";
+    btn.className="cancle";
+    oDiv.appendChild(btn);
+
+   login.onclick = function (){
+       document.body.appendChild(oDiv);
+
+   }
+   btn.onclick = function () {
+       document.body.removeChild(oDiv);
+   }
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div  id="link">按钮</div>
+<div  id="div1">0</div>
+<script>
+    var oLink=document.getElementById("link");
+    var oDiv=document.getElementById("div1");
+    var count=0;
+    var flag=true;
+    var timer=null;
+  /*  oLink.onclick = function () {
+        if(flag){
+            timer=window.setInterval(function () {
+                count++;
+                oDiv.innerHTML=count;
+                flag=false;
+            },500)
+        }else{
+            window.clearInterval(timer);
+            flag=true;
+        }
+    }*/
+
+
+  oLink.onclick = function () {
+      if(flag==true){
+          on();
+      }else {
+          window.clearTimeout(timer);
+          flag=true;
+      }
+  };
+
+  function on(){
+      timer=window.setTimeout(function () {
+          count++;
+          oDiv.innerHTML=count;
+          flag=false;
+          on();
+      },500)
+  }
+
+</script>
+</body>
+</html>

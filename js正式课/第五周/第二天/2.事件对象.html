@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: #ff6900;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script type="text/javascript">
+    //事件对象:在绑定事件的时候，浏览器会默认给当前绑定方法传进一个参数（这个参数一般用e来接收），这个参数是个对象数据类型的值，里面包含了当前点击的一些信息
+
+    //在IE6-8下，事件对象没有在绑定的这个方法的参数中，而是放在全局下的window的一个属性上，属性名是event
+    var oBox=document.getElementById("box");
+    oBox.onclick=function (e) {
+//        console.log(e.clientX,e.clientY);
+//        console.log(e.pageX,e.pageY);
+        e = e||window.event;//由于e在IE6-8下不兼容
+
+        //  e.clientX  e.clientY
+
+        e.pageX = e.pageX || (e.clientX+(document.documentElement.scrollLeft||document.body.scrollLeft)) ;
+
+        e.pageY = e.pageY || (e.clientY+(document.documentElement.scrollTop||document.body.scrollTop)) ;
+        console.log(e.srcElement);
+    };
+
+
+    // clientX : 当前鼠标点击的位置，距离浏览器窗口左边的位置
+    // clientY : 当前鼠标点击的位置，距离浏览器窗口上边的位置
+
+    //在IE6-8下不存在pageX,pageY这两个属性
+    // pageX:当前鼠标点击的位置，距离页面顶部或者是body的顶部的距离
+    // pageY:当前鼠标点击的位置，距离页面左端或者是body的左边的距离
+
+
+    //事件源：事件绑定在哪个元素对象上，那么这个元素对象就是当前事件的事件源
+    //事件源(target):事件触发的源头
+    // e.target
+    // e.target在IE6-8下不兼容的，事件源是e.srcElement
+
+    // e.target= e.target || e.srcElement;
+
+
+</script>
+</body>
+</html>

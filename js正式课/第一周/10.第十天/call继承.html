@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //call：改变this关键字
+    //call继承，是把类B的实例继承了类A的私有属性，把私有属性直接复制给了类B的实例
+    function A() {
+      this.x=100;
+    }
+    A.prototype.getX=function () {
+       console.log(this.x)
+    };
+    function B() {
+      console.log(this); //f
+       A.call(this);//普通函数A执行，改变A方法中的this指向，指向B的实例
+    }
+    var f=new B;
+    console.log(f.x);//100
+   // f.getX();  报错
+</script>
+</body>
+</html>

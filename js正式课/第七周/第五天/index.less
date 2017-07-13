@@ -1,0 +1,57 @@
+//@定义变量
+@color:red;
+@address:images;
+//拼接地址或者字符串，把定义的这个变量放到{}里面
+#box{
+   margin: 20px auto;
+   width: 100px;
+   height: 100px;
+   background: @color;
+  .transition(@duration:3s);
+  .box1;//方法调用
+  &:hover{
+    .transformScale(2);
+  }
+ }
+//在less里面，带点的都是方法，函数执行可以不加括号,方法也是可以调用的
+.box1{
+  width: 200px;
+  height: 200px;
+  background: #2b7dd1;
+}
+//ul li:nth-child(1){
+//  background: url("@{address}/list1.png");
+//}
+//
+//ul li:nth-child(2){
+//  background: url("@{address}/list2.png");
+//}
+//
+
+
+//()传参数  函数参数赋值，不传的话是一个默认值，传传参数的话，按照传进去的缩放
+.transformScale(@val){
+  -webkit-transform: scale(@val);
+  -moz-transform: scale(@val);
+  -ms-transform: scale(@val);
+  -o-transform: scale(@val);
+  transform: scale(@val);
+}
+
+//在less函数中，可以调用@arguments
+.transition(@property:all,@duration:1s,@time-function:linear,@delay:0s){
+  -webkit-transition: @arguments;
+  -moz-transition: @arguments;
+  -ms-transition: @arguments;
+  -o-transition: @arguments;
+  transition: @arguments;
+}
+
+//在cmd中
+//npm install less -g
+//lessc -v
+
+
+//在文件存储的空白地方按住shift键，右击，选择在此处打开窗口，输入下面转义命令，进行转义
+//转义命令：lessc index.less index1.css
+

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//  0-100之间3的倍数
+    function sum(num){
+        if(num<=0){
+            return 0;
+        }else if(num%3==0){
+                return num + sum(num-3);
+            }else{
+               return sum(num-1);
+            }
+    }
+
+    console.log(sum(100));
+</script>
+</body>
+</html>

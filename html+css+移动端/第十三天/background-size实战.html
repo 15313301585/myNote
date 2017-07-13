@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>background-size</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /*H5页面中背景元素 单独的背景图片*/
+
+        header{
+            height: 80px;
+        }
+        header .logo{
+            width: 120px;
+            height: 25px;
+            margin: 0 auto;
+            background:url("logo.png") no-repeat;
+           -webkit-background-size: cover;
+            background-size: cover;
+        }
+
+
+
+        /*H5应用场景中 全屏的背景图片*/
+     html,body{
+            width: 100%;
+            height: 100%;
+        }
+        .page01{
+            width: 100%;
+            height: 100%;
+            background: url("backgroundpic.jpg") no-repeat;
+            -webkit-background-size:cover;
+            background-size: cover;
+
+        }
+c
+
+
+    </style>
+</head>
+<body>
+<!--<header>
+    <h1 class="logo"><a href=""></a></h1>
+</header>-->
+<div class="page01"></div>
+</body>
+</html>

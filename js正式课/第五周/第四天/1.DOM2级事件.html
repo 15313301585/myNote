@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            margin: 50px auto;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script type="text/javascript">
+    var oBox=document.getElementById("box");
+//    oBox.onclick=function () {
+//        console.log(1);
+//    };
+//    oBox.onclick=function () {
+//        console.log(2);
+//    };
+    //DOM 0级 onclick onmouseover onmousemove  这些方法绑定到当前的元素上，如果给当前元素的相同的行为绑定不同的方法，那么后面的方法会覆盖前面的方法
+
+    //DOM 0级 只能给元素对象的一个事件行为绑定一个方法;
+    //DOM 0级  移除事件方法 oBox.onclick=null；
+
+
+    //DOM 2级:事件的方法绑定当前元素对象的原型链上的一个EventTarget这个类的原型上
+    //DOM 2级 事件绑定的优势：
+    // 1.DOM 2级可以给一个行为绑定多个方法  //事件池、事件队列
+    //事件池：是用来存储当前元素行为绑定的方法的（浏览器自带的机制）
+    // 2.DOM 0级事件只可以对事件冒泡传播这个阶段进行传播（但是捕获阶段也存在，但是我们不能操作）；DOM 2级事件绑定不仅可以操作冒泡阶段，也可以操作铺货阶段
+
+    //参数：第一个：事件行为，这个参数前面不带“on”
+    //第二个：方法
+    //第三个：true/false    false是在事件冒泡阶段进行执行的  true是在事件捕获阶段进行执行的
+
+
+    //window.onload : 只有页面中HTML结构，图片，文字等所有资源加载完成才会执行这个方法，在页面中只能执行一次
+
+    // $(document).ready();只要页面中HTML结构加载完成，就会执行这个操作（一个页面可以使用多次）
+
+//    window.onload=function () {
+//      console.log(0);
+//    };
+
+
+
+
+    function log1() {
+        console.log(1);
+    }
+    function log2() {
+        console.log(2);
+    }
+
+    function log3() {
+        console.log(3);
+    }
+    oBox.addEventListener("click",log1,false);
+    oBox.addEventListener("click",log2,false);
+    oBox.addEventListener("click",log3,false);//123
+    oBox.removeEventListener("click",log3,false);//12
+
+    //addEventListener/removeEventListener这两个方法在IE6-8下不执行
+
+    //IE下DOM 2级绑定：第一个参数：“on”
+    // 只有两个参数
+    //attachEvent/detachEvent默认只能在冒泡阶段执行
+
+    // oBox.attachEvent("onclick",log1)
+  //oBox.attachEvent("onclick",log2)
+  //oBox.attachEvent("onclick",log3)  //321
+    //移除绑定的方法
+    //oBox.detachEvent("onclick",log1);//32
+
+
+
+
+</script>
+</body>
+</html>

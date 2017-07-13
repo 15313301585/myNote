@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    var num=1;
+//    console.log(num instanceof Number);//false
+//    var num=new Number(1);
+//    console.log(num instanceof Number); //true
+
+//    var ary=[];
+//    console.log(ary instanceof Array);//true
+//    var ary=new Array;
+//    console.log(ary instanceof Array);//true
+
+
+
+    //创建正则有两种方式
+    //字面量方式创建
+//    var reg=/^\d$/;
+//    console.log(reg instanceof RegExp);//true
+//
+//    //实例创建方式
+//    var reg1=new RegExp("\\d");
+//    console.log(reg1 instanceof RegExp);//true
+
+
+    //创建方式的不同点：
+
+  var  name="zhufeng";
+//  //在字面量方式创建的正则中，用字符串拼接变量的值，是不被识别的
+//  var reg=/^\d+"+name+"\d+$/ ;
+//    console.log(reg.test("123zhufeng234"));//false
+//    console.log(reg.test('123""nameee"234'));//true
+//
+
+//    //在实例创建的正则中，可以对变量进行识别；把有意义的字符再次转义之后才是正则中的有意义的字符
+//    var reg1=new RegExp("^\\d"+name+"\\d$");
+//    console.log(reg1.test("1zhufeng2"));//true
+</script>
+</body>
+</html>

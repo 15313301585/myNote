@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //正则：处理字符串的规则
+    //正则属于对象数据类型，每一个正则都是RegExp这个类的一个实例
+    //每个正则都可以调用RegExp的原型上的方法  test exec
+    //test : 匹配  返回值要么是true，要么是false
+    //exec ：捕获  捕获不到返回null，如果捕获的到会以数组的形式返回
+//    var reg=/\w/; //包含数字、字母、下划线中的一个
+//    var str="stt--";
+//    console.log(reg.test(str));//true
+//
+//    var reg=/^\w$/;//只能是数字、字母、下划线中的一个
+//    var str="stt";
+//    console.log(reg.test(str));//false
+//
+//    var reg=/^\w$/;//只能是数字、字母、下划线中的一个
+//    var str="s";
+//    console.log(reg.exec(str));//["s",index:0,input:"s"]
+
+
+    //正则的组成：是由元字符和修饰符组成
+    //元字符：在这两个斜杠之间有意义的字符都是元字符
+    //\:转义字符，把在正则中有特殊意思的转化成自己本身的含义
+    //.:除了\n以外的任意一个字符
+
+    //量词：形容次数的字符
+
+
+    //修饰符：是用来修饰整个正则的
+    //global: g  全局
+    //ignoreCase: i  忽略大小写
+    //multiLine: m  多行匹配
+
+//    var reg=/^2\d{2}(\.\d+)?$/;
+//    console.log(reg.test(""));
+//
+//    var reg=/^[+-]?(\d|([1-9]\d+))(\.\d+)?$/; //有效数字
+
+
+    //[xyz] :xyz中的任意一个
+    //[]不识别两位数   //[55-88] 5,5-8,8中的任意一个
+
+    //():
+    // 1.改变优先级
+    // 2.\1:出现和第一个分组一模一样的内容，\2:出现和第二个分组一模一样的内容
+//    var reg=/(\d)\2(\w)\1/;   // \2的时候第二个分组还没有出现
+//    console.log(reg.test("6yy6")); //false
+    //3.分组的捕获，不仅可以捕获到大正则的内容，还可以捕获小正则的内容；
+
+
+
+    //取消捕获贪婪性：？放在量词的后面，取消贪婪性
+    //  ?:    只匹配不捕获，经常用到分组中（小括号中）
+
+    //match:字符串的捕获，是字符串的方法，把铺货到的内容放到数组中进行返回，只对大正则进行铺货，小正则不铺货
+    //语法：str.match(reg);
+
+
+    //字面量方式创建、实例创建
+    //RegExp 是一个内置的类，所以可以通过New创建一个正则的实例，并且是对象数据类型的
+    //两种方式创建的区别：
+    //字面方式中不识别字符串的拼接，实例创建的正则可以识别
+    //var name="zhufeng";
+            //    var reg=/^\d"+name+"$/;
+            //    var str='456"""nameee"';
+
+    //var reg1=new RegExp("\\d+"+name+"");
+
+
+    //replace 字符串的方法,原有字符串没有发生变化
+     //str.replace(oldStr,newStr);
+    //replace  第一个参数是正则，执行的时候，会先对原始的字符串进行铺货，把铺货的内容进行替换
+    //replace 第二个参数传进去function，铺货几次，那么匿名函数执行几次，return:你返回的结果是啥，就相当于这一次大正则捕获的内容替换成你返回的内容
+
+//    var str="20170603";
+//    var ary=["零","壹","贰","叁","肆","伍","陆","柒","捌","玖"]
+//    var str1="";
+//
+//    str1=str.replace(/\d/g,function () {
+//        return ary[arguments[0]];
+//    });
+//   console.log(str1);
+
+
+   //去空格
+    var str=" my name  is niu xiaoxin ";
+//    var str1=str.replace(/\s/g,"");
+//    console.log(str1);
+    debugger;
+    //去首尾空格
+    var reg=/^ +| +$/g;
+    var str2=str.replace(reg,"");
+
+    console.log("=="+str2+"==");
+
+
+</script>
+</body>
+</html>

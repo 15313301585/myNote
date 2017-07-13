@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    //number  其实就是一个数字 正数 负数 小数 0 NaN
+    // NaN :not a number 但是他是number 数据类型的
+    //1）Number 把其他数据类型转化成number 数据类型
+    //   如果里面存在非有效数字，返回NaN
+    /*var yy="12";
+    var tt=Number(yy);
+    console.log(typeof tt);*/
+
+    /*var yy="12yy"
+    var tt=Number(yy);
+    console.log(tt);-->NaN*/
+
+   /* var yy="yuu"
+    var uu=Number(yy);
+    console.log(uu);-->NaN*/
+
+    //2)parseInt()/parseFloat() 转化数据类型时，从左到右一次转换，直到遇到一个非有效数字的时候停止转换，然后把转换的输出来，如果开始查找就是非有效数字，那么返回NaN
+
+    /*var aa="12px"
+    console.log(parseInt(aa));-->12
+    var bb="px12"
+    console.log(parseInt(bb));-->NaN
+    var bb="12.88"
+    console.log(parseInt(bb));-->12*/
+
+   /* var bb="12.88"
+    console.log(parseFloat(bb));*/
+
+   //parseFloat()比parseInt()多识别一个小数点
+
+   /* 3)isNaN  作用：检测是不是有效数字，如果是的话，返回false，不是返回ture；
+    var yy=12;
+    console.log(isNaN(yy))-->false
+    var hh="14px"
+    console.log(isNaN(hh))-->true*/
+
+  //4）toFixed  截取小数点后面几位，只有number才有toFixed
+   /*var uu=87.664;
+   console.log(uu.toFixed(2))*/
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>border-color 制作小三角</title>
+    <style type="text/css">
+       /* border:1px solid #000;
+        border-width 边框的宽度
+        border-style  边框的样式
+        border-color  边框的颜色
+
+        */
+
+        .box{
+            width: 0;
+            height: 0;
+            border-width: 100px;
+            border-style: solid;
+            border-color:red transparent transparent transparent;
+        }
+       .box1{
+           width: 0;
+           height: 0;
+           border-width: 100px;
+           border-style: solid;
+           border-color:transparent transparent green transparent;
+       }
+       .box3{
+           width: 0;
+           height: 0;
+           border-width: 100px;
+           border-style: solid;
+           border-color:red green blue purple;
+       }
+       .arrow{
+           margin: 50px auto;
+           width: 100px;
+           height: 100px;
+           border-top:10px solid #000;
+           /*border-bottom:10px solid #000;*/
+           border-left:10px solid #000;
+           /*border-right:10px solid #000;*/
+           -webkit-transform:rotate(45deg);
+           transform:rotate(45deg);
+       }
+        /*transform  转换 变换
+          rotate(deg) 旋转 循环 deg 角度单位
+        */
+
+
+    </style>
+</head>
+<body>
+<!--面试题-->
+<!--实心小三角：
+原理：实心小三角，首先做一个实心的正方形，由border-width来控制小三角大小，border-color来控制小三角的方向（width：0；height：0；）
+空心小三角：
+原理：空心小三角，首先做成空心的正方形，由元素的大小来控制小三角的大小，transform:totate(角度)来控制方向，小三角的宽度是由border-width来控制-->
+<div class="arrow"></div>
+<div class="box"></div>
+<div class="box1"></div>
+<div class="box3"></div>
+</body>
+</html>

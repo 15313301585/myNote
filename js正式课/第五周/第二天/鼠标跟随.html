@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 300px;
+            height: 300px;
+            background: #2b7dd1;
+            margin: 30px auto;
+            position: relative;
+
+        }
+        #mark{
+            height: 100px;
+            width: 100px;
+            background: red;
+            position: absolute;
+            left: 0;
+            top:0;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+
+</div>
+<script type="text/javascript" src="../myUtils.js"></script>
+<script>
+     //鼠标跟随
+    //1.鼠标移入大盒子，产生小盒子，移出盒子消失
+    //2.小盒子跟着鼠标走，计算小盒子的left和top值
+    //3.onmousemove
+
+var oDiv=document.getElementById("div1");
+var oDivLeft=oDiv.offsetLeft,oDivTop=oDiv.offsetTop;
+  //鼠标移入创建一个新的div
+  //onmouseenter和onmouseover 区别：onmouseenter、会默认阻止事件的冒泡传播机制;onmouseover划入，不会对冒泡传播进行阻止
+
+     //onmouseleave和onmouseout区别：onmouseleave会默认阻止事件的冒泡传播机制;onmouseout不会对冒泡传播进行阻止
+oDiv.onmouseover=function () {
+    var mark=document.createElement("div");
+    mark.id="mark";
+    this.appendChild(mark);
+};
+
+oDiv.onmousemove=function (e) {
+    e=e||window.event;
+    var mark=document.getElementById("mark");
+    mark.style.left=e.clientX-oDivLeft+20+"px";
+    mark.style.top=e.clientY-oDivTop+20+"px";
+
+};
+oDiv.onmouseleave=function () {
+    var mark=document.getElementById("mark");
+    if(mark){
+        this.removeChild(mark);
+    }
+}
+</script>
+</body>
+</html>

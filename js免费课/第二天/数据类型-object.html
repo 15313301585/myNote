@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    //基本数据类型是直接操作值的
+    //引用数据类型是操作空间地址的
+    var obj={name:"xiaoming",age:18};
+    //1)开辟一个空间地址xxxfff000;
+    //2)把键值队放进开辟的空间里面；
+    //3)把当前新开辟的地址赋给当前的变量
+
+    //(1)如果当前对象不存在对应的属性名，那么获取它的属性值是undefined
+    //(2)如果当前对象有对应属性名，那么就是修改，没有就是给他新增属性名和属性值
+    //obj.name="xiaogang";
+    //obj.height="180cm";
+    //console.log(obj.name);
+    //console.log(obj.height);
+
+    /*删除 delete 会把属性名和属性值都删除
+    delete obj.age;
+    console.log(obj);//Object {name: "xiaogang", height: "180cm"}
+    obj.age=null;
+    console.log(obj);//Object {name: "xiaogang", height: "180cm", age: null}*/
+
+
+   // 获取属性值得两种方法：
+    //console.log(obj.name);
+    //console.log(obj["name"]);
+
+    //console.log(typeof obj);
+
+   /* var num1=7;
+    var num2=num1;
+    console.log(num2);-->7*/
+
+   /* var obj={name:"xiaoming",age:18}
+    var obj1=obj; 只是把空间地址给了obj1，他们公用一个空间地址
+    obj1.age=16;
+    console.log(obj.age)-->16*/
+
+
+    var obj1={
+        name:"zhufeng"
+    };
+    var obj2=obj1;
+    obj2.name="peixun";  //属性名没有 是添加 有则是修改
+    console.log(obj1);  //peixun
+    console.log(obj2);  //peixun   obj1和obj2操作的是同一个地址
+    */
+
+    /*var obj1={
+     name:"zhufeng"
+     };
+     var obj2=obj1;
+     obj2={name:"peixun"}; //obj2：重新开辟了一个内存地址
+     console.log(obj1);  //zhufeng
+     console.log(obj2);  //peixun   obj1和obj2操作的是不同地址*/
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

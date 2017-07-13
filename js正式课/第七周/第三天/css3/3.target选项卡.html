@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            margin: 100px auto;
+            width: 200px;
+        }
+        #box1{
+            width: 202px;
+            height: 202px;
+            overflow: hidden;
+        }
+
+        a{
+            border: 1px solid #000000;
+            text-decoration: none;
+        }
+        a:hover{
+            background: red;
+        }
+        #div1,#div2,#div3{
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            border: 1px solid #000000;
+        }
+
+        :target{
+            background: red;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <a href="#div1">新闻</a>
+    <a href="#div2">娱乐</a>
+    <a href="#div3">体育</a>
+    <div id="box1">
+        <div id="div1">新闻内容</div>
+        <div id="div2">娱乐内容</div>
+        <div id="div3">体育内容</div>
+    </div>
+</div>
+
+</body>
+</html>

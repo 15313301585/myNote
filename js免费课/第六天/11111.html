@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="tab">
+    <ul>
+        <li>标题一</li>
+        <li>标题二</li>
+        <li>标题三</li>
+    </ul>
+    <div>内容一</div>
+    <div>内容二</div>
+    <!--这是注释-->
+    <div id="div1">内容三</div>
+</div>
+<script>
+    var oDiv1=document.getElementById("div1");
+    function prev(ele){
+        var pre=ele.previousSibling;
+        while(pre.nodeType!==1){
+            pre=pre.previousSibling;
+        }
+        return pre;
+    }
+    console.log(prev(oDiv1));
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height: 200px;
+            width: 200px;
+            background-color: red;
+        }
+
+        div:before{
+            display: block;
+            content: "我是before";
+            color: #fff;
+        }
+
+
+        div:after{
+            display: block;/*块*/
+            content: "我是after";
+            color: #fff;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div>
+    <!--<before>我是before</before>-->
+    <span>我是span</span>
+    <span>我是span</span>
+    <span>我是span</span>
+    <span>我是span</span>
+    <!--<after>我是after</after>-->
+
+</div>
+
+</body>
+</html>

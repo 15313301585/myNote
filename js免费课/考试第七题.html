@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div id="div"></div>
+<script>
+    var oDiv = document.getElementById("div");
+    function getCode() {
+        var str = "";
+        for (var i = 0; i < 4; i++) {
+            str += Math.round(Math.random() * 9);
+        }
+        oDiv.innerHTML = str;
+    }
+
+   getCode();
+
+    var timer = setInterval(function () {
+        getCode();
+    }, 1000);
+
+    setTimeout(function () {
+        window.clearInterval(timer);
+    }, 10000);
+
+</script>
+</body>
+</html>

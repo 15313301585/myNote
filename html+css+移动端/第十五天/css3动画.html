@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            border-radius: 50%;
+            margin: 50px auto;
+            -webkit-animation:boxAnimate 1s ease 1;
+            animation:boxAnimate 1s ease 1;
+        }
+        .box1{
+            height: 100px;
+            width: 100px;
+            margin: 150px auto;
+            background: blue;
+            border-radius: 50%;
+            -webkit-animation:box1Animate  10s ease 1;
+            animation:box1Animate  10s ease 1;
+        }
+
+
+        /*规定好动画效果*/
+        @-webkit-keyframes boxAnimate{
+            0%{
+               -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+            100%{
+                -webkit-transform: scale(2);
+                transform: scale(2);
+            }
+
+        }
+        @-webkit-keyframes box1Animate {
+            0%{
+                -webkit-transform: translateY(100px);
+                transform: translateY(100px);
+            }
+            100%{
+                -webkit-transform: translateY(300px);
+                transform: translateY(300px);
+            }
+        }
+    </style>
+</head>
+<body>
+<!--一.规定好动画效果
+1.指定关键帧动画 @keyframes
+2.动画的名称 是自定义（我们自己命的名）
+3.大括号{} 规定动画划分多少块 0% 动画开始的位置 100%动画结束
+ transform 变换：可以控制：1.坐标值translate 2.角度rotate(45deg) 3.放大缩小scale()
+二.给指定元素调用动画效果
+animation
+1.动画的名称
+2.动画持续的时间
+3.动画运行的曲线速度
+4.动画延迟的时间
+5.动画运行的次数  具体的次数  infinte无线次
+6.动画结束保持的状态 both（开始或结束） forwards 开始  backwards结束
+both 保留动画关键帧中 开始的一帧（0%）或结束的一帧（100%）
+forwards 保留动画关键帧中 开始的一帧（0%）
+backwards保留动画关键帧中 结束的一帧（100%）
+7.动画运行的状态 1）运动 running   2）暂停paused
+8.动画运行的方向 默认正常 nomal     反向reverse  交替运动alternate  alternate-reverse交替反向
+-->
+<div class="box"></div>
+<div class="box1"></div>
+</body>
+</html>

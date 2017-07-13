@@ -1,0 +1,132 @@
+body, h1,h3, ul, p, li, a, img,dl,dt,dd{
+    padding: 0;
+    margin: 0;
+    font-family: "微软雅黑";
+}
+img{
+    border: none;
+    vertical-align:middle;
+}
+h1,h3{
+    font-weight: normal;
+}
+a {
+    text-decoration: none;
+}
+ul,dl{
+    list-style: none;
+}
+i{
+    font-style: normal;
+}
+
+.banner{
+    width: 1204px;
+    margin: 0 auto;
+    position: relative;
+}
+.banner .ban-img li{
+    float:left;
+}
+
+.banner .ban-img{
+    width: 1204px;
+    height: 360px;
+    overflow: hidden;
+}
+
+.sub-nav{
+    width: 240px;
+    height: 360px;
+    position: absolute;
+    left: 0;
+    top:0;
+}
+.sub-nav li{
+    height: 72px;
+    line-height: 72px;
+    padding: 0 25px 0;
+}
+
+.sub-nav li a{
+    display: block;
+    height: 71px;
+    line-height: 71px;
+    width: 170px;
+    border-bottom:1px solid #f1f1f1;
+    border-bottom: 1px solid rgba(255,255,255,0.44);
+    font-size: 14px;
+    padding-left: 11px;
+    color: #fdfdfe;
+    position: relative;
+    z-index: 1;
+
+}
+.sub-nav .last-a{
+    border: none;
+}
+.ban-icon {
+    display: inline-block;
+    width: 7px;
+    height: 13px;
+    background-image: url("yudahao.png");
+    background-repeat: no-repeat;
+    margin-left:14px;
+}
+
+.transparent{
+    width: 240px;
+    height: 360px;
+    background-color: #000000;
+    opacity: 0.3;
+    filter: alpha(opacity=30);
+    position: absolute;
+    left:0;
+    top:0;
+}
+
+.ban-hidden{
+    display: none;
+    height: 330px;
+    width: 540px;
+    position: absolute;
+    left:240px;
+    top:0;
+    background: url("nav-hidden1_03.jpg") no-repeat;
+    padding:33px 0 0 34px;
+    line-height: 35px;
+}
+.ban-hidden dt{
+    font-size: 16px;
+    color:#0b0b0b;
+}
+.ban-hidden dd{
+    font-size:14px;
+    color:#4a4b4b;
+}
+.hidden2 {
+    background-image: url("nav-hidden2_03.jpg");
+}
+
+.sub-nav li:hover .ban-hidden{
+    display: block;
+}
+/*.sub-nav li:hover{
+    background-color: rgba(0,0,0,0.4);
+}  不兼容ie678*/
+
+.transparent2{
+    display: none;
+    width: 240px;
+    height: 72px;
+    background-color: #000000;
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+    position: relative;
+    left:-25px;
+    top:0;
+    margin-top: -72px;
+}
+.sub-nav li:hover .transparent2{
+    display: block;
+}

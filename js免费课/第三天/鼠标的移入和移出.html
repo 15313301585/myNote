@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 微软雅黑;
+            font-size: 14px;
+        }
+        #tab{
+            width: 500px;
+            height: 300px;
+            margin: 50px auto;
+            border: 1px solid #c9c9c9;
+        }
+
+        #tab ul{
+            list-style: none;
+        }
+        #tab ul li{
+            width: 100%;
+            text-align: center;
+            height: 36px;
+            line-height: 36px;
+        }
+        .bg1{
+            background: red;
+        }
+        .bg2{
+            background: blue;
+        }
+        .hover{
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+<div id="tab">
+    <ul>
+        <li class="bg1">珠峰培训</li>
+        <li class="bg2">珠峰培训</li>
+        <li>珠峰培训</li>
+        <li>珠峰培训</li>
+        <li>珠峰培训</li>
+        <li>珠峰培训</li>
+        <li>珠峰培训</li>
+        <li>珠峰培训</li>
+    </ul>
+</div>
+<script type="text/javascript">
+    //第一行背景是红色，第二行是蓝色，第三行是红色...
+    //通过循环，给每一个li添加类名
+    var oDiv = document.getElementById("tab");
+    var oLis = oDiv.getElementsByTagName("li");
+    for(var i=0;i<oLis.length;i++){
+
+
+        if(i%2==0){
+            oLis[i].className = "bg1"
+        }else if(i%2==1){
+            oLis[i].className = "bg2"
+        }
+
+        oLis[i].old = oLis[i].className;
+        oLis[i].onmouseover = function () {
+            //this是指当前函数执行的主体
+            this.className="hover";
+        };
+        oLis[i].onmouseout = function () {
+            //this是指当前函数执行的主体
+            this.className=this.old;
+        };
+    }
+
+    // onmouseover 鼠标移入   onmouseenter  鼠标进入
+    //onmouseout  鼠标移出
+</script>
+</body>
+</html>

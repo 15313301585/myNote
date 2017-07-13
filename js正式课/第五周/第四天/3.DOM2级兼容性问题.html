@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            margin: 50px auto;
+            width: 100px;
+            height: 100px;
+            background: #c71b1b;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    var oBox=document.getElementById("box");
+    function fn1() {
+        console.log(1);
+    }
+    function fn2() {
+        console.log(2);
+    }
+    function fn3() {
+        console.log(3);
+    }
+    function fn4() {
+        console.log(4);
+    }
+    function fn5() {
+        console.log(5);
+    }
+
+    //**给DOM 2级事件的某个行为绑定方法只能绑定实名函数,要不移除的时候，没法移除，因为两个匿名函数的指向不同的空间地址**
+
+
+//  oBox.addEventListener("click",fn1,false);
+//  oBox.addEventListener("click",fn2,false);
+//   //移除方法：必须保证三个参数一致
+//    oBox.removeEventListener("click",fn1,false);
+//
+//
+//    //addEventListener,在IE6-8下不兼容
+//    //在IE6-8下
+//    oBox.attachEvent("onclick", fn1);
+//    oBox.attachEvent("onclick", fn2);
+//    //移除
+//    oBox.detachEvent("onclick", fn1);
+
+    //DOM 2级兼容：
+    //1)顺序问题:标准浏览器中，给一个元素的一个事件行为绑定多个方法，方法执行的顺序和绑定顺序是一致的，但是IE6-8的执行结果是乱序的
+    //2)this问题：标准浏览器方法中的this指向当前被绑定的元素，但是IE6-8是this指向window
+    //3)重复问题：标准浏览器对一个元素的一个事件行为绑定多次一样的方法，浏览器会把重复的过滤掉，但是在IE6-8下是不进行过滤处理的，绑定了重复的方法也会执行
+
+    //this 问题
+    //curEle:当前的元素对象
+    // eventType：事件行为  click,mouseover....
+    // evenFn：指定的事件行为方法
+    function bind(curEle,eventType,evenFn) {
+        //在标准浏览器下存在addEventListener，直接执行
+       if(document.addEventListener){
+           curEle.addEventListener(eventType,evenFn,false);
+           return;
+       }
+       //在方法绑定之前，对当前的方法进行处理
+        //解决this问题
+       var tempFn=function () {
+           evenFn.call(curEle);
+       };
+
+       tempFn.photo=evenFn;
+       //创建这个数组，每次往事件池中添加事件方法之前，先对这个元素的自定义的属性值，进行循环，判断当前方法中是否已经存在
+        //解决重复问题
+       if(!curEle["mybind"+eventType]){
+           curEle["mybind"+eventType]=[];
+       }
+        var ary=curEle["mybind"+eventType];
+        for(var i=0;i<ary.length;i++){
+           var cur=ary[i];
+           if(cur.photo===evenFn){
+               return;
+           }
+        }
+        ary.push(tempFn);
+
+        //在IE6-8下
+        curEle.attachEvent("on"+eventType,tempFn);
+    }
+
+
+    function unbind(curEle,eventType,evenFn) {
+        if(document.removeEventListener){
+            curEle.removeEventListener(eventType,evenFn,false);
+            return;
+        }
+        //加eventType这个变量，防止给不同事件行为绑定相同方法，被阻止
+        var ary=curEle["mybind"+eventType];
+        for(var i=0;i<ary.length;i++) {
+            var tempFn = ary[i];
+            if (tempFn.photo === evenFn) {
+                curEle.detachEvent("on" + eventType, tempFn);
+                ary.splice(i,1);
+                break;
+            }
+        }
+
+    }
+
+
+    bind(oBox,"click",fn1);//浏览器给事件行为的事件池
+    bind(oBox,"click",fn2);
+    unbind(oBox,"click",fn2);
+
+
+    //顺序问题:内置的事件池，自己写一个事件池，来按照绑定的顺序执行
+    //on解决顺序问题，this问题，重复问题
+
+    function on(curELe,eventType,evenFn) {
+        if(!curELe["myEvent"+eventType]){
+            curELe["myEvent"+eventType]=[];
+            curELe.attachEvent("on"+eventType,function () {
+                run.call(curELe); //bind 在IE6-8下不兼容
+            });
+        }
+        var ary=curELe["myEvent"+eventType];
+        for(var i=0;i<ary.length;i++){
+            var cur=ary[i];
+            if(cur===evenFn){
+                return;
+            }
+        }
+        ary.push(evenFn);//[fn1,fn2]
+    }
+
+    on(oBox,"click",fn1); //自己创建的事件池
+    on(oBox,"click",fn2);
+
+    //run方法解决自定义事件池方法挨个执行
+    function run(e) {
+        e = e||window.event;
+        var flag=e.target;
+        if(!flag){
+            e.target=e.srcElement;
+            e.pageX=e.clientX+document.documentElement.scrollLeft||document.body.scrollLeft;
+            e.pageY=e.clientY+document.documentElement.scrollTop||document.body.scrollTop;
+
+            e.preventDefault=function () {
+                e.returnValue=false;
+            };
+            e.stopPropagation=function () {
+                e.cancelBubble=true;
+            }
+        }
+        //this->oBox
+        var ary=this["myEvent"+e.type];
+        for(var i=0;i<ary.length;i++){
+            var curFn=ary[i];
+            if(typeof curFn==="function"){
+                curFn.call(this,e);
+            }
+        }
+    }
+
+    //off在自己的事件池中把需要移除的方法移除掉
+    function off(curELe,eventType,evenFn) {
+        var ary=curEle["mybind"+eventType];
+        for(var i=0;i<ary.length;i++){
+            if(ary[i]===evenFn){
+                ary[i]=null;
+                break;
+            }
+        }
+    }
+
+    off(oBox,"click",fn1);
+</script>
+</body>
+</html>

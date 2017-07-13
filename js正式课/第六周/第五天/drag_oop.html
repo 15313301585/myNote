@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+div{ width:100px; height:100px; position:absolute; top:0px; left:0px; background:red;}
+</style>
+</head>
+
+<body>
+
+<div id="div1"></div>
+<div id="div1" style="top:100px; left:100px; background:black; "></div>
+<div id="div1" style="top:100px; left:200px; background:green;"></div>
+<div id="div1" style="top:200px; left:200px; background:orange;"></div>
+</body>
+</html>
+<script src="event.js"></script>
+<script>
+function processThis(obj,fn){
+	return function(e){
+		fn.call(obj,e);	
+	}
+}
+function Drag(ele){
+	this.x=null;
+	this.y=null;
+	this.mx=null;
+	this.my=null;
+	this.ele=ele;
+	this.DOWN=processThis(this,this.down);
+	this.MOVE=processThis(this,this.move);
+	this.UP=processThis(this,this.up);
+	on(this.ele,"mousedown",this.DOWN);
+}
+
+Drag.prototype.down=function(e){
+	this.x=this.ele.offsetLeft;
+	this.y=this.ele.offsetTop;
+	this.mx=e.pageX;
+	this.my=e.pageY;
+	if(this.ele.setCapture){
+		this.ele.setCapture();
+		on(this.ele,"mousemove",this.MOVE);
+		on(this.ele,"mouseup",this.UP);	
+	}else{
+		on(document,"mousemove",this.MOVE);
+		on(document,"mouseup",this.UP);	
+	}
+	e.preventDefault();
+}
+
+Drag.prototype.move=function(e){
+	this.ele.style.left=e.pageX-this.mx+this.x+"px";
+	this.ele.style.top=e.pageY-this.my+this.y+"px";	
+}
+
+Drag.prototype.up=function(e){
+	if(this.ele.releaseCapture){
+		this.ele.releaseCapture();
+		off(this.ele,"mousemove",this.MOVE);
+		off(this.ele,"mouseup",this.UP);
+	}else{
+		off(document,"mousemove",this.MOVE);
+		off(document,"mouseup",this.UP);
+	}
+	
+}
+var eles=document.getElementsByTagName("div");
+for(var i=0;i<eles.length;i++){
+	new Drag(eles.item(i));
+}
+
+//产品化
+// 产品需求
+/// 1、独立实现不同元素的拖拽
+//  2、可以升级
+//  3、可以自由和其它功能、甚至第三方功能结合使用
+
+/*
+		拖拽产品使用说明书（二次开发文档）
+		1.0产品
+		Drag类
+			1.构造函数
+				把需要拖拽的DOM对象参数传给构造函数，则此DOM对象即可被拖拽，用法如： new Drag(ele);
+			2.常用的可以公开的属性
+				this.x 保存被拖指元素原始的位置
+				this.y
+				this.mx
+				this.my
+				this.ele 保存被拖拽的元素，注意：this是指当的实例，this.ele才是被拖拽的DOM元素
+			3.常用的原型方法 
+				Drag.prototype.down
+				Drag.prototype.move
+				Drag.prototype.up
+
+
+
+*/
+
+
+
+
+
+</script>

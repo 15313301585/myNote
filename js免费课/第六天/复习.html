@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--数据类型：
+基本数据类型：number,string,boolean,null,undefined
+引用数据类型：函数数据类型 function
+             对象数据类型：数组类，对象类,正则类，Date,Math
+1.number数据类型
+Number()强制类型转化
+返回值：数字/NaN
+非强制类型转化：
+parseInt 返回值：整数
+parseFloat 返回值：浮点数
+
+NaN==NaN   //false
+
+console.log(Number("12px"));//NaN
+console.log(parseInt("12px"));//12
+
+2.string 字符串
++ 字符串拼接
+3.boolean
+Boolean();
+!取反
+！！取反再取反
+false：0，“”，null,undefined,NaN
+4.null 空值
+
+
+总结：null/undefined 跟其他数据类型比较，最后的结果为false
+1.number<=>string  Number()
+2.number<=>boolean(true/false)   Number()
+3.number<=>null
+4.number<=>undefined
+5.number<=>对象 toString()->Number()
+
+1.string<=>boolean  Number()
+2.number<=>null
+3.number<=>undefined
+
+1.boolean<=>null
+2.boolean<=>undefined
+
+3.null<=>undefined
+null==undefined  true
+null===undefined  false
+
+4.对象 = 其他数据类型(number.string,boolean,null,undefined)
+对象toString();
+对象跟其他数据比较，都是把对象转化成字符串，再转换成number进行比较，（除了跟字符串比，不用转换成number，直接转化成字符串比）
+
+基本数据类型操作的是值
+引用数据类型操作的是空间地址
+
+【数组】ary=[1,2,3]    ary1=[1,4,6]
+1.push 在数组的末尾添加 ary.push(4)  ary[1,2,3,4]
+2.unshift 在数组的开头添加  ary.unshift(4)  ary[4,1,2,3]
+3.pop 删除数组的末尾   ary.pop()    ary[1,2]
+4.shift 删除数组的开头  ary.shift()     ary[2,3]
+
+5.reverse 取反方向 ary.reverse()   ary[3,2,1]
+6.sort 排序 ary.sort()      ary[1,2,3]
+7.concat   拼接ary.concat(ary1)     ary[1,2,3,1,4,6]
+8.join  +连接
+9.splice（n,m）从索引n开始删除m个
+10.slice(n,m) 从索引n开始到索引m   [n,m)
+11.indexOf()  -1
+12.lastIndexOf()
+13.forEach /map
+-->
+<script>
+    if(!null){
+        console.log("123");//
+    }
+</script>
+</body>
+</html>

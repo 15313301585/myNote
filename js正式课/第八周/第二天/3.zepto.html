@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            position: absolute;
+            top:0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 100px;
+            height: 100px;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script type="text/javascript" src="zepto.min.js"></script>
+<script type="text/javascript">
+//zepto:被称作移动端的小型的jQuery
+//由于jQuery是在pc端使用，里面包含了对IE的低版本的兼容处理，zepto应运于移动端开发，对IE版本的浏览器不支持
+
+//jQuery提供了很多的选择器，以及DOM的操作方法，但是zepto实现了部分常用的选择器和方法：
+// jQuery动画方法：animate hide show toggle slide down slideUp slideToggle fadeIn fadeOut fadeToggle  但是zepto只有animate
+
+ //zepto 常用事件操作：tap singleTap doubleTap longTap swipe swipeUp swipeDown swipeLeft swipeRight
+ // var oBox=document.querySelector("#box");
+
+   $("#box").on("touchstart",function () {
+       $(this).animate({
+           rotate:"360deg"
+       },2000,"linear",function () {
+          //参数是函数的话，是回调函数
+           this.style.webkitTransform="rotate(0deg)";
+       })
+   });
+
+   
+
+//    $.ajax({
+//        url:"",
+//        type:"get/post",
+//        dataType:"json",
+//        success:function () {
+//
+//        }
+//    })
+
+
+
+</script>
+</body>
+</html>

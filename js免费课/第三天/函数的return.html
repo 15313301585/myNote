@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+//函数在执行的时候，会形成一个私有作用域，保护里面的变量不受外界干扰，这种机制叫闭包。
+  /*  function sum(){
+        var total = 0;
+        for(var i=0;i<arguments.length;i++){
+
+            if(!isNaN(arguments[i])){
+                total+=arguments[i];
+            }
+
+        }
+       return total;
+
+    }
+ sum(100,10,30);*/
+
+// 函数的出口 return
+//  return 下面的代码不在执行
+// 如果函数没有return，那么返回值是undefined
+
+
+    /* function fn() {
+          var total = 100;
+          return total;
+       }
+        var total = fn;
+       console.log(total);-->整个函数体
+
+
+           function fn1() {
+               var total = 100;
+                return total;
+             }
+           var total = fn1();
+           console.log(total);-->100
+
+
+           function fn2() {
+                var total = 100;
+           }
+          var total = fn2();
+          console.log(total);--> undefined
+
+     没有return 值，那么函数执行结果undefined
+
+     function fn3() {
+     return;
+     var total = 100;
+     return total;
+     }
+     var total = fn3();
+     console.log(total);-->undefined
+
+   */
+
+
+</script>
+</body>
+</html>

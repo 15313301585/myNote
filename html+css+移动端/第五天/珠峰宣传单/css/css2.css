@@ -1,0 +1,107 @@
+body,p,ul,h1,h2,h3{
+    margin: 0;
+    padding:0;
+}
+ul{
+    list-style: none;
+}
+.clearfix:before,.clearfix:after{
+    display:table;
+    content:"";
+}
+.clearfix:after{
+    clear:both;
+}
+.clearfix{
+    zoom:1;
+}
+.w{
+    width: 1204px;
+    margin:0 auto;
+    /*background-color: pink;*/
+}
+.div1 h1{
+    text-align: center;
+    font-size: 50px;
+    color:orangered;
+    padding: 50px 0 10px 0;
+}
+.div1 h2{
+    text-align: center;
+    font-size: 30px;
+    color:royalblue;
+}
+.div2{
+    margin: 30px 20px 30px 20px;
+}
+.div2 li{
+    float:left;
+    margin-right:24px;
+    width:370px;
+    background-color:ghostwhite;
+}
+
+.div2 .right{
+    margin-right: 0;
+}
+.left h2,.mid h2,.right h2{
+    height: 50px;
+    line-height: 50px;
+    background-color: blue;
+    padding-left: 20px;
+}
+.left h2 {
+    background-color: blue;
+}
+.mid h2{
+    background-color: yellowgreen;
+}
+.right h2{
+    background-color: sandybrown;
+}
+
+.left p,.mid p,.right p{
+    line-height: 30px;
+    padding: 20px ;
+}
+.left span{
+    font-weight: 700;
+    color:blue;
+}
+.mid span{
+     font-weight: 700;
+     color:yellowgreen;
+ }
+.right span{
+    font-weight: 700;
+    color:sandybrown;
+}
+.div3 h2{
+    text-align: center;
+    font-size: 40px;
+    color:sandybrown;
+}
+.div4{
+    margin:30px 0 50px 0;
+    padding:40px 60px 40px 60px;
+    background-color: blue;
+}
+.div4 h2{
+    text-align: center;
+    font-size:40px;
+    color: yellow;
+}
+ .div4  .bt .btl{
+    float:left;
+}
+.div4 .bt .btr{
+    float:right;
+}
+.bt .btl h3,.bt .btr h3{
+    font-size: 16px;
+    color:yellow;
+}
+.bt .btl p,.bt .btr p {
+    line-height: 30px;
+    color:white;
+}

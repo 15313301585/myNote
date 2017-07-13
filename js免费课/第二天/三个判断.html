@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    //1.if else
+   /* if(条件1){
+        条件1成立，那么执行
+    }else if(条件2){
+        条件2成立，那么执行
+    }else if{
+        条件3成立，那么执行
+    }else {
+        都不成立，执行
+    }*/
+
+    //=赋值
+    //==比较
+    console.log(1=="1");-->ture
+    /*1)对象 == 对象 比较的是空间地址
+     var obj={};
+    var  obj1={}
+    console.log(obj==obj1)-->false*/
+
+   // 2)对象==字符串 先把对象转换为字符串再比较
+
+   /* var obj={};
+   console.log(obj.toString());
+    var obj1="";
+    console.log(obj==obj1)-->false*/
+  // 3)对象==boolean 对象先转换成字符串，字符串再转换成数字，布尔类型转换成数字；
+  // 布尔类型 true 转换成数字类型 1
+    //布尔类型false  转换成数字类型 0
+
+    //4)对象==数字 对象先转换为字符串，字符串转换为数字
+    //5)字符串==数字 字符串转换为数字 进行比较
+    //6)字符串==布尔 同时转换为数字进行比较
+    //7)布尔==数字 布尔转换为数字，他们进行比较
+    //8)null==undefined  -->ture
+      //  null===undefined --> false
+
+    //===绝对比较 只要是数据类型不同，返回false
+
+ //2.三元运算符
+    //var num=10;
+    /*if(num<15){
+        console.log("aa")
+    }else {
+        console.log("bb")
+    }*/
+
+    // num<15 ? console.log("aa"):console.log("bb");
+
+ //3.switch case 进行的是绝对比较===
+    //break 终止当前的条件
+    var tt=15;
+    switch (tt){
+        case 15 :
+            console.log("aa");
+            break;
+        case "15":
+            console.log("bb");
+            break;
+        default :
+            console.log("15");
+    }
+</script>
+</body>
+</html>
+
+
+<!--
+★五条黄金法则★：
+1）null或undefined跟其它数据类型比较，都为false
+2）null==undefined  为true
+null===undefined  为false   (===绝对等于，比较的是数据类型；null与undefined为不同数据类型)
+3）对象==对象  为false
+4）数据类型的比较最后都转化为数字类型进行比较
+5）布尔值为假：0，""，NaN，null，undefined；其他值都为真。
+6）如果是同一个数据类型进行比较，只需要比较里面的值是否相等就可以。☆-->

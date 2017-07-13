@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+
+        input {
+            position: absolute;
+            top: 150px;
+            display: block;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        #left {
+            left: 50px;
+        }
+
+        #right {
+            left: 200px;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box"></div>
+<input type="text" value="向左走" id="left">
+<input type="text" value="向右走" id="right">
+<script type="text/javascript" src="utils1.js"></script>
+<script type="text/javascript">
+    //思路：1.求出可运动区的最大值和最小值 2.给两个按钮绑定点击事件（传参数）  3.可以通过判断目标位置来让盒子向右还是向左运动
+
+
+    //动画优化的规律：1.边界判断需要加步长 2.用setTimeout实现动画，每次先要把上次的没有用的定时器清除掉 3.如果move需要传参的话，要写一个_move的方法，避免不销毁作用域的叠加  4.要当前动画在同一个时间只能运行一个动画的话，把定时器的返回值放在元素的自定义属性上
+
+    var oBox = document.getElementById("box");
+    var oLeft = document.getElementById("left");
+    var oRight = document.getElementById("right");
+    var winH = document.documentElement.clientWidth || document.body.clientWidth;
+    var targetRight = winH - oBox.offsetWidth;
+    var targetLeft = 0;
+    function move(target) {
+        clearInterval(oBox.timer);
+        var curL =utils.getCss(oBox,"left");
+        oBox.timer = setInterval(function () {
+            if (curL < target) {
+                if (curL + 8 > target) {
+                    oBox.style.left = target + "px";
+                    clearInterval(oBox.timer);
+                    return;
+                }
+                curL += 8;
+                oBox.style.left = curL + "px";
+            } else if (curL > target) {
+
+                if (curL - 8 < target) {
+                    oBox.style.left = 0;
+                    clearInterval(oBox.timer);
+                    return;
+                }
+                curL -= 8;
+                oBox.style.left = curL + "px";
+            }
+        }, 10)
+    }
+    oLeft.onclick = function () {
+        move(targetLeft);
+    };
+    oRight.onclick = function () {
+        move(targetRight);
+    }
+
+</script>
+</body>
+</html>

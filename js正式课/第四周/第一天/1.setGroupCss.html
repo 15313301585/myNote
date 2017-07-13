@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+
+            height: 50px;
+            width: 50px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    function setCss(curEle,attr,value) {
+        if(attr==="opacity"){
+            curEle.style["opacity"]=value;
+            curEle.style["filter"]="alpha(opacity="+value*100+")";
+            return;
+        }
+        if(attr==="float"){
+            curEle.style["cssFloat"]=value;
+            curEle.style["styleFloat"]=value;
+            return;
+        }
+        //对于某些样式属性，如果传进来的值没有加单位，我们需要把单位默认的补上，这样的话，这个方法就会人性化一些
+        var reg=/^(width|height|top|left|bottom|right|((margin|padding)(Top|Bottom|Left|Right)?))$/;
+        if(reg.test(attr)){
+            if(!isNaN(value)){
+                value+="px"
+            }
+        }
+        curEle.style[attr]=value;
+    }
+
+     function getCss(curEle, attr) {
+        var val = null, reg = null;
+        if ("getComputedStyle" in window) {
+            val = window.getComputedStyle(curEle, null)[attr];
+        } else {//IE6~8
+            if (attr === "opacity") {
+                val = curEle.currentStyle["filter"];
+                reg =/^alpha\(opacity=((?:\d|(?:[1-9]\d+))(?:\.\d+)?)\)$/;
+                val = reg.test(val) ? reg.exec(val)[1] / 100 : 1;
+            } else {
+                val = curEle.currentStyle[attr];
+            }
+        }
+        var reg1 = /^([+-]?(\d|[1-9]\d+)(\.\d+)?)(px|pt|rem|em)?$/;
+        return reg.test(val) ? parseFloat(val) : val;
+    }
+
+
+
+
+    var oDiv=document.getElementById("box");
+    //设置多个样式
+     function setGroupCss(curEle,options) {
+       // options={width:"100px",height:"200px"};
+        for(var attr in options){
+            setCss(curEle,attr,options[attr])
+        }
+    }
+
+    setGroupCss(oDiv,{width:100,height:200,opacity:0.5,margin:"50px auto"})
+
+
+    //集getCss、setCss、setGroupCss于一体
+    function css() {
+        var len=arguments.length,curEle=arguments[0],attr=null,value=null,options=null;
+        if(len===3){
+            attr=arguments[1];
+            value=arguments[2];
+            setCss(curEle,attr,value);
+            return;
+        }
+
+        if(len===2 && typeof arguments[1]==="object"){
+            options=arguments[1];
+            setGroupCss(curEle,options);
+            return;
+        }
+       attr=arguments[1];
+        return  getCss(curEle,attr);
+    }
+
+     css(oDiv,{width:100,height:200,opacity:0.5});//设置一组样式
+     css(oDiv,"width","300px"); //设置一个样式
+     css(oDiv,"width") //获取属性值
+</script>
+</body>
+</html>

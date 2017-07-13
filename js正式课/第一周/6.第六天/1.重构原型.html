@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+//重构原型
+ //浏览器天生给函数的prototype 有constructor这个属性，但是prototype被重构后，就不再有constructor这个属性了
+function Fn(){
+    this.name = "";
+    this.age = "";
+    this.getX = function () {
+        console.log(1);
+    }
+};
+
+Fn.prototype={
+        constructor:Fn,
+        getY:function () {
+            console.log(2);
+        }
+    };
+    var p1=new Fn;
+    var p2=new Fn;
+    console.log(p1.getY());
+</script>
+</body>
+</html>

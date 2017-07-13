@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body,span{
+            margin: 0;
+            padding: 0;
+            font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #box{
+            position: absolute;
+            left: 50%;
+            margin-left: -50px;
+            top:50px;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border:1px solid #008000;
+        }
+
+        #mark{
+            position: absolute;
+            top:30px;
+            left:-1px;
+            width: 300px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            background:#2b7dd1 ;
+            border:1px solid #ff6900;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <span>购物车</span>
+    <div id="mark" style="display: none">查看购物车的信息</div>
+</div>
+<script type="text/javascript">
+    var mark=document.getElementById("mark");
+    document.body.onclick=function (e) {
+        console.log(e.target);
+        e=e||window.event;
+        e.target=e.target||e.srcElement;
+        if(e.target.id==="box"||e.target.tagName.toLowerCase()==="span"&&e.target.parentNode.id==="box"){
+            if(mark.style.display==="none"){
+                mark.style.display="block";
+            }else{
+                mark.style.display="none";
+            }
+            return;
+        }
+        if(e.target.id==="mark"){
+            return;
+        }
+
+        mark.style.display="none";
+
+    }
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    /*[]==false; //true
+    ![]==false; //true
+    !![]==false;//false
+    []==[];  // false
+    []=="";//true
+    js遇到[]/{}就会开辟一个空间地址
+    只有0，空字符串，NaN，null,undefined转换为Boolean类型的值是false;
+    null==undefined //true
+    NaN==NaN //false
+
+    1.null 是一个空对象指针 typeof null -->"object"  null 表示空
+    1）给对象清空内存时
+    var obj=null;
+    var obj={name:"xiaohong",age:18};
+    obj.age=0;
+    obj.age=null;
+    2)如果获取元素id，没有获取到当前元素，那么返回null
+
+    3）document的nodeValue的值是null
+    4）正则捕获没有捕获到内容，返回也是null
+
+    2.undefined 只有一个值undefined  typeof undefined -->"undefined"
+
+    1)如果变量只有声明，未赋值，那么当前变量就是undefined；
+    var aa;
+    console.log(aa);
+
+    2)在函数里面，如果定义了形参，但没有传值，那么当前的参数是undefined
+    function sum(num1 num2){
+    };
+   sum(100);
+
+    3)在函数里，如果没有return，那么函数返回的结果是undefined；
+    4）如果获取对象属性名的属性值，如果当前属性名不存在，获取结果是undefined
+     var obj={name:"xiaoming",age:18};
+     console.log(obj.height);
+    */
+
+     console.log([].toString());
+
+     var obj={};
+     console.log(obj.toString());
+
+</script>
+</body>
+</html>

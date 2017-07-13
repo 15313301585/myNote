@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>box-shadow盒子阴影</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            background: red;
+            box-shadow: 10px 10px 10px 10px #000;
+        }
+
+    </style>
+</head>
+<body>
+<!--项目实战中的应运：头部和底部固定定位/图片模块中
+box-shadow:
+第一个值：水平（x）方向的偏移量   可以为负值
+第二个值：垂直（y）方向的偏移量   可以为负值
+第三个值：模糊半径（程度） 值越大越模糊   不可以为负值
+第四个值：模糊半径的深度，值越大模糊深度越大  可以为负值
+第五个值：阴影的颜色值
+第六个值：默认是外阴影   inset内阴影-->
+
+<div class="box"></div>
+</body>
+</html>

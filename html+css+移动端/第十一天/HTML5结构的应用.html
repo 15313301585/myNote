@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--meta:vp  tab 移动端必须要加的标签  meta-->
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: black;
+        }
+        header,footer{
+            width: 100%;
+            height: 80px;
+            /*line-height: 80px; !*水平居中*!*/
+            text-align: center;
+            background-color: pink;
+            color: #ffffff;
+            position: fixed;
+            left: 0;
+        }
+        .banner img{
+            display: block;
+            width: 100%;
+        }
+
+        nav{
+            overflow: hidden;
+        }
+        /*设计稿的尺寸750  750/5  150/2  75px*/
+        nav a{
+            float:left;
+            /*width: 75px;宽度写死 在inphone 6plus出现留白,解决办法：流式布局中百分比去处理（宽度不要写死）*/
+            width: 20%; /* 100/a的个数  得到每一个的宽度百分比*/
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: green;
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        section{
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            background-color: darkblue;
+            color: #ffffff;
+        }
+        footer{
+            /*固定在页面底部*/
+            bottom: 0;
+            line-height: 80px;
+        }
+        header{
+            /*固定在页面顶部*/
+            top:0;
+            box-shadow: 1px 3px 10px #ccc;
+            -webkit-box-shadow: 1px 3px 10px #ccc;
+        }
+
+    </style>
+    <script src="HTML5.min.js"></script>
+
+
+    <!--解决HTML5新增标签的兼容（IE9）以下的问题  ie浏览器条件的语法-->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="HTML5.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<!--audio-->
+<audio src="http://file.ws.126.net/f2e/ent/ent_painting2016/files/sjsznh.mp3" loop></audio>
+<!-- src 音频资源的路径地址
+autoplay  自带播放
+loop 循环播放
+preload 预加载
+-->
+
+
+<!--空div 占位的作用height和头部的高度一致-->
+<div style="height: 80px"></div>
+<!--header begin-->
+<header>
+    <hgroup>
+        <h1>主标题</h1>
+        <h2>副标题</h2>
+    </hgroup>
+</header>
+<!--header end-->
+
+<!--nav begin-->
+<nav>
+    <a href="">头条</a>
+    <a href="">头条</a>
+    <a href="">头条</a>
+    <a href="">头条</a>
+    <a href="">头条</a>
+</nav>
+<!--nav end-->
+
+
+ <!--图片 焦点图 轮播图 banner图-->
+<div class="banner">
+    <img src="images/pic1.jpg" alt="">
+</div>
+
+<!--video-->
+<video src="http://download.qupai.me/qupai_res/images/qupai.mp4" loop autoplay width="100%" height="300px" controls="controls"></video>
+<!--src 视频资源的路径地址
+width
+height
+autoplay 自动播放
+loop 循环播放
+preload 预加载
+controls 控制控件显示隐藏
+-->
+
+
+<!--main begin-->
+<section class="sec01">
+    <!--<figure>
+        <img src="" alt="">
+        <figcaption>文字内容</figcaption>
+    </figure>-->
+</section>
+<!--main end-->
+<section class="sec02">
+    中间内容模块html结构
+</section>
+<section class="sec02">
+    中间内容模块html结构
+</section>
+<section class="sec02">
+    中间内容模块html结构
+</section>
+<section class="sec02">
+    中间内容模块html结构
+</section>
+<!--footer begin  -->
+<footer>
+    底部
+</footer>
+<!--footer end-->
+<!--空div 占位的作用height和底部的高度一致-->
+<div style="height: 80px"></div>
+</body>
+</html>

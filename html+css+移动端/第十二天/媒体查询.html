@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            /*绝对定位 4个方向都为0 ，margin:auto; 水平垂直居中*/
+            position: absolute;
+            top:0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        .box:before{
+            display: block;
+            content: "我是默认下的文字内容";
+            font-size: 20px;
+        }
+
+        @media screen and (min-width: 375px) {
+            .box{
+                width: 200px;
+                height: 200px;
+                background-color:#9e9e9e;
+                border:3px solid #4e91d7;
+            }
+        }       /****注意点：单词之间空格隔开
+        1.@media 媒体 媒介
+        2.媒体类型
+             all 所有类型
+             screen  设备类型
+             print 打印类型
+        3. 连接符
+            and 和
+            only 仅仅/唯一
+            not 排除
+         4.判断条件（)
+         5.{
+         css样式代码块
+         }*/
+
+        /*iPhone4和iPhone5/5s用高度做判断，因为两个手机型号宽度一样*/
+            /*iphone4*/
+           /* device :设备
+            pixel:像素
+            ratio：比率，比例*/
+        @media screen and (device-height: 480px) and (-webkit-device-pixel-ratio: 2.0){
+                .box:before{
+                    content: "我是iphone4下的文字内容";
+                }
+        }
+
+        /*iphone5*/
+        @media screen and (device-height: 568px) and (-webkit-device-pixel-ratio: 2.0){
+            .box:before{
+                content: "我是iphone5下的文字内容";
+            }
+        }
+
+
+
+        /*iphone6*/
+        @media screen and (device-width: 375px) and (-webkit-device-pixel-ratio: 2.0){
+            .box:before{
+                content: "我是iphone6下的文字内容";
+            }
+        }
+        /*iphone6 plus*/
+        @media screen and (device-width: 414px) and (-webkit-device-pixel-ratio: 3.0){
+            .box:before{
+                content: "我是iphone6 plus下的文字内容";
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<!--@media screen and(min-width:320px)   {
+css样式代码
+*{margin:0;padding:0;}
+}-->
+<div class="box"></div>
+</body>
+</html>
